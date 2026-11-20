@@ -1,0 +1,23 @@
+# Render Blueprint for 7 Bites Cafe OS
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: seven-bites-cafe
+    runtime: node
+    plan: free # Change to starter/standard for production scaling
+    region: singapore # Closest region to India for ultra-low latency (< 60ms)
+    branch: main
+    autoDeploy: true
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: NITRO_PRESET
+        value: node-server
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000

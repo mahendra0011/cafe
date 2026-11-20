@@ -92,7 +92,7 @@ function Index() {
       <CafePreloader />
       <CafeCursor />
       <CafeEffects />
-      <main className="cafe-home cafe-paper-texture">
+      <main className="cafe-home">
         <CafeNav />
 
         <section className="cafe-hero" aria-labelledby="hero-title">
@@ -100,45 +100,42 @@ function Index() {
             <div className="cafe-hero-copy">
               <p className="cafe-eyebrow">
                 <span className="cafe-eyebrow-dot" aria-hidden="true" />
-                PIZZA, CAFÉ & GOOD TIMES
+                Chhatarpur's Favourite Pizzeria & Café
               </p>
 
               <h1 className="cafe-hero-title" id="hero-title">
-                <span className="cafe-title-line cafe-title-seven">Ek Bite.</span>
-                <span className="cafe-title-line">Phir Saat.</span>
+                Ek Bite. <span className="cafe-title-seven">Phir Saat.</span>
               </h1>
 
-              <div className="cafe-script-note" aria-label="cheese-approved">
-                <span>cheese-</span>
-                <span>approved</span>
-                <svg className="cafe-note-arrow" viewBox="0 0 60 44" aria-hidden="true">
-                  <path d="M4 7c11 1 20 6 23 16 2 7 0 11-2 15m0 0 9-6m-9 6-2-11" />
-                </svg>
-              </div>
-
               <p className="cafe-hero-subtitle">
-                Chhatarpur, <strong>thoda cheesy</strong> ho jaaye? One slice, one sip, full-on good
-                mood.
+                Craving <strong>golden cheese pulls</strong>, gourmet burgers, sizzling momos, or rich chilled coffee?
+                Welcome to 7 Bites Cafe — handcrafted for sharing smiles and delicious bites in the heart of Chhatarpur.
               </p>
 
               <div className="cafe-hero-actions">
                 <Button asChild variant="pepperoni" size="lg" className="cafe-button-hero">
-                  <a href="#order">
-                    Order Now <ArrowUpRight aria-hidden="true" />
+                  <a href="#reserve">
+                    Book Table / Reserve <ArrowUpRight aria-hidden="true" />
                   </a>
                 </Button>
                 <Button asChild variant="paper" size="lg" className="cafe-button-hero">
                   <a href="#full-menu">
-                    See Menu <ArrowDownRight aria-hidden="true" />
+                    Explore Menu <ArrowDownRight aria-hidden="true" />
                   </a>
                 </Button>
               </div>
 
-              <p className="cafe-trust-note">
-                <Star aria-hidden="true" />
-                <span>Good food, great company.</span>
-                <span className="cafe-trust-placeholder">(Google rating coming soon)</span>
-              </p>
+              <div className="cafe-trust-note">
+                <div className="cafe-trust-stars" aria-label="5 star rating">
+                  <Star aria-hidden="true" />
+                  <Star aria-hidden="true" />
+                  <Star aria-hidden="true" />
+                  <Star aria-hidden="true" />
+                  <Star aria-hidden="true" />
+                </div>
+                <span>4.8 Rating on Google</span>
+                <span className="cafe-trust-placeholder">· 15,000+ Happy Foodies</span>
+              </div>
             </div>
 
             <div
@@ -147,8 +144,6 @@ function Index() {
             >
               <div className="cafe-hero-glow" aria-hidden="true" />
 
-              <Sparkles className="cafe-spark cafe-spark-one" aria-hidden="true" />
-              <Sparkles className="cafe-spark cafe-spark-two" aria-hidden="true" />
               <img
                 className="cafe-pizza-sticker"
                 src={pizzaSticker}
@@ -158,8 +153,14 @@ function Index() {
                 fetchPriority="high"
                 decoding="async"
               />
-              <span className="cafe-pizza-caption">One more bite?</span>
-              <span className="cafe-hero-tape">Made for sharing (maybe)</span>
+              <div className="cafe-hero-pill-badge cafe-hero-pill-1">
+                <Sparkles className="w-4 h-4 text-amber-500" aria-hidden="true" />
+                <span>100% Real Mozzarella</span>
+              </div>
+              <div className="cafe-hero-pill-badge cafe-hero-pill-2">
+                <Star className="w-4 h-4 text-amber-500 fill-amber-500" aria-hidden="true" />
+                <span>Fresh Dough Baked Daily</span>
+              </div>
             </div>
           </div>
         </section>

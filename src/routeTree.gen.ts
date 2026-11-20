@@ -10,33 +10,165 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as KitchenRouteImport } from './routes/kitchen'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MenuRouteImport } from './routes/menu'
+import { Route as OrderRouteImport } from './routes/order'
+import { Route as StaffRouteImport } from './routes/staff'
+import { Route as OrderPublicIdRouteImport } from './routes/order.$publicId'
+import { Route as StaffPosRouteImport } from './routes/staff.pos'
+import { Route as TTokenRouteImport } from './routes/t.$token'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KitchenRoute = KitchenRouteImport.update({
+  id: '/kitchen',
+  path: '/kitchen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MenuRoute = MenuRouteImport.update({
+  id: '/menu',
+  path: '/menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderRoute = OrderRouteImport.update({
+  id: '/order',
+  path: '/order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StaffRoute = StaffRouteImport.update({
+  id: '/staff',
+  path: '/staff',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderPublicIdRoute = OrderPublicIdRouteImport.update({
+  id: '/$publicId',
+  path: '/$publicId',
+  getParentRoute: () => OrderRoute,
+} as any)
+const StaffPosRoute = StaffPosRouteImport.update({
+  id: '/pos',
+  path: '/pos',
+  getParentRoute: () => StaffRoute,
+} as any)
+const TTokenRoute = TTokenRouteImport.update({
+  id: '/t/$token',
+  path: '/t/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/admin': typeof AdminRoute
+  '/kitchen': typeof KitchenRoute
+  '/login': typeof LoginRoute
+  '/menu': typeof MenuRoute
+  '/order': typeof OrderRouteWithChildren
+  '/staff': typeof StaffRouteWithChildren
+  '/order/$publicId': typeof OrderPublicIdRoute
+  '/staff/pos': typeof StaffPosRoute
+  '/t/$token': typeof TTokenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/admin': typeof AdminRoute
+  '/kitchen': typeof KitchenRoute
+  '/login': typeof LoginRoute
+  '/menu': typeof MenuRoute
+  '/order': typeof OrderRouteWithChildren
+  '/staff': typeof StaffRouteWithChildren
+  '/order/$publicId': typeof OrderPublicIdRoute
+  '/staff/pos': typeof StaffPosRoute
+  '/t/$token': typeof TTokenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/admin': typeof AdminRoute
+  '/kitchen': typeof KitchenRoute
+  '/login': typeof LoginRoute
+  '/menu': typeof MenuRoute
+  '/order': typeof OrderRouteWithChildren
+  '/staff': typeof StaffRouteWithChildren
+  '/order/$publicId': typeof OrderPublicIdRoute
+  '/staff/pos': typeof StaffPosRoute
+  '/t/$token': typeof TTokenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/admin'
+    | '/kitchen'
+    | '/login'
+    | '/menu'
+    | '/order'
+    | '/staff'
+    | '/order/$publicId'
+    | '/staff/pos'
+    | '/t/$token'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/account'
+    | '/admin'
+    | '/kitchen'
+    | '/login'
+    | '/menu'
+    | '/order'
+    | '/staff'
+    | '/order/$publicId'
+    | '/staff/pos'
+    | '/t/$token'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/admin'
+    | '/kitchen'
+    | '/login'
+    | '/menu'
+    | '/order'
+    | '/staff'
+    | '/order/$publicId'
+    | '/staff/pos'
+    | '/t/$token'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
+  AdminRoute: typeof AdminRoute
+  KitchenRoute: typeof KitchenRoute
+  LoginRoute: typeof LoginRoute
+  MenuRoute: typeof MenuRoute
+  OrderRoute: typeof OrderRouteWithChildren
+  StaffRoute: typeof StaffRouteWithChildren
+  TTokenRoute: typeof TTokenRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +180,109 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kitchen': {
+      id: '/kitchen'
+      path: '/kitchen'
+      fullPath: '/kitchen'
+      preLoaderRoute: typeof KitchenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/menu': {
+      id: '/menu'
+      path: '/menu'
+      fullPath: '/menu'
+      preLoaderRoute: typeof MenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order': {
+      id: '/order'
+      path: '/order'
+      fullPath: '/order'
+      preLoaderRoute: typeof OrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/staff': {
+      id: '/staff'
+      path: '/staff'
+      fullPath: '/staff'
+      preLoaderRoute: typeof StaffRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order/$publicId': {
+      id: '/order/$publicId'
+      path: '/$publicId'
+      fullPath: '/order/$publicId'
+      preLoaderRoute: typeof OrderPublicIdRouteImport
+      parentRoute: typeof OrderRoute
+    }
+    '/staff/pos': {
+      id: '/staff/pos'
+      path: '/pos'
+      fullPath: '/staff/pos'
+      preLoaderRoute: typeof StaffPosRouteImport
+      parentRoute: typeof StaffRoute
+    }
+    '/t/$token': {
+      id: '/t/$token'
+      path: '/t/$token'
+      fullPath: '/t/$token'
+      preLoaderRoute: typeof TTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface OrderRouteChildren {
+  OrderPublicIdRoute: typeof OrderPublicIdRoute
+}
+
+const OrderRouteChildren: OrderRouteChildren = {
+  OrderPublicIdRoute: OrderPublicIdRoute,
+}
+
+const OrderRouteWithChildren = OrderRoute._addFileChildren(OrderRouteChildren)
+
+interface StaffRouteChildren {
+  StaffPosRoute: typeof StaffPosRoute
+}
+
+const StaffRouteChildren: StaffRouteChildren = {
+  StaffPosRoute: StaffPosRoute,
+}
+
+const StaffRouteWithChildren = StaffRoute._addFileChildren(StaffRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
+  AdminRoute: AdminRoute,
+  KitchenRoute: KitchenRoute,
+  LoginRoute: LoginRoute,
+  MenuRoute: MenuRoute,
+  OrderRoute: OrderRouteWithChildren,
+  StaffRoute: StaffRouteWithChildren,
+  TTokenRoute: TTokenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
