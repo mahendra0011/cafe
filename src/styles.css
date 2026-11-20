@@ -337,72 +337,93 @@
 }
 
 /* Mobile Menu */
+/* Mobile Menu Drawer */
 .cafe-mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 45;
+  z-index: 60;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 100px 32px 40px;
-  background: rgba(250, 247, 242, 0.98);
-  backdrop-filter: blur(20px);
+  justify-content: flex-start;
+  padding: 16px 20px 24px;
+  background: rgba(250, 247, 242, 0.985);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 220ms ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: opacity 220ms ease, transform 220ms ease;
+  transform: translateY(-8px);
 }
 
 .cafe-mobile-menu.is-open {
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(0);
 }
 
-.cafe-mobile-menu-note {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-pepperoni);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 24px;
-}
-
-.cafe-mobile-menu > a:not(.cafe-mobile-order) {
+.cafe-mobile-menu-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 14px;
+  padding-bottom: 14px;
   border-bottom: 1px solid rgba(28, 20, 16, 0.08);
+  margin-bottom: 10px;
+}
+
+.cafe-mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.cafe-mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+  border-radius: 12px;
   color: var(--color-ink);
   font-family: var(--font-display);
-  font-size: clamp(26px, 7vw, 36px);
+  font-size: 19px;
   font-weight: 700;
   text-decoration: none;
-  transition: color 180ms ease;
+  transition: all 160ms ease;
 }
 
-.cafe-mobile-menu > a:hover {
+.cafe-mobile-link:hover,
+.cafe-mobile-link:active {
+  background: rgba(200, 59, 30, 0.06);
   color: var(--color-pepperoni);
+  transform: translateX(4px);
 }
 
-.cafe-mobile-menu > a svg {
-  width: 22px;
-  height: 22px;
-  color: var(--color-pepperoni);
+.cafe-mobile-menu-footer {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(28, 20, 16, 0.08);
 }
 
 .cafe-mobile-order {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 32px;
-  padding: 16px 28px;
+  width: 100%;
+  padding: 14px 20px;
   border-radius: 9999px;
   background: var(--color-pepperoni);
   color: #fff;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(200, 59, 30, 0.32);
+  box-shadow: 0 4px 16px rgba(200, 59, 30, 0.32);
+  transition: transform 160ms ease;
+}
+
+.cafe-mobile-order:active {
+  transform: scale(0.98);
 }
 
 /* Button Standard Styles */
@@ -2502,26 +2523,102 @@
 
 @media (max-width: 1040px) {
   .cafe-desktop-links {
-    display: none;
+    display: none !important;
+  }
+  .cafe-nav-phone {
+    display: none !important;
   }
   .cafe-menu-trigger {
-    display: flex;
+    display: inline-flex !important;
   }
 }
 
 @media (max-width: 768px) {
+  .cafe-site-header {
+    padding-inline: 12px;
+  }
+
   .cafe-nav-row {
-    width: calc(100% - 24px);
-    height: 64px;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 58px !important;
+    gap: 8px !important;
   }
 
   .cafe-desktop-links,
   .cafe-nav-phone {
-    display: none;
+    display: none !important;
   }
 
+  .cafe-nav-actions {
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Compact round icon button for Login/Account on mobile */
+  .cafe-nav-login {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 9999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(28, 20, 16, 0.14) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cafe-nav-login-label {
+    display: none !important;
+  }
+
+  /* Compact Book Table CTA on mobile */
+  .cafe-nav-order {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    height: 36px !important;
+    border-radius: 9999px !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 2px 8px rgba(200, 59, 30, 0.28) !important;
+  }
+
+  .cafe-nav-order-arrow {
+    display: none !important;
+  }
+
+  /* Mobile hamburger trigger */
   .cafe-menu-trigger {
-    display: flex;
+    display: inline-flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    border-radius: 10px !important;
+    background: rgba(28, 20, 16, 0.05) !important;
+    border: 1px solid rgba(28, 20, 16, 0.1) !important;
+    color: var(--color-ink) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cafe-wordmark-badge {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 15px !important;
+    border-radius: 8px !important;
+  }
+
+  .cafe-wordmark-name {
+    font-size: 18px !important;
+  }
+
+  .cafe-wordmark-cafe {
+    font-size: 8px !important;
+    letter-spacing: 0.12em !important;
   }
 
   .cafe-hero {
@@ -2579,5 +2676,32 @@
   .cafe-reviews-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
+  .cafe-site-header {
+    padding-inline: 8px !important;
+  }
+
+  .cafe-nav-row {
+    gap: 4px !important;
+  }
+
+  .cafe-nav-actions {
+    gap: 4px !important;
+  }
+
+  .cafe-wordmark-cafe {
+    display: none !important;
+  }
+
+  .cafe-wordmark-name {
+    font-size: 16px !important;
+  }
+
+  .cafe-nav-order {
+    padding: 5px 9px !important;
+    font-size: 11.5px !important;
   }
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState, type CSSProperties } from "react";
-import { ArrowUpRight, Calendar, Menu, Phone, User, UtensilsCrossed, X } from "lucide-react";
+import { ArrowUpRight, Calendar, Menu, Phone, User, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 import { Button } from "@/components/ui/button";
@@ -63,7 +63,7 @@ export function CafeNav() {
           </div>
         </Link>
 
-        {/* Public Navigation: Home, Menu, Offers, Reserve, About Us, Reviews, FAQ, Contact Us */}
+        {/* Desktop Navigation Links */}
         <nav className="cafe-desktop-links" aria-label="Main navigation">
           {navLinks.map((link) => (
             link.href.startsWith("/#") ? (
@@ -80,9 +80,9 @@ export function CafeNav() {
 
         {/* Navigation Action Buttons */}
         <div className="cafe-nav-actions">
-          {/* Phone */}
+          {/* Phone (Desktop only) */}
           <a className="cafe-nav-phone" href={`tel:${cafeSite.phone}`}>
-            <Phone className="w-3.5 h-3.5 text-amber-600" aria-hidden="true" />
+            <Phone className="w-3.5 h-3.5 text-amber-600 shrink-0" aria-hidden="true" />
             <span>{cafeSite.phone}</span>
           </a>
 
@@ -91,9 +91,10 @@ export function CafeNav() {
             to={session.isAuthenticated ? "/account" : "/login"}
             className="cafe-nav-login"
             title={session.isAuthenticated ? "Go to your Account" : "Login / Create Account"}
+            aria-label={session.isAuthenticated ? "Account" : "Login or Create Account"}
           >
-            <User className="w-3.5 h-3.5 text-[#C83B1E]" aria-hidden="true" />
-            <span>
+            <User className="w-4 h-4 text-[#C83B1E] shrink-0" aria-hidden="true" />
+            <span className="cafe-nav-login-label">
               {session.isAuthenticated && session.customer
                 ? `${session.customer.name.split(" ")[0]} (Account)`
                 : "Login / Create Account"}
@@ -103,8 +104,9 @@ export function CafeNav() {
           {/* Table Reservation CTA Button */}
           <Button asChild variant="pepperoni" size="sm" className="cafe-nav-order">
             <a href="/#reserve">
-              <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
-              Book Table <ArrowUpRight aria-hidden="true" />
+              <Calendar className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              <span className="cafe-nav-order-label">Book Table</span>
+              <ArrowUpRight className="cafe-nav-order-arrow shrink-0" aria-hidden="true" />
             </a>
           </Button>
 
@@ -119,66 +121,109 @@ export function CafeNav() {
             aria-controls="cafe-mobile-navigation"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+            {menuOpen ? <X className="w-5 h-5 shrink-0" aria-hidden="true" /> : <Menu className="w-5 h-5 shrink-0" aria-hidden="true" />}
           </Button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Native Android/iOS Experience) */}
       <nav
         className={`cafe-mobile-menu${menuOpen ? " is-open" : ""}`}
         id="cafe-mobile-navigation"
         aria-label="Mobile navigation"
         aria-hidden={!menuOpen}
       >
-        <span className="cafe-mobile-menu-note">7 Bites Cafe · Chhatarpur</span>
-        {navLinks.map((link, index) => (
-          link.href.startsWith("/#") ? (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={closeMenu}
-              style={{ "--menu-order": index } as CSSProperties}
-              tabIndex={menuOpen ? 0 : -1}
-            >
-              {link.label}
-              <ArrowUpRight aria-hidden="true" />
+        <div className="cafe-mobile-menu-header">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-[#C83B1E] text-white flex items-center justify-center font-extrabold text-sm shadow-sm">
+              7B
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="font-bold text-base text-[#1C1410] leading-none">7 Bites Cafe</span>
+              <span className="text-[10px] font-semibold text-[#C83B1E] tracking-wider uppercase mt-0.5">Chhatarpur, MP</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={closeMenu}
+            className="w-9 h-9 rounded-full bg-[#1C1410]/6 hover:bg-[#1C1410]/12 flex items-center justify-center text-[#1C1410] transition-colors"
+            aria-label="Close navigation menu"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="cafe-mobile-menu-links">
+          {navLinks.map((link, index) => (
+            link.href.startsWith("/#") ? (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={closeMenu}
+                style={{ "--menu-order": index } as CSSProperties}
+                tabIndex={menuOpen ? 0 : -1}
+                className="cafe-mobile-link"
+              >
+                <span>{link.label}</span>
+                <ArrowUpRight className="w-4 h-4 text-[#C83B1E]/70" aria-hidden="true" />
+              </a>
+            ) : (
+              <Link
+                key={link.label}
+                to={link.href}
+                onClick={closeMenu}
+                style={{ "--menu-order": index } as CSSProperties}
+                tabIndex={menuOpen ? 0 : -1}
+                className="cafe-mobile-link"
+              >
+                <span>{link.label}</span>
+                <ArrowUpRight className="w-4 h-4 text-[#C83B1E]/70" aria-hidden="true" />
+              </Link>
+            )
+          ))}
+        </div>
+
+        <div className="cafe-mobile-menu-footer">
+          <Link
+            to={session.isAuthenticated ? "/account" : "/login"}
+            onClick={closeMenu}
+            className="flex items-center justify-between p-3.5 rounded-2xl bg-white border border-[#1C1410]/10 shadow-xs mb-3 text-sm font-bold text-[#1C1410]"
+            tabIndex={menuOpen ? 0 : -1}
+          >
+            <span className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-full bg-[#C83B1E]/10 flex items-center justify-center text-[#C83B1E]">
+                <User className="w-4 h-4" />
+              </div>
+              {session.isAuthenticated && session.customer
+                ? `Account: ${session.customer.name}`
+                : "Login / Create Account"}
+            </span>
+            <ArrowUpRight className="w-4 h-4 text-[#8A8375]" />
+          </Link>
+
+          <a
+            className="cafe-mobile-order"
+            href="/#reserve"
+            onClick={closeMenu}
+            tabIndex={menuOpen ? 0 : -1}
+          >
+            <Calendar className="w-4 h-4 mr-2" />
+            Book a Table Now
+            <ArrowUpRight className="w-4 h-4 ml-2" aria-hidden="true" />
+          </a>
+
+          <div className="flex items-center justify-center gap-4 mt-4 pt-3 border-t border-[#1C1410]/8 text-xs text-[#6B5E57]">
+            <a href={`tel:${cafeSite.phone}`} className="flex items-center gap-1.5 hover:text-[#C83B1E] font-medium">
+              <Phone className="w-3.5 h-3.5 text-amber-600" />
+              <span>{cafeSite.phone}</span>
             </a>
-          ) : (
-            <Link
-              key={link.label}
-              to={link.href}
-              onClick={closeMenu}
-              style={{ "--menu-order": index } as CSSProperties}
-              tabIndex={menuOpen ? 0 : -1}
-            >
-              {link.label}
-              <ArrowUpRight aria-hidden="true" />
-            </Link>
-          )
-        ))}
-
-        <Link
-          to={session.isAuthenticated ? "/account" : "/login"}
-          onClick={closeMenu}
-          className="flex items-center justify-between py-3 text-base font-bold text-[#1C1410] border-b border-[#1C1410]/10"
-          tabIndex={menuOpen ? 0 : -1}
-        >
-          <span className="flex items-center gap-2">
-            <User className="w-4 h-4 text-[#C83B1E]" />
-            {session.isAuthenticated ? "My Account Dashboard" : "Login / Create Account"}
-          </span>
-          <ArrowUpRight className="w-4 h-4 text-[#8A8375]" />
-        </Link>
-
-        <a
-          className="cafe-mobile-order"
-          href="/#reserve"
-          onClick={closeMenu}
-          tabIndex={menuOpen ? 0 : -1}
-        >
-          Book a Table Now <ArrowUpRight aria-hidden="true" />
-        </a>
+            <span>•</span>
+            <span className="text-[#1B6642] font-semibold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Open 11 AM - 11 PM
+            </span>
+          </div>
+        </div>
       </nav>
     </header>
   );
