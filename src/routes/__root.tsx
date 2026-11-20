@@ -11,7 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { reportRuntimeError } from "../lib/error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -39,7 +39,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportRuntimeError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
@@ -86,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "description",
         content: "Pizza, café favourites and good times at 7 Bites Cafe in Chhatarpur.",
       },
-      { name: "author", content: "Lovable" },
+      { name: "author", content: "7 Bites Café & Pizzeria" },
       { property: "og:title", content: "7 Bites Cafe | Chhatarpur" },
       {
         property: "og:description",
@@ -96,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image", content: "/og-image.svg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "/og-image.svg" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@7BitesCafe" },
     ],
     links: [
       {

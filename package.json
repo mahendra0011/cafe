@@ -1,5 +1,7 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "seven-bites-cafe-os",
+  "version": "1.0.0",
+  "description": "7 Bites Café & Pizzeria - Operating System & Web Platform",
   "private": true,
   "sideEffects": false,
   "type": "module",
