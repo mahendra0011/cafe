@@ -54,9 +54,11 @@ export function CafeNav() {
       <div className="cafe-nav-row">
         {/* Brand Logo */}
         <Link className="cafe-wordmark" to="/" aria-label="7 Bites Cafe home" onClick={closeMenu}>
-          <div className="cafe-wordmark-badge" aria-hidden="true">
-            7B
-          </div>
+          <img
+            src="/logo.png"
+            alt="7 Bites Cafe Logo"
+            className="w-9 h-9 md:w-10 md:h-10 rounded-full object-contain shadow-xs border border-[#1C1410]/12 bg-white shrink-0"
+          />
           <div className="cafe-wordmark-text">
             <span className="cafe-wordmark-name">7 Bites</span>
             <span className="cafe-wordmark-cafe">CAFÉ & PIZZERIA</span>
@@ -135,12 +137,14 @@ export function CafeNav() {
       >
         <div className="cafe-mobile-menu-header">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#C83B1E] text-white flex items-center justify-center font-extrabold text-sm shadow-sm">
-              7B
-            </div>
+            <img
+              src="/logo.png"
+              alt="7 Bites Cafe Logo"
+              className="w-9 h-9 rounded-full object-contain shadow-xs border border-[#1C1410]/12 bg-white shrink-0"
+            />
             <div className="flex flex-col text-left">
               <span className="font-bold text-base text-[#1C1410] leading-none">7 Bites Cafe</span>
-              <span className="text-[10px] font-semibold text-[#C83B1E] tracking-wider uppercase mt-0.5">Chhatarpur, MP</span>
+              <span className="text-[10px] font-semibold text-[#C83B1E] tracking-wider uppercase mt-0.5">Jabalpur, MP</span>
             </div>
           </div>
           <button

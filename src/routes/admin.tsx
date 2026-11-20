@@ -906,7 +906,7 @@ export function AdminDashboardPage() {
       unit: "kg",
       minThreshold: 20,
       costPerUnit: 85,
-      supplier: "Chhatarpur Food Supplies",
+      supplier: "Jabalpur Food Supplies",
       status: "OPTIMAL" as const,
     },
     {
@@ -950,7 +950,7 @@ export function AdminDashboardPage() {
       unit: "liters",
       minThreshold: 15,
       costPerUnit: 64,
-      supplier: "Local Dairy Chhatarpur",
+      supplier: "Local Dairy Jabalpur",
       status: "OPTIMAL" as const,
     },
     {
@@ -961,7 +961,7 @@ export function AdminDashboardPage() {
       unit: "kg",
       minThreshold: 6,
       costPerUnit: 340,
-      supplier: "Local Dairy Chhatarpur",
+      supplier: "Local Dairy Jabalpur",
       status: "OPTIMAL" as const,
     },
     {
@@ -972,7 +972,7 @@ export function AdminDashboardPage() {
       unit: "packs (4s)",
       minThreshold: 15,
       costPerUnit: 48,
-      supplier: "Standard Bakery Chhatarpur",
+      supplier: "Standard Bakery Jabalpur",
       status: "LOW_STOCK" as const,
     },
     {
@@ -1102,7 +1102,7 @@ export function AdminDashboardPage() {
   const [newCouponMin, setNewCouponMin] = useState("499");
 
   // ================= STOREFRONT CMS =================
-  const [cmsHeroText, setCmsHeroText] = useState("Handcrafted Pizzas & Cold Coffee in Chhatarpur");
+  const [cmsHeroText, setCmsHeroText] = useState("Handcrafted Pizzas & Cold Coffee in Jabalpur");
   const [cmsNotice, setCmsNotice] = useState("🎉 Weekend Special: Flat 20% OFF on Large Pizzas every Friday to Sunday!");
   const [cmsActive, setCmsActive] = useState(true);
   const [cmsSavedAlert, setCmsSavedAlert] = useState(false);
@@ -1748,9 +1748,11 @@ export function AdminDashboardPage() {
         {/* Brand Header */}
         <div className="shrink-0 p-4 border-b border-white/[0.08] flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-[#C83B1E] text-white flex items-center justify-center font-bold text-xs tracking-tight shadow-xs">
-              7B
-            </div>
+            <img
+              src="/logo.png"
+              alt="7 Bites Cafe Logo"
+              className="w-8 h-8 rounded-full object-contain bg-white border border-white/20 shadow-xs shrink-0"
+            />
             <div>
               <div className="font-semibold text-sm tracking-tight text-white flex items-center gap-1.5">
                 <span>7 Bites Cafe</span>
@@ -1776,7 +1778,7 @@ export function AdminDashboardPage() {
         <div className="shrink-0 px-4 py-2.5 bg-white/[0.03] border-b border-white/[0.06] flex items-center justify-between text-xs text-stone-400">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="font-medium text-stone-300">Chhatarpur Main Floor</span>
+            <span className="font-medium text-stone-300">Jabalpur Main Floor</span>
           </div>
           <span className="font-mono text-[11px] text-emerald-400 font-medium">
             {occupiedTablesCount}/12 Occupied
@@ -2369,7 +2371,7 @@ export function AdminDashboardPage() {
                       </span>
                     </div>
                     <p className="text-xs text-stone-500">
-                      Civil Lines, Chhatarpur (M.P.) • Live Dine-in, Kitchen KDS, and Event Bookings
+                      Gohalpur Amkhera, Jagriti Nagar, Jabalpur (M.P.) • Live Dine-in, Kitchen KDS, and Event Bookings
                     </p>
                   </div>
                 </div>
@@ -4051,7 +4053,7 @@ export function AdminDashboardPage() {
                   <h4 className="font-bold text-sm text-stone-900">Thermal Bill Simulator</h4>
                   <div className="p-4 rounded-xl bg-stone-50 font-mono text-[11px] text-stone-900 space-y-1.5 border border-stone-200/60">
                     <div className="text-center font-bold">*** 7 BITES CAFE ***</div>
-                    <div className="text-center text-[10px] text-stone-400">Civil Lines, Chhatarpur (MP)</div>
+                    <div className="text-center text-[10px] text-stone-400">Gohalpur Amkhera, Jagriti Nagar, Jabalpur (MP) 482001</div>
                     <div className="text-center text-[10px] text-stone-400">GSTIN: 23ABCDE1234F1Z5</div>
                     <div className="border-b border-dashed border-stone-200 my-1" />
                     <div className="flex justify-between">
@@ -5264,7 +5266,7 @@ export function AdminDashboardPage() {
 
               <div className="space-y-3">
                 {[
-                  { name: "Rohit Sharma", rating: 5, date: "Today", text: "Best pizza in Chhatarpur! Dough was super light and cheese pull was genuine mozzarella." },
+                  { name: "Rohit Sharma", rating: 5, date: "Today", text: "Best pizza in Jabalpur! Dough was super light and cheese pull was genuine mozzarella." },
                   { name: "Priya Patel", rating: 5, date: "Yesterday", text: "Loved their cozy cafe interior and thick cold coffee with brownie!" },
                   { name: "Dr. Aniruddh Verma", rating: 5, date: "2 days ago", text: "Booked Table 6 for family birthday. The staff was super polite and service was prompt." },
                 ].map((r, idx) => (
@@ -5903,7 +5905,7 @@ export function AdminDashboardPage() {
             {/* 80mm Thermal Bill Slip */}
             <div className="my-4 p-4 rounded-xl bg-stone-50 border border-stone-200 font-mono text-[11px] text-stone-900 space-y-1.5 leading-tight">
               <div className="text-center font-bold text-sm text-stone-950">7 BITES CAFÉ & PIZZERIA</div>
-              <div className="text-center text-[10px] text-stone-500">Civil Lines, Near Bus Stand, Chhatarpur (M.P.)</div>
+              <div className="text-center text-[10px] text-stone-500">Gohalpur Amkhera, Jagriti Nagar, Jabalpur, M.P. 482001</div>
               <div className="text-center text-[10px] text-stone-500">GSTIN: 23ABCDE1234F1Z5 · FSSAI: 11424850000123</div>
               <div className="border-b border-dashed border-stone-300 my-2" />
               <div className="flex justify-between">

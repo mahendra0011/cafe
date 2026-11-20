@@ -575,7 +575,7 @@ function PosPage() {
               <div>
                 <div className="font-black text-base text-black">7 BITES CAFE</div>
                 <div className="text-[10px] text-gray-600">
-                  Main Market, Chhatarpur (MP)
+                  Gohalpur Amkhera, Jagriti Nagar, Jabalpur (MP) 482001
                 </div>
                 <div className="text-[10px] text-gray-600">
                   GSTIN: 23ABCDE1234F1Z5 · FSSAI: 12345678901234

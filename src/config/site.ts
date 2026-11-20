@@ -1,17 +1,18 @@
 export const cafeSite = {
   name: "7 Bites Cafe",
   tagline: "Pizza, Coffee & Good Times",
-  city: "Chhatarpur",
+  city: "Jabalpur",
   region: "Madhya Pradesh",
-  address: "Near Bus Stand, Mahal Road, Chhatarpur, MP 471001",
+  address: "Gohalpur Amkhera, Jagriti Nagar, Jabalpur, Madhya Pradesh 482001",
+  postalCode: "482001",
   phone: "+91 98765 43210",
   whatsapp: "+919876543210",
   hours: "11:00 AM – 11:00 PM (Daily)",
   openTime: "11:00",
   closeTime: "23:00",
-  instagram: "@7bitescafe_chhatarpur",
+  instagram: "@7bitescafe_jabalpur",
   googleMapsSearchUrl:
-    "https://www.google.com/maps/search/?api=1&query=7+Bites+Cafe+Chhatarpur+Madhya+Pradesh",
+    "https://www.google.com/maps/search/?api=1&query=7+Bites+Cafe+Gohalpur+Amkhera+Jagriti+Nagar+Jabalpur+Madhya+Pradesh+482001",
   offerValidity: "Limited Time Offers · Valid Every Day",
   foundedYear: "2022",
   stats: [

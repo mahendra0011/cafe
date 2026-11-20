@@ -38,7 +38,7 @@ export const Route = createFileRoute("/t/$token")({
       { title: "Table Dine-In Order | 7 Bites Cafe" },
       {
         name: "description",
-        content: "Scan, order, and dine at 7 Bites Cafe Chhatarpur.",
+        content: "Scan, order, and dine at 7 Bites Cafe Jabalpur.",
       },
     ],
   }),

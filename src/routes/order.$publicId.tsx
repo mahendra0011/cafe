@@ -30,7 +30,7 @@ export const Route = createFileRoute("/order/$publicId")({
       { title: "Track Your Order | 7 Bites Cafe" },
       {
         name: "description",
-        content: "Track live status of your 7 Bites Cafe order in Chhatarpur.",
+        content: "Track live status of your 7 Bites Cafe order in Jabalpur.",
       },
     ],
   }),

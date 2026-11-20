@@ -37,11 +37,11 @@ const allMenuItems = menuData as MenuItem[];
 export const Route = createFileRoute("/order")({
   head: () => ({
     meta: [
-      { title: "Order Online | 7 Bites Cafe Chhatarpur" },
+      { title: "Order Online | 7 Bites Cafe Jabalpur" },
       {
         name: "description",
         content:
-          "Order freshly stone-baked pizza, artisanal cold coffees, burgers and sides for table dine-in or counter takeaway from 7 Bites Cafe Chhatarpur.",
+          "Order freshly stone-baked pizza, artisanal cold coffees, burgers and sides for table dine-in or counter takeaway from 7 Bites Cafe Jabalpur.",
       },
     ],
   }),
@@ -114,7 +114,7 @@ function OrderPage() {
                 </span>
               </div>
               <p className="text-[11px] text-[#5C564B] flex items-center gap-1">
-                <Clock className="w-3 h-3 text-[#C83B1E]" /> 15-20 min prep · Chhatarpur (MP)
+                <Clock className="w-3 h-3 text-[#C83B1E]" /> 15-20 min prep · Jabalpur (MP)
               </p>
             </div>
           </div>

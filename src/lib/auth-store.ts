@@ -98,14 +98,14 @@ export const DEMO_CUSTOMER: CustomerUser = {
     {
       id: "addr-1",
       label: "Home",
-      address: "Flat 204, Green Heights, Mahal Road",
-      landmark: "Near Bus Stand, Chhatarpur",
+      address: "Flat 204, Green Heights, Jagriti Nagar",
+      landmark: "Near Gohalpur Amkhera, Jabalpur",
     },
     {
       id: "addr-2",
       label: "Work",
-      address: "Chhatarpur Commercial Complex, Shop 12",
-      landmark: "Opp. City Mall",
+      address: "Jabalpur Commercial Complex, Shop 12",
+      landmark: "Opp. City Mall, Jabalpur",
     },
   ],
 };

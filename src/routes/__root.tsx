@@ -81,21 +81,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "7 Bites Cafe | Chhatarpur, Madhya Pradesh" },
+      { title: "7 Bites Cafe | Jabalpur, Madhya Pradesh" },
       {
         name: "description",
-        content: "Pizza, café favourites and good times at 7 Bites Cafe in Chhatarpur.",
+        content: "Pizza, café favourites and good times at 7 Bites Cafe in Gohalpur Amkhera, Jagriti Nagar, Jabalpur, Madhya Pradesh.",
       },
       { name: "author", content: "7 Bites Café & Pizzeria" },
-      { property: "og:title", content: "7 Bites Cafe | Chhatarpur" },
+      { property: "og:title", content: "7 Bites Cafe | Jabalpur" },
       {
         property: "og:description",
-        content: "Pizza, café favourites and good times in Chhatarpur, Madhya Pradesh.",
+        content: "Pizza, café favourites and good times at Gohalpur Amkhera, Jagriti Nagar, Jabalpur, Madhya Pradesh.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/og-image.svg" },
+      { property: "og:image", content: "/logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "/og-image.svg" },
+      { name: "twitter:image", content: "/logo.png" },
       { name: "twitter:site", content: "@7BitesCafe" },
     ],
     links: [
@@ -103,7 +103,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/logo.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/logo.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

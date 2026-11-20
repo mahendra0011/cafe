@@ -150,15 +150,15 @@ export function CustomerAccountPage() {
     {
       id: "addr-1",
       label: "Home",
-      address: "B-14, Civil Lines, Near Jubilee Hall, Chhatarpur, MP 471001",
-      landmark: "Opposite Nehru Park",
+      address: "House 14, Jagriti Nagar, Gohalpur Amkhera, Jabalpur, MP 482001",
+      landmark: "Near Jagriti Park",
       isDefault: true,
     },
     {
       id: "addr-2",
       label: "Work",
-      address: "Shop 12, Main Market, Jawahar Chowk, Chhatarpur, MP 471001",
-      landmark: "Near SBI Main Branch",
+      address: "Shop 12, Main Market, Gohalpur, Jabalpur, MP 482001",
+      landmark: "Near Gohalpur Chowk",
       isDefault: false,
     },
   ]);
@@ -1510,7 +1510,7 @@ export function CustomerAccountPage() {
                     Saved Contact & Billing Addresses ({addresses.length})
                   </h3>
                   <p className="text-xs text-stone-500">
-                    Manage your registered addresses for cafe billing & takeaway orders in Chhatarpur
+                    Manage your registered addresses for cafe billing & takeaway orders in Jabalpur
                   </p>
                 </div>
                 <Button
@@ -1552,7 +1552,7 @@ export function CustomerAccountPage() {
                     <textarea
                       value={newAddress}
                       onChange={(e) => setNewAddress(e.target.value)}
-                      placeholder="e.g. House No. 24, Near Bus Stand, Chhatarpur"
+                      placeholder="e.g. House No. 24, Jagriti Nagar, Jabalpur"
                       required
                       className="w-full text-xs p-2.5 rounded-xl border border-stone-200/80 focus:outline-none focus:border-[#C83B1E]"
                       rows={2}
@@ -1923,8 +1923,8 @@ export function CustomerAccountPage() {
                 <div className="space-y-2.5">
                   {[
                     {
-                      q: "What are your cafe operating hours in Chhatarpur?",
-                      a: "We deliver hot and fresh from 11:00 AM to 11:30 PM every day across Chhatarpur city within a 7 km radius.",
+                      q: "What are your cafe operating hours in Jabalpur?",
+                      a: "We deliver hot and fresh from 11:00 AM to 11:30 PM every day across Jabalpur city within our delivery radius.",
                     },
                     {
                       q: "How does the '7 Bites, 8th Free' stamp program work?",

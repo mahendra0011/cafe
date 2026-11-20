@@ -1,6 +1,6 @@
 # 🍕 7 Bites Café & Pizzeria — Operating System & Web Platform
 
-A high-performance modern web application, POS system, and operations suite for **7 Bites Café & Pizzeria** (Chhatarpur, Madhya Pradesh).
+A high-performance modern web application, POS system, and operations suite for **7 Bites Café & Pizzeria** (Gohalpur Amkhera, Jagriti Nagar, Jabalpur, Madhya Pradesh 482001).
 
 Built with **TanStack Start (SSR)**, **React 19**, **Tailwind CSS v4**, and **Recharts**.
 
@@ -13,7 +13,7 @@ Built with **TanStack Start (SSR)**, **React 19**, **Tailwind CSS v4**, and **Re
 - **Table Event Reservation Desk**: Real-time table booking for Birthdays, Corporate Lunches, and Celebrations.
 - **Special Offers & Live Promotions**: Happy hour discounts and family combo packages.
 - **Customer Reviews & Testimonials**: Verified guest reviews and ratings.
-- **Location & Contact Hub**: Direct phone, WhatsApp orders, and Google Maps integration for Chhatarpur.
+- **Location & Contact Hub**: Direct phone, WhatsApp orders, and Google Maps integration for Gohalpur Amkhera, Jagriti Nagar, Jabalpur (482001).
 
 ### 2. ⚡ 7 Bites POS & Operations Desk (`/admin`)
 - **3×3 Active Ticket Grid**: Manage concurrent orders with multi-person split ticketing per table (e.g. Table 4 Person 1 & Person 2).
@@ -85,4 +85,4 @@ This project includes production-ready deployment configurations:
 
 ## 📄 License
 
-Proprietary © 7 Bites Café & Pizzeria, Chhatarpur, Madhya Pradesh. All rights reserved.
+Proprietary © 7 Bites Café & Pizzeria, Gohalpur Amkhera, Jagriti Nagar, Jabalpur, Madhya Pradesh 482001. All rights reserved.

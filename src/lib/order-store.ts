@@ -143,7 +143,7 @@ const SEED_ORDERS: CafeOrder[] = [
     customer: {
       name: "Priya Verma",
       phone: "9123456780",
-      address: "Flat 204, Green Heights, Mahalaxmi Nagar, Chhatarpur",
+      address: "Flat 204, Green Heights, Jagriti Nagar, Jabalpur",
     },
     items: [
       {

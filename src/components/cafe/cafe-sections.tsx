@@ -58,9 +58,9 @@ const galleryImages = [
 const customerReviews = [
   {
     name: "Rohit Sharma",
-    role: "Local Foodie · Chhatarpur",
+    role: "Local Foodie · Jabalpur",
     rating: 5,
-    text: "Best pizza in Chhatarpur hands down! The crust is light and crispy, cheese pull is insane, and the cold coffee is thick and perfectly brewed.",
+    text: "Best pizza in Jabalpur hands down! The crust is light and crispy, cheese pull is insane, and the cold coffee is thick and perfectly brewed.",
     initials: "RS",
   },
   {
@@ -81,7 +81,7 @@ const customerReviews = [
     name: "Neha Gupta",
     role: "Family Dining",
     rating: 5,
-    text: "Finally a great quality café in Chhatarpur! Beautiful interior, gentle music, and delicious white sauce pasta that my kids loved.",
+    text: "Finally a great quality café in Jabalpur! Beautiful interior, gentle music, and delicious white sauce pasta that my kids loved.",
     initials: "NG",
   },
   {
@@ -206,8 +206,8 @@ const sevenBitesSteps = [
     tag: "Good Vibes",
     sensation: "💛 Cozy Memories",
     title: "The Shared Laughter",
-    desc: "Good food enjoyed best around a cozy wooden table, catching up with best friends and family in Chhatarpur.",
-    micro: "Chhatarpur's favorite spot",
+    desc: "Good food enjoyed best around a cozy wooden table, catching up with best friends and family in Jabalpur.",
+    micro: "Jabalpur's favorite spot",
     accent: "#DB2777",
     bgTint: "rgba(219, 39, 119, 0.08)",
     borderTint: "rgba(219, 39, 119, 0.25)",
@@ -288,7 +288,7 @@ function SignatureDishes({ onAdd }: { onAdd: (item: MenuItem, size?: MenuSize) =
           eyebrow="Crowd Favourites"
           title="Our Signature Bites"
           titleId="signature-title"
-          note="Handcrafted recipes that keep Chhatarpur coming back for more."
+          note="Handcrafted recipes that keep Jabalpur coming back for more."
         />
         <div className="cafe-signature-grid">
           {featured.map((item) => (
@@ -669,7 +669,7 @@ export function CafeSections() {
             ARTISAN PIZZAS · GOLDEN CHEESE PULLS · COLD COFFEE · CRISPY BURGERS · STEAMED MOMOS · PASTA
           </CafeRibbon>
           <CafeRibbon reverse>
-            CHHATARPUR'S FAVOURITE CAFÉ · FRESH DOUGH BAKED DAILY · EK BITE. PHIR SAAT ·
+            JABALPUR'S FAVOURITE CAFÉ · FRESH DOUGH BAKED DAILY · EK BITE. PHIR SAAT ·
           </CafeRibbon>
         </div>
 
@@ -743,7 +743,7 @@ export function CafeSections() {
                 and by the seventh bite, you're already planning your next visit.
               </p>
               <p>
-                Nestled in Chhatarpur, 7 Bites Cafe was born from a simple passion: to serve
+                Nestled in Gohalpur Amkhera, Jabalpur, 7 Bites Cafe was born from a simple passion: to serve
                 mouth-watering artisan pizzas with real mozzarella, handcrafted burgers, steaming
                 Himalayan momos, and thick iced cold coffees in an inviting, cheerful ambiance.
               </p>
@@ -881,7 +881,7 @@ export function CafeSections() {
                   </div>
                   <div className="cafe-seven-trust-badge">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Handcrafted in Chhatarpur</span>
+                    <span>Handcrafted in Jabalpur</span>
                   </div>
                 </div>
 
@@ -908,7 +908,7 @@ export function CafeSections() {
                 </div>
                 <div className="cafe-seven-art-chip bottom-chip">
                   <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                  <span>Loved in Chhatarpur</span>
+                  <span>Loved in Jabalpur</span>
                 </div>
               </div>
             </div>
@@ -960,7 +960,7 @@ export function CafeSections() {
         <div className="cafe-section-inner">
           <div className="cafe-reviews-header">
             <SectionHeading
-              eyebrow="Loved in Chhatarpur"
+              eyebrow="Loved in Jabalpur"
               title="Words from Our Foodies"
               titleId="reviews-title"
               note="Read what our guests have to say about our food, coffee, and cafe ambiance."
@@ -1044,7 +1044,7 @@ export function CafeSections() {
             <div className="bg-white p-5 rounded-2xl border border-[#1C1410]/10 shadow-xs">
               <h4 className="font-bold text-sm text-[#1C1410]">What are your cafe opening hours?</h4>
               <p className="text-xs text-[#5C564B] mt-2 leading-relaxed">
-                We are open every day from 11:00 AM to 11:00 PM in Chhatarpur. Hot stone-baked pizzas, freshly brewed cold coffee, and snacks are served all day without breaks.
+                We are open every day from 11:00 AM to 11:00 PM in Gohalpur Amkhera, Jabalpur. Hot stone-baked pizzas, freshly brewed cold coffee, and snacks are served all day without breaks.
               </p>
             </div>
 
@@ -1124,10 +1124,10 @@ export function CafeSections() {
 
             <div className="cafe-map-frame">
               <iframe
-                title="7 Bites Cafe location on Google Maps in Chhatarpur"
+                title="7 Bites Cafe location on Google Maps in Jabalpur"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://maps.google.com/maps?q=7%20Bites%20Cafe%2C%20Chhatarpur%2C%20Madhya%20Pradesh&output=embed"
+                src="https://maps.google.com/maps?q=Gohalpur%20Amkhera%2C%20Jagriti%20Nagar%2C%20Jabalpur%2C%20Madhya%20Pradesh%20482001&output=embed"
               />
             </div>
           </div>
@@ -1141,9 +1141,11 @@ export function CafeSections() {
         <div className="cafe-section-inner">
           <div className="cafe-footer-top">
             <a className="cafe-footer-mark" href="#top">
-              <span className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white text-base font-bold">
-                7B
-              </span>
+              <img
+                src="/logo.png"
+                alt="7 Bites Cafe Logo"
+                className="w-8 h-8 rounded-full object-contain bg-white border border-[#1C1410]/15 shadow-xs"
+              />
               7 Bites <span>Cafe</span>
             </a>
 
@@ -1165,7 +1167,7 @@ export function CafeSections() {
 
           <div className="cafe-footer-bottom">
             <span>
-              © {new Date().getFullYear()} {cafeSite.name}. Handcrafted with love in Chhatarpur, Madhya Pradesh.
+              © {new Date().getFullYear()} {cafeSite.name}. Handcrafted with love in Jabalpur, Madhya Pradesh.
             </span>
             <span>All rights reserved. Dine-In, Takeaway & Delivery.</span>
           </div>

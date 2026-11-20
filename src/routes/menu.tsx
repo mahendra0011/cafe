@@ -18,11 +18,11 @@ const items = menuData as MenuItem[];
 export const Route = createFileRoute("/menu")({
   head: () => ({
     meta: [
-      { title: "Complete Menu | 7 Bites Cafe Chhatarpur" },
+      { title: "Complete Menu | 7 Bites Cafe Jabalpur" },
       {
         name: "description",
         content:
-          "Explore all stone-baked pizzas, gourmet smash burgers, steamed momos, creamy pastas, and signature cold coffees at 7 Bites Cafe in Chhatarpur.",
+          "Explore all stone-baked pizzas, gourmet smash burgers, steamed momos, creamy pastas, and signature cold coffees at 7 Bites Cafe in Jabalpur.",
       },
     ],
   }),
@@ -78,7 +78,7 @@ function MenuPage() {
             Our Complete Menu
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
-            From stone-baked pizzas with rich cheese pulls to chilled artisan coffees, find your favorite craving in Chhatarpur.
+            From stone-baked pizzas with rich cheese pulls to chilled artisan coffees, find your favorite craving in Jabalpur.
           </p>
         </div>
       </section>
@@ -236,7 +236,7 @@ function MenuPage() {
 
           <div className="cafe-footer-bottom">
             <span>
-              © {new Date().getFullYear()} {cafeSite.name}. Handcrafted with love in Chhatarpur.
+              © {new Date().getFullYear()} {cafeSite.name}. Handcrafted with love in Jabalpur.
             </span>
             <span>Dine-In, Takeaway & Delivery.</span>
           </div>

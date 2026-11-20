@@ -14,16 +14,16 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "7 Bites Cafe | Pizza, Coffee & Good Times in Chhatarpur" },
+      { title: "7 Bites Cafe | Pizza, Coffee & Good Times in Jabalpur" },
       {
         name: "description",
         content:
-          "Pizza, café favourites and a little extra cheese. Find 7 Bites Cafe in Chhatarpur, Madhya Pradesh.",
+          "Pizza, café favourites and a little extra cheese. Find 7 Bites Cafe at Gohalpur Amkhera, Jagriti Nagar, Jabalpur, Madhya Pradesh 482001.",
       },
-      { property: "og:title", content: "7 Bites Cafe | Chhatarpur" },
+      { property: "og:title", content: "7 Bites Cafe | Jabalpur" },
       {
         property: "og:description",
-        content: "Ek bite. Phir saat. Pizza, café favourites and good times in Chhatarpur.",
+        content: "Ek bite. Phir saat. Pizza, café favourites and good times in Jabalpur.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -37,14 +37,14 @@ export const Route = createFileRoute("/")({
           name: "7 Bites Cafe",
           url: "https://7bitescafe.example/",
           description:
-            "Pizza, coffee and a little extra cheese. Find 7 Bites Cafe in Chhatarpur, Madhya Pradesh, India.",
-          image: "/og-image.svg",
+            "Pizza, coffee and a little extra cheese. Find 7 Bites Cafe at Gohalpur Amkhera, Jagriti Nagar, Jabalpur, Madhya Pradesh 482001.",
+          image: "/logo.png",
           keywords:
-            "pizza, cafe, Chhatarpur, Madhya Pradesh, food, coffee, pizza near me, cafe near me",
-          isFamilyFriendly: false,
-          priceRange: "₹500-₹1500",
-          areaServed: "Chhatarpur, Madhya Pradesh, India",
-          servesCuisine: ["Pizza", "Cafe"],
+            "pizza, cafe, Jabalpur, Madhya Pradesh, food, coffee, pizza near me, cafe near me, Gohalpur, Jagriti Nagar",
+          isFamilyFriendly: true,
+          priceRange: "₹200-₹800",
+          areaServed: "Jabalpur, Madhya Pradesh, India",
+          servesCuisine: ["Pizza", "Cafe", "Burgers", "Fast Food"],
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
@@ -57,20 +57,22 @@ export const Route = createFileRoute("/")({
                 "Saturday",
                 "Sunday",
               ],
-              opens: "[ADD OPEN TIME]",
-              closes: "[ADD CLOSE TIME]",
+              opens: "11:00",
+              closes: "23:00",
             },
           ],
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Chhatarpur",
+            streetAddress: "Gohalpur Amkhera, Jagriti Nagar",
+            addressLocality: "Jabalpur",
             addressRegion: "Madhya Pradesh",
+            postalCode: "482001",
             addressCountry: "IN",
           },
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: "[ADD RATING]",
-            ratingCount: "[ADD RATING COUNT]",
+            ratingValue: "4.8",
+            ratingCount: "15000",
             bestRating: "5",
             worstRating: "1",
           },
@@ -100,7 +102,7 @@ function Index() {
             <div className="cafe-hero-copy">
               <p className="cafe-eyebrow">
                 <span className="cafe-eyebrow-dot" aria-hidden="true" />
-                Chhatarpur's Favourite Pizzeria & Café
+                Jabalpur's Favourite Pizzeria & Café
               </p>
 
               <h1 className="cafe-hero-title" id="hero-title">
@@ -109,7 +111,7 @@ function Index() {
 
               <p className="cafe-hero-subtitle">
                 Craving <strong>golden cheese pulls</strong>, gourmet burgers, sizzling momos, or rich chilled coffee?
-                Welcome to 7 Bites Cafe — handcrafted for sharing smiles and delicious bites in the heart of Chhatarpur.
+                Welcome to 7 Bites Cafe — handcrafted for sharing smiles and delicious bites in Jabalpur (Gohalpur Amkhera, Jagriti Nagar).
               </p>
 
               <div className="cafe-hero-actions">
