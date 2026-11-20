@@ -1,0 +1,860 @@
+[
+  {
+    "id": "pizza-1",
+    "name": "Margherita",
+    "description": "Classic tomato, oregano and a proper cheese pull.",
+    "category": "Pizza",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 199,
+    "tag": "Bestseller",
+    "sizes": [
+      {
+        "label": "Regular",
+        "price": 139
+      },
+      {
+        "label": "Medium",
+        "price": 199
+      },
+      {
+        "label": "Large",
+        "price": 299
+      }
+    ]
+  },
+  {
+    "id": "pizza-2",
+    "name": "Farmhouse",
+    "description": "Onion, capsicum, sweet corn and garden-fresh crunch.",
+    "category": "Pizza",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 259,
+    "tag": "Chef’s Pick",
+    "sizes": [
+      {
+        "label": "Regular",
+        "price": 199
+      },
+      {
+        "label": "Medium",
+        "price": 259
+      },
+      {
+        "label": "Large",
+        "price": 359
+      }
+    ]
+  },
+  {
+    "id": "pizza-3",
+    "name": "Paneer Tikka",
+    "description": "Tandoori paneer, onion and a smoky tikka drizzle.",
+    "category": "Pizza",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 289,
+    "tag": "Chef’s Pick",
+    "sizes": [
+      {
+        "label": "Regular",
+        "price": 229
+      },
+      {
+        "label": "Medium",
+        "price": 289
+      },
+      {
+        "label": "Large",
+        "price": 389
+      }
+    ]
+  },
+  {
+    "id": "pizza-4",
+    "name": "Corn & Cheese",
+    "description": "Sweet corn, golden cheese and a little oregano.",
+    "category": "Pizza",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 229,
+    "sizes": [
+      {
+        "label": "Regular",
+        "price": 169
+      },
+      {
+        "label": "Medium",
+        "price": 229
+      },
+      {
+        "label": "Large",
+        "price": 329
+      }
+    ]
+  },
+  {
+    "id": "pizza-5",
+    "name": "Spicy Veggie",
+    "description": "Crisp peppers, onion and a chilli-kissed sauce.",
+    "category": "Pizza",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 249,
+    "sizes": [
+      {
+        "label": "Regular",
+        "price": 189
+      },
+      {
+        "label": "Medium",
+        "price": 249
+      },
+      {
+        "label": "Large",
+        "price": 349
+      }
+    ]
+  },
+  {
+    "id": "pizza-6",
+    "name": "BBQ Chicken",
+    "description": "Smoky barbecue chicken, onion and melted cheese.",
+    "category": "Pizza",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 329,
+    "sizes": [
+      {
+        "label": "Regular",
+        "price": 269
+      },
+      {
+        "label": "Medium",
+        "price": 329
+      },
+      {
+        "label": "Large",
+        "price": 429
+      }
+    ]
+  },
+  {
+    "id": "pizza-7",
+    "name": "Chicken Tikka",
+    "description": "Tandoori-style chicken with a creamy, spiced finish.",
+    "category": "Pizza",
+    "diet": "non-veg",
+    "bestseller": true,
+    "price": 329,
+    "tag": "Bestseller",
+    "sizes": [
+      {
+        "label": "Regular",
+        "price": 269
+      },
+      {
+        "label": "Medium",
+        "price": 329
+      },
+      {
+        "label": "Large",
+        "price": 429
+      }
+    ]
+  },
+  {
+    "id": "pizza-8",
+    "name": "Peri Peri Chicken",
+    "description": "Fiery peri-peri chicken with a cool cheese finish.",
+    "category": "Pizza",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 339,
+    "sizes": [
+      {
+        "label": "Regular",
+        "price": 279
+      },
+      {
+        "label": "Medium",
+        "price": 339
+      },
+      {
+        "label": "Large",
+        "price": 439
+      }
+    ]
+  },
+  {
+    "id": "burgers-1",
+    "name": "Classic Veg Burger",
+    "description": "Crisp veg patty, fresh lettuce and house-style sauce.",
+    "category": "Burgers",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 119,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "burgers-2",
+    "name": "Crispy Paneer Burger",
+    "description": "Golden paneer, crunchy slaw and a creamy sauce.",
+    "category": "Burgers",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 169,
+    "tag": "Chef’s Pick"
+  },
+  {
+    "id": "burgers-3",
+    "name": "Aloo Tikki Burger",
+    "description": "Spiced potato tikki, onion and tangy chutney.",
+    "category": "Burgers",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 109
+  },
+  {
+    "id": "burgers-4",
+    "name": "Cheese Veg Burger",
+    "description": "Crispy veg patty layered with a cheese slice.",
+    "category": "Burgers",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 149
+  },
+  {
+    "id": "burgers-5",
+    "name": "Peri Peri Veg Burger",
+    "description": "A crunchy veg patty with a lively peri-peri kick.",
+    "category": "Burgers",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 149
+  },
+  {
+    "id": "burgers-6",
+    "name": "Classic Chicken Burger",
+    "description": "Crispy chicken, lettuce and a cool mayo-style sauce.",
+    "category": "Burgers",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 169
+  },
+  {
+    "id": "burgers-7",
+    "name": "Chicken Cheese Burger",
+    "description": "Crispy chicken with cheese and crunchy lettuce.",
+    "category": "Burgers",
+    "diet": "non-veg",
+    "bestseller": true,
+    "price": 189,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "burgers-8",
+    "name": "Spicy Chicken Burger",
+    "description": "Chicken patty, chilli sauce and a toasted bun.",
+    "category": "Burgers",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 179
+  },
+  {
+    "id": "sandwiches-1",
+    "name": "Veg Grilled Sandwich",
+    "description": "Grilled vegetables, chutney and a crisp golden toast.",
+    "category": "Sandwiches",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 119,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "sandwiches-2",
+    "name": "Cheese Corn Sandwich",
+    "description": "Sweet corn, creamy cheese and soft toasted bread.",
+    "category": "Sandwiches",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 139
+  },
+  {
+    "id": "sandwiches-3",
+    "name": "Paneer Tikka Sandwich",
+    "description": "Smoky paneer, onion and a hint of mint chutney.",
+    "category": "Sandwiches",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 159,
+    "tag": "Chef’s Pick"
+  },
+  {
+    "id": "sandwiches-4",
+    "name": "Club Veg Sandwich",
+    "description": "A hearty stack of garden vegetables and cheese.",
+    "category": "Sandwiches",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 169
+  },
+  {
+    "id": "sandwiches-5",
+    "name": "Masala Aloo Sandwich",
+    "description": "Spiced potato, coriander chutney and crisp toast.",
+    "category": "Sandwiches",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 109
+  },
+  {
+    "id": "sandwiches-6",
+    "name": "Chicken Grilled Sandwich",
+    "description": "Juicy chicken, crunchy lettuce and a creamy spread.",
+    "category": "Sandwiches",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 179
+  },
+  {
+    "id": "sandwiches-7",
+    "name": "Chicken Cheese Melt",
+    "description": "Chicken and gooey cheese in toasted bread.",
+    "category": "Sandwiches",
+    "diet": "non-veg",
+    "bestseller": true,
+    "price": 199,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "sandwiches-8",
+    "name": "Spicy Chicken Club",
+    "description": "Peppery chicken with onion and fresh greens.",
+    "category": "Sandwiches",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 189
+  },
+  {
+    "id": "pasta-1",
+    "name": "Arrabbiata Pasta",
+    "description": "Penne tossed in a bright, gently spicy tomato sauce.",
+    "category": "Pasta",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 199,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "pasta-2",
+    "name": "Alfredo Pasta",
+    "description": "Silky white sauce, herbs and a shower of cheese.",
+    "category": "Pasta",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 229
+  },
+  {
+    "id": "pasta-3",
+    "name": "Pink Sauce Pasta",
+    "description": "A comforting tomato-and-cream sauce with herbs.",
+    "category": "Pasta",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 229,
+    "tag": "Chef’s Pick"
+  },
+  {
+    "id": "pasta-4",
+    "name": "Pesto Veg Pasta",
+    "description": "Herby basil-style sauce with seasonal vegetables.",
+    "category": "Pasta",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 239
+  },
+  {
+    "id": "pasta-5",
+    "name": "Mac & Cheese",
+    "description": "Creamy macaroni with a golden cheese finish.",
+    "category": "Pasta",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 219
+  },
+  {
+    "id": "pasta-6",
+    "name": "Chicken Arrabbiata",
+    "description": "Tomato-chilli penne with tender chicken pieces.",
+    "category": "Pasta",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 269
+  },
+  {
+    "id": "pasta-7",
+    "name": "Chicken Alfredo",
+    "description": "Creamy white sauce pasta with tender chicken.",
+    "category": "Pasta",
+    "diet": "non-veg",
+    "bestseller": true,
+    "price": 289,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "pasta-8",
+    "name": "Chicken Pink Sauce",
+    "description": "Penne, tender chicken and a creamy tomato sauce.",
+    "category": "Pasta",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 279
+  },
+  {
+    "id": "momos-1",
+    "name": "Veg Steamed Momos",
+    "description": "Soft dumplings filled with seasoned vegetables.",
+    "category": "Momos",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 119,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "momos-2",
+    "name": "Veg Fried Momos",
+    "description": "Golden fried vegetable momos with a chilli dip.",
+    "category": "Momos",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 139
+  },
+  {
+    "id": "momos-3",
+    "name": "Paneer Momos",
+    "description": "Paneer and herbs tucked into tender dumpling wrappers.",
+    "category": "Momos",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 149,
+    "tag": "Chef’s Pick"
+  },
+  {
+    "id": "momos-4",
+    "name": "Kurkure Veg Momos",
+    "description": "Crunchy, spice-dusted momos with a tangy dip.",
+    "category": "Momos",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 159
+  },
+  {
+    "id": "momos-5",
+    "name": "Tandoori Paneer Momos",
+    "description": "Smoky paneer momos with a tandoori-style glaze.",
+    "category": "Momos",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 179
+  },
+  {
+    "id": "momos-6",
+    "name": "Chicken Steamed Momos",
+    "description": "Juicy chicken dumplings with a punchy red dip.",
+    "category": "Momos",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 149
+  },
+  {
+    "id": "momos-7",
+    "name": "Chicken Fried Momos",
+    "description": "Crisp outside, juicy chicken filling inside.",
+    "category": "Momos",
+    "diet": "non-veg",
+    "bestseller": true,
+    "price": 169,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "momos-8",
+    "name": "Tandoori Chicken Momos",
+    "description": "Smoky chicken momos finished with a creamy drizzle.",
+    "category": "Momos",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 189
+  },
+  {
+    "id": "fries-sides-1",
+    "name": "Classic Salted Fries",
+    "description": "Crispy golden fries with a pinch of salt.",
+    "category": "Fries & Sides",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 99,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "fries-sides-2",
+    "name": "Peri Peri Fries",
+    "description": "Crispy fries dusted with lively peri-peri spice.",
+    "category": "Fries & Sides",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 119
+  },
+  {
+    "id": "fries-sides-3",
+    "name": "Cheesy Fries",
+    "description": "Golden fries topped with a creamy cheese sauce.",
+    "category": "Fries & Sides",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 149,
+    "tag": "Chef’s Pick"
+  },
+  {
+    "id": "fries-sides-4",
+    "name": "Garlic Bread",
+    "description": "Toasted bread with herbs and savoury garlic butter.",
+    "category": "Fries & Sides",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 119
+  },
+  {
+    "id": "fries-sides-5",
+    "name": "Cheese Garlic Bread",
+    "description": "Toasted garlic bread with a melted cheese topping.",
+    "category": "Fries & Sides",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 149
+  },
+  {
+    "id": "fries-sides-6",
+    "name": "Onion Rings",
+    "description": "Crisp golden onion rings with a dipping sauce.",
+    "category": "Fries & Sides",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 119
+  },
+  {
+    "id": "fries-sides-7",
+    "name": "Chicken Nuggets",
+    "description": "Crunchy chicken bites with a tangy dip.",
+    "category": "Fries & Sides",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 169
+  },
+  {
+    "id": "fries-sides-8",
+    "name": "Chicken Popcorn",
+    "description": "Bite-sized crispy chicken with a house-style dip.",
+    "category": "Fries & Sides",
+    "diet": "non-veg",
+    "bestseller": false,
+    "price": 179
+  },
+  {
+    "id": "shakes-1",
+    "name": "Classic Vanilla Shake",
+    "description": "Cool, creamy vanilla blended smooth.",
+    "category": "Shakes",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 139,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "shakes-2",
+    "name": "Chocolate Shake",
+    "description": "Rich cocoa and chilled milk in every sip.",
+    "category": "Shakes",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 159
+  },
+  {
+    "id": "shakes-3",
+    "name": "Strawberry Shake",
+    "description": "A sweet berry-style shake, chilled to order.",
+    "category": "Shakes",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 159
+  },
+  {
+    "id": "shakes-4",
+    "name": "Mango Shake",
+    "description": "A sunny mango shake, made for warm afternoons.",
+    "category": "Shakes",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 169,
+    "tag": "Chef’s Pick"
+  },
+  {
+    "id": "shakes-5",
+    "name": "Oreo Shake",
+    "description": "A creamy cookie shake with crunchy chocolate bits.",
+    "category": "Shakes",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 179
+  },
+  {
+    "id": "shakes-6",
+    "name": "KitKat Shake",
+    "description": "Chocolate wafer pieces blended into a thick shake.",
+    "category": "Shakes",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 189
+  },
+  {
+    "id": "shakes-7",
+    "name": "Caramel Shake",
+    "description": "Sweet caramel notes and a cool creamy finish.",
+    "category": "Shakes",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 169
+  },
+  {
+    "id": "shakes-8",
+    "name": "Cold Coffee Shake",
+    "description": "Coffee, milk and a little extra chill.",
+    "category": "Shakes",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 159
+  },
+  {
+    "id": "cold-coffee-1",
+    "name": "Classic Cold Coffee",
+    "description": "Chilled coffee with a smooth, creamy finish.",
+    "category": "Cold Coffee",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 129,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "cold-coffee-2",
+    "name": "Iced Americano",
+    "description": "Bold espresso-style coffee poured over ice.",
+    "category": "Cold Coffee",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 119
+  },
+  {
+    "id": "cold-coffee-3",
+    "name": "Iced Latte",
+    "description": "Chilled coffee and milk, simple and smooth.",
+    "category": "Cold Coffee",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 139
+  },
+  {
+    "id": "cold-coffee-4",
+    "name": "Caramel Iced Coffee",
+    "description": "Cold coffee with a sweet caramel swirl.",
+    "category": "Cold Coffee",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 159,
+    "tag": "Chef’s Pick"
+  },
+  {
+    "id": "cold-coffee-5",
+    "name": "Mocha Cold Coffee",
+    "description": "Coffee and chocolate in one chilled glass.",
+    "category": "Cold Coffee",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 159
+  },
+  {
+    "id": "cold-coffee-6",
+    "name": "Hazelnut Cold Coffee",
+    "description": "Nutty, creamy coffee served over ice.",
+    "category": "Cold Coffee",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 169
+  },
+  {
+    "id": "cold-coffee-7",
+    "name": "Vanilla Iced Coffee",
+    "description": "A gentle vanilla note with chilled coffee.",
+    "category": "Cold Coffee",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 149
+  },
+  {
+    "id": "cold-coffee-8",
+    "name": "Coffee Frappe",
+    "description": "Blended iced coffee with a frothy top.",
+    "category": "Cold Coffee",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 169
+  },
+  {
+    "id": "hot-beverages-1",
+    "name": "Masala Chai",
+    "description": "Warming Indian tea with fragrant spices.",
+    "category": "Hot Beverages",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 49,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "hot-beverages-2",
+    "name": "Classic Tea",
+    "description": "A comforting cup of freshly brewed tea.",
+    "category": "Hot Beverages",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 39
+  },
+  {
+    "id": "hot-beverages-3",
+    "name": "Hot Coffee",
+    "description": "A warm, freshly made cup for any time of day.",
+    "category": "Hot Beverages",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 79
+  },
+  {
+    "id": "hot-beverages-4",
+    "name": "Cappuccino",
+    "description": "Foamy coffee with a smooth, creamy finish.",
+    "category": "Hot Beverages",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 119,
+    "tag": "Chef’s Pick"
+  },
+  {
+    "id": "hot-beverages-5",
+    "name": "Cafe Latte",
+    "description": "Espresso-style coffee softened with steamed milk.",
+    "category": "Hot Beverages",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 119
+  },
+  {
+    "id": "hot-beverages-6",
+    "name": "Hot Chocolate",
+    "description": "A cozy cup of rich chocolate warmth.",
+    "category": "Hot Beverages",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 129
+  },
+  {
+    "id": "hot-beverages-7",
+    "name": "Lemon Tea",
+    "description": "Light, refreshing tea with a citrusy lift.",
+    "category": "Hot Beverages",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 59
+  },
+  {
+    "id": "hot-beverages-8",
+    "name": "Ginger Tea",
+    "description": "A warming tea steeped with a lively ginger note.",
+    "category": "Hot Beverages",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 49
+  },
+  {
+    "id": "desserts-1",
+    "name": "Chocolate Brownie",
+    "description": "A rich, fudgy chocolate square.",
+    "category": "Desserts",
+    "diet": "veg",
+    "bestseller": true,
+    "price": 99,
+    "tag": "Bestseller"
+  },
+  {
+    "id": "desserts-2",
+    "name": "Brownie with Ice Cream",
+    "description": "Warm chocolate brownie with a cool scoop.",
+    "category": "Desserts",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 149,
+    "tag": "Chef’s Pick"
+  },
+  {
+    "id": "desserts-3",
+    "name": "Choco Lava Cake",
+    "description": "Soft chocolate cake with a gooey centre.",
+    "category": "Desserts",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 129
+  },
+  {
+    "id": "desserts-4",
+    "name": "Chocolate Sundae",
+    "description": "Chocolate, cool ice cream and crunchy toppings.",
+    "category": "Desserts",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 139
+  },
+  {
+    "id": "desserts-5",
+    "name": "Vanilla Scoop",
+    "description": "A classic scoop, cool and creamy.",
+    "category": "Desserts",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 59
+  },
+  {
+    "id": "desserts-6",
+    "name": "Chocolate Scoop",
+    "description": "A cool chocolate scoop for sweet cravings.",
+    "category": "Desserts",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 69
+  },
+  {
+    "id": "desserts-7",
+    "name": "Cookie Sundae",
+    "description": "Crunchy cookie pieces over creamy ice cream.",
+    "category": "Desserts",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 149
+  },
+  {
+    "id": "desserts-8",
+    "name": "Caramel Brownie",
+    "description": "Fudgy brownie with a sweet caramel finish.",
+    "category": "Desserts",
+    "diet": "veg",
+    "bestseller": false,
+    "price": 119
+  }
+]
