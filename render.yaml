@@ -9,15 +9,13 @@ services:
     region: singapore # Closest region to India for ultra-low latency (< 60ms)
     branch: main
     autoDeploy: true
-    buildCommand: bun install && bun run build
-    startCommand: bun run start
+    buildCommand: npm install && npm run build
+    startCommand: npm start
     healthCheckPath: /
     envVars:
       - key: NODE_VERSION
         value: 22.16.0
       - key: NITRO_PRESET
         value: node-server
-      - key: NODE_ENV
-        value: production
       - key: PORT
         value: 10000
