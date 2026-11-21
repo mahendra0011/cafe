@@ -1690,8 +1690,130 @@
    FULL MENU SECTION
    ========================================================================= */
 .cafe-menu-section {
-  padding: 100px 0;
-  background: var(--color-cream);
+  position: relative;
+  padding: 100px 0 110px;
+  background: url('/creamy-italian-ingredients-frame-warmly.png') center / cover no-repeat;
+  overflow: hidden;
+  border-top: 1px solid rgba(220, 205, 190, 0.4);
+  border-bottom: 1px solid rgba(220, 205, 190, 0.4);
+}
+
+.cafe-menu-header {
+  text-align: center;
+  margin-bottom: 34px;
+  position: relative;
+  z-index: 2;
+}
+
+.cafe-menu-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.cafe-menu-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(28, 20, 16, 0.08);
+  box-shadow: 0 4px 14px rgba(46, 19, 8, 0.06);
+  font-size: 13px;
+  font-weight: 700;
+  color: #2E1308;
+  letter-spacing: 0.02em;
+}
+
+.cafe-menu-green-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16A34A;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+}
+
+.cafe-menu-burst {
+  width: 22px;
+  height: 22px;
+  color: #D82103;
+  margin-left: -2px;
+  transform: translateY(-2px);
+}
+
+.cafe-menu-title {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.cafe-menu-title-brown {
+  color: #2E1308;
+  text-shadow:
+    0 1px 0 #240e05,
+    0 2px 0 #1b0a03,
+    0 3px 0 #130702,
+    0 4px 0 #0b0401,
+    0 6px 14px rgba(35, 12, 4, 0.35);
+}
+
+.cafe-menu-title-red {
+  color: #D82103;
+  position: relative;
+  display: inline-block;
+  text-shadow:
+    0 1px 0 #b31a02,
+    0 2px 0 #941501,
+    0 3px 0 #761001,
+    0 4px 0 #580c01,
+    0 6px 14px rgba(180, 20, 0, 0.35);
+}
+
+.cafe-menu-swoop {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 14px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(216, 33, 3, 0.25));
+}
+
+.cafe-menu-subtitle {
+  margin: 0 auto 16px;
+  max-width: 640px;
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: #4A3B32;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cafe-menu-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+.cafe-menu-divider-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(216, 33, 3, 0.35), transparent);
+}
+
+.cafe-menu-divider-icon {
+  font-size: 16px;
+  line-height: 1;
 }
 
 .cafe-menu-controls {
@@ -3366,81 +3488,547 @@
 }
 
 /* =========================================================================
-   VISIT & RESERVATION SECTION
+   FAQ SECTION (FREQUENTLY ASKED QUESTIONS)
+   ========================================================================= */
+.cafe-faq-section {
+  position: relative;
+  padding: 85px 0 95px;
+  background: url('/7-bites-cafe-faq-background.png') left center / cover no-repeat;
+  overflow: hidden;
+  border-top: 1px solid rgba(220, 205, 190, 0.4);
+  border-bottom: 1px solid rgba(220, 205, 190, 0.4);
+}
+
+.cafe-faq-wave-br {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  height: 90px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cafe-faq-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.35fr;
+  gap: 32px;
+  align-items: center;
+  max-width: 1320px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cafe-faq-spacer {
+  min-height: 520px;
+}
+
+.cafe-faq-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cafe-faq-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.cafe-faq-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.cafe-faq-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 122, 61, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 122, 61, 0.08);
+  font-size: 13px;
+  font-weight: 700;
+  color: #007A3D;
+  letter-spacing: 0.02em;
+}
+
+.cafe-faq-burst {
+  width: 22px;
+  height: 22px;
+  color: #007A3D;
+  margin-left: -2px;
+  transform: translateY(-2px);
+}
+
+.cafe-faq-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.cafe-faq-title-line {
+  flex: 1;
+  max-width: 80px;
+  height: 2px;
+  background: #007A3D;
+  border-radius: 9999px;
+}
+
+.cafe-faq-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.cafe-faq-title-brown {
+  color: #2E1308;
+  text-shadow:
+    0 1px 0 #240e05,
+    0 2px 0 #1b0a03,
+    0 3px 0 #130702,
+    0 4px 0 #0b0401,
+    0 6px 14px rgba(35, 12, 4, 0.35);
+}
+
+.cafe-faq-title-green {
+  color: #007A3D;
+  position: relative;
+  display: inline-block;
+  text-shadow:
+    0 1px 0 #005f2f,
+    0 2px 0 #004b25,
+    0 3px 0 #00371b,
+    0 4px 0 #002311,
+    0 6px 14px rgba(0, 122, 61, 0.35);
+}
+
+.cafe-faq-swoop {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 14px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 122, 61, 0.25));
+}
+
+.cafe-faq-subtitle {
+  margin: 0 auto;
+  max-width: 620px;
+  font-size: clamp(13px, 1.1vw, 14.5px);
+  color: #4A3B32;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* FAQ Accordion List */
+.cafe-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.cafe-faq-item {
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(220, 215, 205, 0.75);
+  box-shadow: 0 4px 14px rgba(46, 19, 8, 0.04);
+  overflow: hidden;
+  transition: all 200ms ease;
+}
+
+.cafe-faq-item:hover {
+  border-color: rgba(0, 122, 61, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 122, 61, 0.08);
+}
+
+.cafe-faq-item.is-open {
+  border-color: rgba(0, 122, 61, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 122, 61, 0.1);
+}
+
+.cafe-faq-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.cafe-faq-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.cafe-faq-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #007A3D;
+  display: grid;
+  place-items: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 122, 61, 0.25);
+}
+
+.cafe-faq-question {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1C1410;
+  line-height: 1.35;
+}
+
+.cafe-faq-chevron {
+  width: 22px;
+  height: 22px;
+  color: #007A3D;
+  flex-shrink: 0;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cafe-faq-chevron.is-rotated {
+  transform: rotate(180deg);
+}
+
+.cafe-faq-answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0 12px 12px 12px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: #EDF7EE;
+  border: 1px solid rgba(0, 122, 61, 0.14);
+}
+
+.cafe-faq-answer-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  padding-top: 2px;
+}
+
+.cafe-faq-answer-text {
+  margin: 0;
+  font-size: 13.5px;
+  color: #2B2520;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .cafe-faq-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .cafe-faq-spacer {
+    display: none;
+  }
+  .cafe-faq-section {
+    padding: 60px 16px 70px;
+  }
+  .cafe-faq-title {
+    font-size: 1.8rem;
+    white-space: normal;
+  }
+  .cafe-faq-title-line {
+    max-width: 40px;
+  }
+}
+
+/* =========================================================================
+   VISIT & LOCATION SECTION (FIND YOUR WAY TO 7 BITES CAFE)
    ========================================================================= */
 .cafe-visit-section {
-  padding: 100px 0;
-  background: #FFFFFF;
+  position: relative;
+  padding: 85px 0 95px;
+  background: url('/find-your-way-to-7-bites-cafe.png') center / cover no-repeat;
+  overflow: hidden;
+  border-top: 1px solid rgba(220, 205, 190, 0.4);
+  border-bottom: 1px solid rgba(220, 205, 190, 0.4);
 }
 
 .cafe-visit-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 56px;
+  grid-template-columns: 1.1fr 1.15fr 1.25fr;
+  gap: 28px;
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-.cafe-visit-copy h2 {
-  font-family: var(--font-display);
-  font-size: clamp(34px, 4.4vw, 48px);
+.cafe-visit-spacer {
+  min-height: 480px;
+}
+
+.cafe-visit-copy {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cafe-visit-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cafe-visit-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(216, 33, 3, 0.2);
+  box-shadow: 0 4px 12px rgba(216, 33, 3, 0.08);
+  font-size: 12px;
   font-weight: 800;
-  line-height: 1.15;
-  margin: 0 0 24px;
-  color: var(--color-ink);
+  color: #D82103;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.cafe-visit-copy h2 span {
-  color: var(--color-pepperoni);
+.cafe-visit-burst {
+  width: 20px;
+  height: 20px;
+  color: #D82103;
+  margin-left: -2px;
+  transform: translateY(-2px);
 }
 
-.cafe-visit-detail {
+.cafe-visit-title {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.5vw, 2.35rem);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.cafe-visit-title-brown {
+  color: #2E1308;
+  text-shadow:
+    0 1px 0 #240e05,
+    0 2px 0 #1b0a03,
+    0 3px 0 #130702,
+    0 4px 0 #0b0401,
+    0 6px 14px rgba(35, 12, 4, 0.35);
+}
+
+.cafe-visit-title-red {
+  color: #D82103;
+  position: relative;
+  display: inline-block;
+  text-shadow:
+    0 1px 0 #b31a02,
+    0 2px 0 #941501,
+    0 3px 0 #761001,
+    0 4px 0 #580c01,
+    0 6px 14px rgba(180, 20, 0, 0.35);
+}
+
+.cafe-visit-swoop {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 12px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(216, 33, 3, 0.25));
+}
+
+.cafe-visit-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 22px;
+  max-width: 440px;
+}
+
+.cafe-visit-card {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 22px;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid rgba(220, 215, 205, 0.75);
+  box-shadow: 0 4px 14px rgba(46, 19, 8, 0.04);
+  transition: all 200ms ease;
 }
 
-.cafe-visit-icon {
+.cafe-visit-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(216, 33, 3, 0.3);
+  box-shadow: 0 6px 18px rgba(46, 19, 8, 0.08);
+}
+
+.cafe-visit-icon-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   border-radius: 12px;
-  background: rgba(200, 59, 30, 0.08);
-  color: var(--color-pepperoni);
 }
 
-.cafe-visit-detail strong {
+.cafe-visit-icon-box.is-coral {
+  background: #FDEEE9;
+  color: #D82103;
+}
+
+.cafe-visit-icon-box.is-amber {
+  background: #FEF3C7;
+  color: #D96A00;
+}
+
+.cafe-visit-card-text strong {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
-  margin-bottom: 4px;
-  color: var(--color-ink);
+  color: #1C1410;
+  margin-bottom: 3px;
 }
 
-.cafe-visit-detail p {
+.cafe-visit-card-text p {
   margin: 0;
-  font-size: 14px;
-  color: #6B5E57;
-  line-height: 1.5;
+  font-size: 13px;
+  color: #5C564B;
+  line-height: 1.45;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cafe-visit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.cafe-visit-btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px !important;
+  border-radius: 9999px !important;
+  background: #D82103 !important;
+  color: #FFFFFF !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(216, 33, 3, 0.3) !important;
+  transition: all 180ms ease !important;
+}
+
+.cafe-visit-btn-maps:hover {
+  background: #B91C02 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(216, 33, 3, 0.4) !important;
+}
+
+.cafe-visit-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px !important;
+  border-radius: 9999px !important;
+  background: #FFFFFF !important;
+  color: #16A34A !important;
+  border: 1.5px solid rgba(22, 163, 74, 0.4) !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+  transition: all 180ms ease !important;
+}
+
+.cafe-visit-btn-wa:hover {
+  background: #F0FDF4 !important;
+  border-color: #16A34A !important;
+  transform: translateY(-2px);
 }
 
 .cafe-map-frame {
   position: relative;
-  min-height: 380px;
-  border-radius: 20px;
+  height: 360px;
+  min-height: 360px;
+  margin-bottom: 20px;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(28, 20, 16, 0.08);
-  border: 1px solid rgba(28, 20, 16, 0.08);
+  box-shadow: 0 14px 36px rgba(46, 19, 8, 0.12);
+  border: 4px solid #FFFFFF;
+  background: #FFFFFF;
 }
 
 .cafe-map-frame iframe {
   width: 100%;
   height: 100%;
-  min-height: 380px;
+  min-height: 360px;
   border: 0;
+}
+
+/* Table Reservation Section */
+.cafe-reserve-section {
+  padding: 70px 0 90px;
+  background: #FAF7F2;
+  border-bottom: 1px solid rgba(28, 20, 16, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .cafe-visit-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .cafe-visit-spacer {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .cafe-visit-section {
+    padding: 60px 16px 70px;
+  }
+  .cafe-visit-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .cafe-map-frame {
+    min-height: 320px;
+  }
+  .cafe-map-frame iframe {
+    min-height: 320px;
+  }
 }
 
 /* Reservation Form */

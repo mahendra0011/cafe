@@ -7,10 +7,15 @@ import {
   ArrowUp,
   ArrowUpRight,
   Award,
+  Bike,
+  Calendar,
   Check,
   CheckCircle2,
+  ChevronDown,
+  Clock,
   Clock3,
   Coffee,
+  CreditCard,
   Droplets,
   Flame,
   Heart,
@@ -19,6 +24,7 @@ import {
   MessageCircle,
   Phone,
   Plus,
+  QrCode,
   ShoppingBag,
   Sparkles,
   Star,
@@ -477,12 +483,57 @@ function MenuListing({
   return (
     <section className="cafe-menu-section" id="full-menu" aria-labelledby="menu-title">
       <div className="cafe-section-inner">
-        <SectionHeading
-          eyebrow="Crafted With Love"
-          title="Explore Our Full Menu"
-          titleId="menu-title"
-          note="From stone-baked pizzas to chilled artisan coffees, find your favorite craving."
-        />
+        {/* Header with 3D Typography */}
+        <div className="cafe-menu-header">
+          <div className="cafe-menu-eyebrow-wrap">
+            <div className="cafe-menu-eyebrow">
+              <span className="cafe-menu-green-dot" />
+              <span>Crafted With Love</span>
+            </div>
+            {/* 3 Red Burst Rays */}
+            <svg
+              className="cafe-menu-burst"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <line x1="6" y1="18" x2="2" y2="14" />
+              <line x1="12" y1="17" x2="12" y2="10" />
+              <line x1="18" y1="18" x2="22" y2="14" />
+            </svg>
+          </div>
+
+          <h2 className="cafe-menu-title" id="menu-title">
+            <span className="cafe-menu-title-brown">Explore Our </span>
+            <span className="cafe-menu-title-red">
+              Full Menu
+              {/* Curved swoop underline */}
+              <svg
+                className="cafe-menu-swoop"
+                viewBox="0 0 140 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#D82103" />
+              </svg>
+            </span>
+          </h2>
+
+          <p className="cafe-menu-subtitle">
+            From stone-baked pizzas to chilled artisan coffees, find your favorite craving.
+          </p>
+
+          {/* Centered Pizza Divider */}
+          <div className="cafe-menu-divider" aria-hidden="true">
+            <span className="cafe-menu-divider-line" />
+            <span className="cafe-menu-divider-icon">🍕</span>
+            <span className="cafe-menu-divider-line" />
+          </div>
+        </div>
 
         <div className="cafe-menu-controls mb-8">
           <div className="cafe-category-tabs" role="group" aria-label="Explore menu categories">
@@ -866,6 +917,234 @@ function ReservationForm({ selected }: { selected: OrderPick[] }) {
         </div>
       ) : null}
     </div>
+  );
+}
+
+const faqItems = [
+  {
+    id: "faq-reserve",
+    question: "Can I reserve a table in advance?",
+    answer:
+      "Yes! You can reserve your table online directly through our website or call us at +91 98765 43210. We host birthday parties, anniversary dinners, and family celebrations with custom seating.",
+    icon: "calendar",
+  },
+  {
+    id: "faq-qr",
+    question: "How does Table QR Ordering work?",
+    answer:
+      "Each of our 12 cafe tables has a unique QR code. Simply scan it with your phone camera, browse our full live menu with food photos, customize your pizza/burger, and send your order straight to our kitchen KDS screen without waiting for a waiter!",
+    icon: "qr",
+  },
+  {
+    id: "faq-delivery",
+    question: "Do you offer online home delivery?",
+    answer:
+      "7 Bites is an authentic offline cafe experience! We focus purely on warm dine-in hospitality, stone-oven baking, and fresh counter takeaway. We do not do third-party home delivery to ensure our pizzas are always enjoyed fresh and molten.",
+    icon: "delivery",
+  },
+  {
+    id: "faq-cheese",
+    question: "Do you use 100% pure dairy mozzarella?",
+    answer:
+      "Yes, 100%! We strictly use real dairy mozzarella cheese with zero palm oil blends and zero cheap analogues, giving you that golden, irresistible cheese pull in every single slice.",
+    icon: "cheese",
+  },
+  {
+    id: "faq-hours",
+    question: "What are your cafe opening hours?",
+    answer:
+      "We are open every day from 11:00 AM to 11:00 PM in Gohalpur Amkhera, Jabalpur. Hot stone-baked pizzas, freshly brewed cold coffee, and snacks are served all day without breaks.",
+    icon: "clock",
+  },
+  {
+    id: "faq-payment",
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept all UPI apps (Google Pay, PhonePe, Paytm, BHIM), debit/credit cards, and cash at our counter POS.",
+    icon: "payment",
+  },
+];
+
+function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(4); // Question 5 open by default
+
+  const renderIcon = (type: string, isExpanded = false) => {
+    if (!isExpanded) {
+      switch (type) {
+        case "calendar":
+          return <Calendar className="w-5 h-5 text-white" />;
+        case "qr":
+          return <QrCode className="w-5 h-5 text-white" />;
+        case "delivery":
+          return <Bike className="w-5 h-5 text-white" />;
+        case "cheese":
+          return (
+            <svg className="w-5 h-5 text-amber-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.5 14L19.5 7V17H2.5V14Z" />
+              <circle cx="7" cy="14" r="1.3" fill="#007A3D" />
+              <circle cx="12" cy="12" r="1.5" fill="#007A3D" />
+              <circle cx="15.5" cy="14.5" r="1.2" fill="#007A3D" />
+            </svg>
+          );
+        case "clock":
+          return <Clock className="w-5 h-5 text-white" />;
+        case "payment":
+          return <CreditCard className="w-5 h-5 text-white" />;
+        default:
+          return <Sparkles className="w-5 h-5 text-white" />;
+      }
+    }
+
+    // Expanded inside answer panel
+    switch (type) {
+      case "clock":
+        return (
+          <svg
+            className="w-9 h-9 text-[#1C1410] flex-shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="13" r="8" fill="#FFFFFF" />
+            <polyline points="12 9 12 13 14 15" stroke="#1C1410" strokeWidth="2" />
+            <path d="M5 3L2 6" strokeWidth="2.2" />
+            <path d="M22 6l-3-3" strokeWidth="2.2" />
+            <line x1="6.38" y1="18.7" x2="4" y2="21" strokeWidth="2" />
+            <line x1="17.64" y1="18.67" x2="20" y2="21" strokeWidth="2" />
+          </svg>
+        );
+      case "calendar":
+        return <Calendar className="w-8 h-8 text-[#007A3D] flex-shrink-0" />;
+      case "qr":
+        return <QrCode className="w-8 h-8 text-[#007A3D] flex-shrink-0" />;
+      case "delivery":
+        return <Bike className="w-8 h-8 text-[#007A3D] flex-shrink-0" />;
+      case "cheese":
+        return (
+          <svg className="w-8 h-8 text-amber-500 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.5 14L19.5 7V17H2.5V14Z" />
+            <circle cx="7" cy="14" r="1.3" fill="#EDF7EE" />
+            <circle cx="12" cy="12" r="1.5" fill="#EDF7EE" />
+            <circle cx="15.5" cy="14.5" r="1.2" fill="#EDF7EE" />
+          </svg>
+        );
+      case "payment":
+        return <CreditCard className="w-8 h-8 text-[#007A3D] flex-shrink-0" />;
+      default:
+        return <Sparkles className="w-8 h-8 text-[#007A3D] flex-shrink-0" />;
+    }
+  };
+
+  return (
+    <section className="cafe-faq-section" id="faq" aria-labelledby="faq-title">
+      {/* Decorative corner organic green wave */}
+      <div className="cafe-faq-wave-br" aria-hidden="true">
+        <svg viewBox="0 0 260 80" fill="none" className="w-full h-full">
+          <path d="M260 80 C 180 70, 110 30, 40 70 C 15 80, 5 82, 0 80 L260 80 Z" fill="#007A3D" />
+        </svg>
+      </div>
+
+      <div className="cafe-section-inner">
+        <div className="cafe-faq-inner">
+          {/* Left transparent spacer allowing 3D green '?' and 7 Bites board to show */}
+          <div className="cafe-faq-spacer" aria-hidden="true" />
+
+          {/* Right FAQ Content Container */}
+          <div className="cafe-faq-content">
+            <div className="cafe-faq-header">
+              <div className="cafe-faq-eyebrow-wrap">
+                <div className="cafe-faq-eyebrow">
+                  <MessageCircle className="w-4 h-4 fill-[#007A3D] text-[#007A3D]" />
+                  <span>Got Questions?</span>
+                </div>
+                {/* 3 Green Burst Rays */}
+                <svg
+                  className="cafe-faq-burst"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                >
+                  <line x1="6" y1="18" x2="2" y2="14" />
+                  <line x1="12" y1="17" x2="12" y2="10" />
+                  <line x1="18" y1="18" x2="22" y2="14" />
+                </svg>
+              </div>
+
+              <div className="cafe-faq-title-wrap">
+                <span className="cafe-faq-title-line" />
+                <h2 className="cafe-faq-title" id="faq-title">
+                  <span className="cafe-faq-title-brown">Frequently Asked </span>
+                  <span className="cafe-faq-title-green">
+                    Questions
+                    {/* Curved swoop underline */}
+                    <svg
+                      className="cafe-faq-swoop"
+                      viewBox="0 0 140 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#007A3D" />
+                    </svg>
+                  </span>
+                </h2>
+                <span className="cafe-faq-title-line" />
+              </div>
+
+              <p className="cafe-faq-subtitle">
+                Everything you need to know about dining in, table reservations, and QR ordering at 7 Bites Cafe.
+              </p>
+            </div>
+
+            {/* Accordion list */}
+            <div className="cafe-faq-list">
+              {faqItems.map((item, index) => {
+                const isOpen = openIndex === index;
+                return (
+                  <article
+                    className={`cafe-faq-item ${isOpen ? "is-open" : ""}`}
+                    key={item.id}
+                  >
+                    <button
+                      type="button"
+                      className="cafe-faq-trigger"
+                      onClick={() => setOpenIndex(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                    >
+                      <div className="cafe-faq-trigger-left">
+                        <div className="cafe-faq-icon-box">
+                          {renderIcon(item.icon, false)}
+                        </div>
+                        <span className="cafe-faq-question">{item.question}</span>
+                      </div>
+                      <ChevronDown
+                        className={`cafe-faq-chevron ${isOpen ? "is-rotated" : ""}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+
+                    {isOpen && (
+                      <div className="cafe-faq-answer">
+                        <div className="cafe-faq-answer-icon">
+                          {renderIcon(item.icon, true)}
+                        </div>
+                        <p className="cafe-faq-answer-text">{item.answer}</p>
+                      </div>
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -1440,135 +1719,127 @@ export function CafeSections() {
       </section>
 
       {/* Frequently Asked Questions */}
-      <section className="cafe-faq-section py-16 bg-[#FAF7F2] border-t border-[#1C1410]/10" id="faq" aria-labelledby="faq-title">
-        <div className="cafe-section-inner">
-          <SectionHeading
-            eyebrow="Got Questions?"
-            title="Frequently Asked Questions"
-            titleId="faq-title"
-            note="Everything you need to know about dining in, table reservations, and QR ordering at 7 Bites Cafe."
-          />
+      <FaqSection />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 max-w-4xl mx-auto">
-            <div className="bg-white p-5 rounded-2xl border border-[#1C1410]/10 shadow-xs">
-              <h4 className="font-bold text-sm text-[#1C1410]">Can I reserve a table in advance?</h4>
-              <p className="text-xs text-[#5C564B] mt-2 leading-relaxed">
-                Yes! You can reserve your table online directly through our website or call us at +91 98765 43210. We host birthday parties, anniversary dinners, and family celebrations with custom seating.
-              </p>
-            </div>
-
-            <div className="bg-white p-5 rounded-2xl border border-[#1C1410]/10 shadow-xs">
-              <h4 className="font-bold text-sm text-[#1C1410]">How does Table QR Ordering work?</h4>
-              <p className="text-xs text-[#5C564B] mt-2 leading-relaxed">
-                Each of our 12 cafe tables has a unique QR code. Simply scan it with your phone camera, browse our full live menu with food photos, customize your pizza/burger, and send your order straight to our kitchen KDS screen without waiting for a waiter!
-              </p>
-            </div>
-
-            <div className="bg-white p-5 rounded-2xl border border-[#1C1410]/10 shadow-xs">
-              <h4 className="font-bold text-sm text-[#1C1410]">Do you offer online home delivery?</h4>
-              <p className="text-xs text-[#5C564B] mt-2 leading-relaxed">
-                7 Bites is an authentic offline cafe experience! We focus purely on warm dine-in hospitality, stone-oven baking, and fresh counter takeaway. We do not do third-party home delivery to ensure our pizzas are always enjoyed fresh and molten.
-              </p>
-            </div>
-
-            <div className="bg-white p-5 rounded-2xl border border-[#1C1410]/10 shadow-xs">
-              <h4 className="font-bold text-sm text-[#1C1410]">Do you use 100% pure dairy mozzarella?</h4>
-              <p className="text-xs text-[#5C564B] mt-2 leading-relaxed">
-                Yes, 100%! We strictly use real dairy mozzarella cheese with zero palm oil blends and zero cheap analogues, giving you that golden, irresistible cheese pull in every single slice.
-              </p>
-            </div>
-
-            <div className="bg-white p-5 rounded-2xl border border-[#1C1410]/10 shadow-xs">
-              <h4 className="font-bold text-sm text-[#1C1410]">What are your cafe opening hours?</h4>
-              <p className="text-xs text-[#5C564B] mt-2 leading-relaxed">
-                We are open every day from 11:00 AM to 11:00 PM in Gohalpur Amkhera, Jabalpur. Hot stone-baked pizzas, freshly brewed cold coffee, and snacks are served all day without breaks.
-              </p>
-            </div>
-
-            <div className="bg-white p-5 rounded-2xl border border-[#1C1410]/10 shadow-xs">
-              <h4 className="font-bold text-sm text-[#1C1410]">What payment methods do you accept?</h4>
-              <p className="text-xs text-[#5C564B] mt-2 leading-relaxed">
-                We accept all UPI apps (Google Pay, PhonePe, Paytm, BHIM), debit/credit cards, and cash at our counter POS.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Visit & Reservation */}
+      {/* Visit / Find Your Way to 7 Bites Cafe */}
       <section className="cafe-visit-section" id="visit" aria-labelledby="visit-title">
         <div className="cafe-section-inner">
           <div className="cafe-visit-inner">
+            {/* Left Spacer so 3D storefront and red map pin show clearly */}
+            <div className="cafe-visit-spacer" aria-hidden="true" />
+
+            {/* Middle Copy */}
             <div className="cafe-visit-copy">
-              <p className="cafe-section-eyebrow">
-                <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
-                Come Say Hi
-              </p>
-              <h2 id="visit-title">
-                Find Your Way to <span>7 Bites Cafe.</span>
+              <div className="cafe-visit-eyebrow-wrap">
+                <div className="cafe-visit-eyebrow">
+                  <MapPin className="w-3.5 h-3.5 text-[#D82103]" aria-hidden="true" />
+                  <span>COME SAY HI</span>
+                </div>
+                {/* 3 Red Burst Rays */}
+                <svg
+                  className="cafe-visit-burst"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                >
+                  <line x1="6" y1="18" x2="2" y2="14" />
+                  <line x1="12" y1="17" x2="12" y2="10" />
+                  <line x1="18" y1="18" x2="22" y2="14" />
+                </svg>
+              </div>
+
+              <h2 className="cafe-visit-title" id="visit-title">
+                <span className="cafe-visit-title-brown">Find Your Way to </span>
+                <span className="cafe-visit-title-red">
+                  7 Bites Cafe.
+                  {/* Curved swoop underline */}
+                  <svg
+                    className="cafe-visit-swoop"
+                    viewBox="0 0 140 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#D82103" />
+                  </svg>
+                </span>
               </h2>
 
-              <div className="cafe-visit-detail">
-                <div className="cafe-visit-icon">
-                  <MapPin className="w-5 h-5" aria-hidden="true" />
+              <div className="cafe-visit-cards-stack">
+                <div className="cafe-visit-card">
+                  <div className="cafe-visit-icon-box is-coral">
+                    <MapPin className="w-5 h-5" aria-hidden="true" />
+                  </div>
+                  <div className="cafe-visit-card-text">
+                    <strong>Address</strong>
+                    <p>{cafeSite.address}</p>
+                  </div>
                 </div>
-                <div>
-                  <strong>Address</strong>
-                  <p>{cafeSite.address}</p>
+
+                <div className="cafe-visit-card">
+                  <div className="cafe-visit-icon-box is-amber">
+                    <Clock3 className="w-5 h-5" aria-hidden="true" />
+                  </div>
+                  <div className="cafe-visit-card-text">
+                    <strong>Opening Hours</strong>
+                    <p>
+                      <span>{cafeSite.hours}</span>
+                      <CafeOpenStatus />
+                    </p>
+                  </div>
+                </div>
+
+                <div className="cafe-visit-card">
+                  <div className="cafe-visit-icon-box is-coral">
+                    <Phone className="w-5 h-5" aria-hidden="true" />
+                  </div>
+                  <div className="cafe-visit-card-text">
+                    <strong>Direct Contact</strong>
+                    <p>Call: {cafeSite.phone} · WhatsApp: {cafeSite.phone}</p>
+                  </div>
                 </div>
               </div>
 
-              <div className="cafe-visit-detail">
-                <div className="cafe-visit-icon">
-                  <Clock3 className="w-5 h-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <strong>Opening Hours</strong>
-                  <p>
-                    {cafeSite.hours} <CafeOpenStatus />
-                  </p>
-                </div>
-              </div>
-
-              <div className="cafe-visit-detail">
-                <div className="cafe-visit-icon">
-                  <Phone className="w-5 h-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <strong>Direct Contact</strong>
-                  <p>Call: {cafeSite.phone} · WhatsApp: {cafeSite.phone}</p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-3 mt-6">
-                <Button asChild variant="pepperoni" size="sm" className="cafe-button">
+              <div className="cafe-visit-actions">
+                <Button asChild size="sm" className="cafe-visit-btn-maps">
                   <a href={cafeSite.googleMapsSearchUrl} target="_blank" rel="noreferrer">
-                    Get Google Maps Directions <ArrowUpRight className="w-4 h-4" />
+                    <span>Get Google Maps Directions</span>
+                    <ArrowUpRight className="w-4 h-4 ml-1" />
                   </a>
                 </Button>
-                <Button asChild variant="paper" size="sm" className="cafe-button">
+                <Button asChild size="sm" className="cafe-visit-btn-wa">
                   <a
                     href={`https://wa.me/${cafeSite.whatsapp.replace(/\D/g, "")}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <MessageCircle className="w-4 h-4 text-emerald-600" />
-                    Chat on WhatsApp
+                    <MessageCircle className="w-4 h-4 text-emerald-600 mr-1" />
+                    <span>Chat on WhatsApp</span>
                   </a>
                 </Button>
               </div>
             </div>
 
+            {/* Right Map Frame */}
             <div className="cafe-map-frame">
               <iframe
                 title="7 Bites Cafe location on Google Maps in Jabalpur"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://maps.google.com/maps?q=Gohalpur%20Amkhera%2C%20Jagriti%20Nagar%2C%20Jabalpur%2C%20Madhya%20Pradesh%20482001&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14668.618037302787!2d79.93282!3d23.19524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981aeb971fbe61d%3A0xb366b5675e243916!2sGohalpur%2C%20Jabalpur%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                allowFullScreen
               />
             </div>
           </div>
+        </div>
+      </section>
 
+      {/* Table Reservation Section */}
+      <section className="cafe-reserve-section" id="reserve" aria-labelledby="reserve-title">
+        <div className="cafe-section-inner">
           <ReservationForm selected={selected} />
         </div>
       </section>
