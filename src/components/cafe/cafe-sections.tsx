@@ -662,117 +662,245 @@ export function CafeSections() {
 
   return (
     <>
-      {/* Marquee & Quick Info Strip */}
-      <section className="cafe-marquee-section" aria-label="Cafe highlights and quick information">
+      {/* Marquee Ticker Strip */}
+      <section className="cafe-marquee-section" aria-label="Cafe highlights">
         <div className="cafe-ribbon-stack">
           <CafeRibbon>
             ARTISAN PIZZAS · GOLDEN CHEESE PULLS · COLD COFFEE · CRISPY BURGERS · STEAMED MOMOS · PASTA · FRESH DOUGH BAKED DAILY · EK BITE. PHIR SAAT ·
           </CafeRibbon>
         </div>
-
-        <div className="cafe-quick-info" id="quick-info">
-          <a
-            className="cafe-info-card"
-            href={cafeSite.googleMapsSearchUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="cafe-info-icon">
-              <MapPin className="w-5 h-5" aria-hidden="true" />
-            </div>
-            <div className="cafe-info-content">
-              <strong>Location</strong>
-              <span>
-                {cafeSite.city}, {cafeSite.region}
-              </span>
-            </div>
-          </a>
-
-          <div className="cafe-info-card">
-            <div className="cafe-info-icon">
-              <Clock3 className="w-5 h-5" aria-hidden="true" />
-            </div>
-            <div className="cafe-info-content">
-              <strong>
-                Daily Hours <CafeOpenStatus />
-              </strong>
-              <span>{cafeSite.hours}</span>
-            </div>
-          </div>
-
-          <div className="cafe-info-card">
-            <div className="cafe-info-icon">
-              <Coffee className="w-5 h-5" aria-hidden="true" />
-            </div>
-            <div className="cafe-info-content">
-              <strong>Dining Options</strong>
-              <span>Dine-In · Takeaway · Delivery</span>
-            </div>
-          </div>
-
-          <a className="cafe-info-card" href="#order">
-            <div className="cafe-info-icon">
-              <UtensilsCrossed className="w-5 h-5" aria-hidden="true" />
-            </div>
-            <div className="cafe-info-content">
-              <strong>Table Booking</strong>
-              <span>Reserve spot in 1 click</span>
-            </div>
-          </a>
-        </div>
       </section>
 
-      {/* Story Section ("Why 7 Bites?") */}
+      {/* 2nd Section: Why 7 Bites? (Our Story) */}
       <section className="cafe-story-section" id="story" aria-labelledby="story-title">
-        <div className="cafe-section-inner">
-          <div className="cafe-story-inner">
-            <div className="cafe-story-copy">
-              <p className="cafe-section-eyebrow">
-                <Heart className="w-3.5 h-3.5" aria-hidden="true" />
-                Our Story
-              </p>
-              <h2 id="story-title">
-                Why <span>7 Bites Cafe?</span>
-              </h2>
-              <p>
-                People often ask: <em>"Why the name 7 Bites?"</em> Because real culinary magic happens
-                in moments. The first bite excites the senses; the second brings the molten cheese pull;
-                and by the seventh bite, you're already planning your next visit.
-              </p>
-              <p>
-                Nestled in Gohalpur Amkhera, Jabalpur, 7 Bites Cafe was born from a simple passion: to serve
-                mouth-watering artisan pizzas with real mozzarella, handcrafted burgers, steaming
-                Himalayan momos, and thick iced cold coffees in an inviting, cheerful ambiance.
-              </p>
+        {/* Decorative corner dot grids */}
+        <div className="cafe-story-dot-grid cafe-dot-grid-tl" aria-hidden="true">
+          {Array.from({ length: 15 }).map((_, i) => (
+            <span key={i} className="cafe-dot" />
+          ))}
+        </div>
+        <div className="cafe-story-dot-grid cafe-dot-grid-br" aria-hidden="true">
+          {Array.from({ length: 15 }).map((_, i) => (
+            <span key={i} className="cafe-dot" />
+          ))}
+        </div>
 
-              <div className="cafe-story-stats">
-                {cafeSite.stats.map((stat) => (
-                  <div className="cafe-stat-card" key={stat.label}>
-                    <strong>{stat.value}</strong>
-                    <small>{stat.label}</small>
-                  </div>
-                ))}
+        {/* Decorative corner organic green waves */}
+        <div className="cafe-story-wave-bl" aria-hidden="true">
+          <svg viewBox="0 0 240 80" fill="none" className="w-full h-full">
+            <path d="M0 80 C 60 70, 120 40, 180 70 C 210 82, 230 86, 240 80 L0 80 Z" fill="rgba(190, 242, 100, 0.45)" />
+            <path d="M0 80 C 40 60, 90 30, 150 60 C 180 72, 210 78, 240 80 L0 80 Z" fill="rgba(163, 230, 53, 0.35)" />
+          </svg>
+        </div>
+        <div className="cafe-story-wave-br" aria-hidden="true">
+          <svg viewBox="0 0 240 80" fill="none" className="w-full h-full">
+            <path d="M240 80 C 180 70, 120 40, 60 70 C 30 82, 10 86, 0 80 L240 80 Z" fill="rgba(190, 242, 100, 0.45)" />
+            <path d="M240 80 C 200 60, 150 30, 90 60 C 60 72, 30 78, 0 80 L240 80 Z" fill="rgba(163, 230, 53, 0.35)" />
+          </svg>
+        </div>
+
+        <div className="cafe-story-layout">
+          <div className="cafe-story-copy">
+            {/* Eyebrow badge */}
+            <div className="cafe-story-eyebrow">
+              <span className="cafe-story-eyebrow-dot" aria-hidden="true" />
+              <span>Our Story</span>
+            </div>
+
+            {/* 3D Title: Why 7 Bites? */}
+            <h2 className="cafe-story-title" id="story-title">
+              <span className="cafe-story-title-why">
+                Why
+                {/* Accent burst marks above Why */}
+                <span className="cafe-story-burst" aria-hidden="true">
+                  <svg width="28" height="24" viewBox="0 0 28 24" fill="none">
+                    <path d="M4 18L1 13" stroke="#D82103" strokeWidth="2.8" strokeLinecap="round" />
+                    <path d="M14 11V2" stroke="#D82103" strokeWidth="2.8" strokeLinecap="round" />
+                    <path d="M24 18L27 13" stroke="#D82103" strokeWidth="2.8" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </span>
+              <span className="cafe-story-title-bites">
+                7 Bites?
+                {/* Curved swoop underline under 7 Bites? */}
+                <span className="cafe-story-swoop" aria-hidden="true">
+                  <svg viewBox="0 0 230 18" fill="none" className="w-full h-auto overflow-visible">
+                    <path d="M4 6 C 70 18, 150 18, 226 4" stroke="#D82103" strokeWidth="4.5" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </span>
+            </h2>
+
+            {/* Quote paragraph */}
+            <p className="cafe-story-quote">
+              “People often ask: <strong>“Why the name 7 Bites?”</strong> Because real culinary magic happens in moments. The first bite excites the senses; the second brings the molten cheese pull; and by the seventh bite, you're already planning your next visit.”
+            </p>
+
+            {/* Description with green bar */}
+            <div className="cafe-story-desc">
+              <p>
+                Nestled in Gohalpur Amkhera, Jabalpur, 7 Bites Cafe was born from a simple passion: to serve mouth-watering artisan pizzas with real mozzarella, handcrafted burgers, steaming Himalayan momos, and thick iced cold coffees in an inviting, cheerful ambiance.
+              </p>
+            </div>
+
+            {/* Stats Card */}
+            <div className="cafe-story-stats-card">
+              <div className="cafe-story-stat-item">
+                <span className="cafe-story-stat-icon" aria-hidden="true">🍕</span>
+                <div className="cafe-story-stat-text">
+                  <strong className="cafe-story-stat-val">250+</strong>
+                  <span className="cafe-story-stat-lbl">Pizzas baked daily</span>
+                </div>
+              </div>
+
+              <div className="cafe-story-stat-divider" aria-hidden="true" />
+
+              <div className="cafe-story-stat-item">
+                <span className="cafe-story-stat-icon text-[#DE2407]" aria-hidden="true">👥</span>
+                <div className="cafe-story-stat-text">
+                  <strong className="cafe-story-stat-val">15,000+</strong>
+                  <span className="cafe-story-stat-lbl">Happy foodies</span>
+                </div>
+              </div>
+
+              <div className="cafe-story-stat-divider" aria-hidden="true" />
+
+              <div className="cafe-story-stat-item">
+                <div className="cafe-story-stat-google" aria-hidden="true">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.27 21.43 7.35 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.27 2.57 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                  </svg>
+                </div>
+                <div className="cafe-story-stat-text">
+                  <strong className="cafe-story-stat-val flex items-center gap-1">
+                    4.8 <Star className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B] inline-block" />
+                  </strong>
+                  <span className="cafe-story-stat-lbl">Google Rating</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Feast Area with Floating Callouts & Doodle Arrows */}
+          <div className="cafe-story-feast-area" aria-label="7 Bites food feast highlights">
+            {/* Callout 1: 100% Real Cheese Pull */}
+            <div className="cafe-story-callout cafe-callout-cheesepull">
+              <span className="cafe-callout-burst" aria-hidden="true">
+                <svg width="22" height="18" viewBox="0 0 22 18" fill="none">
+                  <path d="M3 15L1 11" stroke="#D82103" strokeWidth="2.2" strokeLinecap="round" />
+                  <path d="M11 9V1" stroke="#D82103" strokeWidth="2.2" strokeLinecap="round" />
+                  <path d="M19 15L21 11" stroke="#D82103" strokeWidth="2.2" strokeLinecap="round" />
+                </svg>
+              </span>
+              <div className="cafe-callout-card">
+                <span className="cafe-callout-top">100% Real</span>
+                <span className="cafe-callout-bottom">Cheese Pull</span>
+              </div>
+              {/* Doodle curved arrow pointing down-right */}
+              <div className="cafe-callout-arrow cafe-arrow-down-right" aria-hidden="true">
+                <svg width="38" height="34" viewBox="0 0 38 34" fill="none">
+                  <path d="M6 4 C 10 18, 20 28, 32 28" stroke="#251610" strokeWidth="2.4" strokeLinecap="round" />
+                  <path d="M24 23 L 33 28 L 27 33" stroke="#251610" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
             </div>
 
-            <div className="cafe-story-collage">
-              <figure className="cafe-story-card">
-                <img src={pizzaSticker} alt="Cheesy pizza slice" loading="lazy" />
-                <figcaption>100% Real Cheese Pull</figcaption>
-              </figure>
-              <figure className="cafe-story-card">
-                <img src={coffeeSticker} alt="Thick cold coffee" loading="lazy" />
-                <figcaption>Signature Cold Brews</figcaption>
-              </figure>
-              <figure className="cafe-story-card">
-                <img src={burgerSticker} alt="Gourmet burger" loading="lazy" />
-                <figcaption>Crispy Handcrafted Burgers</figcaption>
-              </figure>
-              <figure className="cafe-story-card">
-                <img src={momosSticker} alt="Steamed momos" loading="lazy" />
-                <figcaption>Steamed Himalayan Momos</figcaption>
-              </figure>
+            {/* Callout 2: Signature Cold Brews */}
+            <div className="cafe-story-callout cafe-callout-coldbrew">
+              <div className="cafe-callout-card">
+                <span className="cafe-callout-top">Signature</span>
+                <span className="cafe-callout-bottom">Cold Brews</span>
+              </div>
+              {/* Doodle curved arrow pointing down-right */}
+              <div className="cafe-callout-arrow cafe-arrow-coldbrew" aria-hidden="true">
+                <svg width="34" height="36" viewBox="0 0 34 36" fill="none">
+                  <path d="M4 4 C 8 20, 18 30, 28 32" stroke="#251610" strokeWidth="2.4" strokeLinecap="round" />
+                  <path d="M20 28 L 29 32 L 25 36" stroke="#251610" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
             </div>
+
+            {/* Callout 3: Crispy Handcrafted Burgers */}
+            <div className="cafe-story-callout cafe-callout-burger">
+              <div className="cafe-callout-card">
+                <span className="cafe-callout-top">Crispy Handcrafted</span>
+                <span className="cafe-callout-bottom">Burgers</span>
+              </div>
+              {/* Doodle curved arrow pointing up-right */}
+              <div className="cafe-callout-arrow cafe-arrow-burger" aria-hidden="true">
+                <svg width="36" height="32" viewBox="0 0 36 32" fill="none">
+                  <path d="M4 26 C 14 24, 24 16, 30 6" stroke="#251610" strokeWidth="2.4" strokeLinecap="round" />
+                  <path d="M22 8 L 31 5 L 32 14" stroke="#251610" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Callout 4: Steamed Himalayan Momos */}
+            <div className="cafe-story-callout cafe-callout-momos">
+              <div className="cafe-callout-card">
+                <span className="cafe-callout-top">Steamed</span>
+                <span className="cafe-callout-bottom">Himalayan Momos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Info Strip */}
+      <section className="cafe-quickinfo-section" aria-label="Cafe quick information">
+        <div className="cafe-section-inner">
+          <div className="cafe-quick-info" id="quick-info">
+            <a
+              className="cafe-info-card"
+              href={cafeSite.googleMapsSearchUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="cafe-info-icon">
+                <MapPin className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <div className="cafe-info-content">
+                <strong>Location</strong>
+                <span>
+                  {cafeSite.city}, {cafeSite.region}
+                </span>
+              </div>
+            </a>
+
+            <div className="cafe-info-card">
+              <div className="cafe-info-icon">
+                <Clock3 className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <div className="cafe-info-content">
+                <strong>
+                  Daily Hours <CafeOpenStatus />
+                </strong>
+                <span>{cafeSite.hours}</span>
+              </div>
+            </div>
+
+            <div className="cafe-info-card">
+              <div className="cafe-info-icon">
+                <Coffee className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <div className="cafe-info-content">
+                <strong>Dining Options</strong>
+                <span>Dine-In · Takeaway · Delivery</span>
+              </div>
+            </div>
+
+            <a className="cafe-info-card" href="#order">
+              <div className="cafe-info-icon">
+                <UtensilsCrossed className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <div className="cafe-info-content">
+                <strong>Table Booking</strong>
+                <span>Reserve spot in 1 click</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
