@@ -2349,75 +2349,200 @@
 }
 
 /* =========================================================================
-   REVIEWS / TESTIMONIALS
+   REVIEWS / TESTIMONIALS (LOVED IN JABALPUR - WORDS FROM OUR FOODIES)
    ========================================================================= */
 .cafe-reviews-section {
-  padding: 100px 0;
-  background: var(--color-cream);
+  position: relative;
+  padding: 85px 0 95px;
+  background-image: url('/jabalpur-inspired-food-review-backdrop.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-block: 1px solid rgba(28, 20, 16, 0.08);
+  overflow: hidden;
 }
 
 .cafe-reviews-header {
+  text-align: center;
+  position: relative;
+  z-index: 2;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 48px;
-  gap: 24px;
-}
-
-.cafe-review-badge {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
-  padding: 14px 24px;
-  border-radius: 18px;
-  background: #FFFFFF;
-  border: 1px solid rgba(28, 20, 16, 0.08);
-  box-shadow: 0 4px 16px rgba(28, 20, 16, 0.04);
+  margin-bottom: 36px;
 }
 
-.cafe-review-badge strong {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--color-pepperoni);
+.cafe-reviews-eyebrow-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cafe-reviews-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(28, 20, 16, 0.08);
+  box-shadow: 0 4px 14px rgba(35, 15, 10, 0.06);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2E1308;
+}
+
+.cafe-reviews-green-heart {
+  font-size: 14px;
   line-height: 1;
 }
 
+.cafe-reviews-burst {
+  position: absolute;
+  top: -8px;
+  right: -18px;
+  width: 22px;
+  height: 22px;
+  color: #D82103;
+  filter: drop-shadow(0 2px 4px rgba(216, 33, 3, 0.2));
+}
+
+.cafe-reviews-title {
+  margin: 14px 0 8px;
+  font-family: 'Poppins', 'Outfit', sans-serif;
+  font-size: clamp(32px, 3.8vw, 54px);
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.cafe-reviews-title-brown {
+  color: #2E1308;
+  text-shadow:
+    0 1px 0 #240e05,
+    0 2px 0 #1b0a03,
+    0 3px 0 #130702,
+    0 4px 0 #0b0401,
+    0 6px 14px rgba(35, 12, 4, 0.35);
+}
+
+.cafe-reviews-title-red {
+  color: #D82103;
+  position: relative;
+  display: inline-block;
+  text-shadow:
+    0 1px 0 #b31a02,
+    0 2px 0 #941501,
+    0 3px 0 #761001,
+    0 4px 0 #580c01,
+    0 6px 14px rgba(180, 20, 0, 0.35);
+}
+
+.cafe-reviews-swoop {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 14px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(216, 33, 3, 0.25));
+}
+
+.cafe-reviews-subtitle {
+  margin: 0 auto;
+  max-width: 680px;
+  font-size: clamp(13.5px, 1.2vw, 15px);
+  color: #4A3B32;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Google Rating Bar with Hairline Dividers */
+.cafe-reviews-rating-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 620px;
+  margin: 20px auto 0;
+}
+
+.cafe-reviews-divider-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(22, 163, 74, 0.4), transparent);
+}
+
+.cafe-reviews-google-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(28, 20, 16, 0.08);
+  box-shadow: 0 4px 16px rgba(35, 15, 10, 0.06);
+  white-space: nowrap;
+}
+
+.cafe-reviews-google-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+}
+
+.cafe-reviews-score {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #1F150F;
+}
+
+.cafe-reviews-sublabel {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #6B7280;
+}
+
+/* 6 Review Cards (3x2 Grid) */
 .cafe-review-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .cafe-review-card {
-  padding: 28px;
+  padding: 22px 24px 20px;
   border-radius: 20px;
   background: #FFFFFF;
-  border: 1px solid rgba(28, 20, 16, 0.07);
-  box-shadow: 0 6px 20px rgba(28, 20, 16, 0.04);
+  border: 1px solid rgba(225, 215, 205, 0.75);
+  box-shadow: 0 4px 18px rgba(35, 15, 10, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
-  transition: all 200ms ease;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cafe-review-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(28, 20, 16, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(35, 15, 10, 0.1);
+  border-color: rgba(22, 163, 74, 0.3);
 }
 
-.cafe-stars {
+.cafe-review-card-top {
   display: flex;
-  gap: 3px;
-  color: #F59E0B;
-  margin-bottom: 14px;
-}
-
-.cafe-review-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #4A3E38;
-  margin: 0 0 20px;
-  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .cafe-reviewer {
@@ -2427,29 +2552,74 @@
 }
 
 .cafe-avatar {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(200, 59, 30, 0.12);
-  color: var(--color-pepperoni);
+  background: #044D22;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: 14px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 6px rgba(4, 77, 34, 0.3);
+  flex-shrink: 0;
 }
 
-.cafe-reviewer strong {
+.cafe-reviewer-meta strong {
   display: block;
-  font-size: 14px;
-  font-weight: 800;
-  color: var(--color-ink);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1F150F;
+  line-height: 1.25;
 }
 
-.cafe-reviewer small {
+.cafe-reviewer-meta small {
   display: block;
-  font-size: 12px;
-  color: #8C7D75;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #6B7280;
+  margin-top: 1px;
+}
+
+.cafe-stars {
+  display: flex;
+  gap: 3px;
+  color: #F59E0B;
+  margin-bottom: 10px;
+}
+
+.cafe-review-quote {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #374151;
+  font-weight: 450;
+  margin: 0;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .cafe-review-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cafe-review-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .cafe-reviews-rating-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .cafe-reviews-divider-line {
+    display: none;
+  }
 }
 
 /* =========================================================================

@@ -1027,43 +1027,103 @@ export function CafeSections() {
       <section className="cafe-reviews-section" id="reviews" aria-labelledby="reviews-title">
         <div className="cafe-section-inner">
           <div className="cafe-reviews-header">
-            <SectionHeading
-              eyebrow="Loved in Jabalpur"
-              title="Words from Our Foodies"
-              titleId="reviews-title"
-              note="Read what our guests have to say about our food, coffee, and cafe ambiance."
-            />
-            <div className="cafe-review-badge">
-              <strong>4.8</strong>
-              <div>
-                <div className="cafe-stars">
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                </div>
-                <small className="font-semibold text-gray-500">Based on 450+ Google Reviews</small>
+            {/* Eyebrow badge */}
+            <div className="cafe-reviews-eyebrow-wrap">
+              <div className="cafe-reviews-eyebrow">
+                <span className="cafe-reviews-green-heart">💚</span>
+                <span>Loved in Jabalpur</span>
               </div>
+              {/* 3 Red Burst Rays */}
+              <svg
+                className="cafe-reviews-burst"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <line x1="6" y1="18" x2="2" y2="14" />
+                <line x1="12" y1="17" x2="12" y2="10" />
+                <line x1="18" y1="18" x2="22" y2="14" />
+              </svg>
+            </div>
+
+            {/* 3D Headline */}
+            <h2 className="cafe-reviews-title" id="reviews-title">
+              <span className="cafe-reviews-title-brown">Words from Our </span>
+              <span className="cafe-reviews-title-red">
+                Foodies
+                {/* Curved swoop underline */}
+                <svg
+                  className="cafe-reviews-swoop"
+                  viewBox="0 0 140 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#D82103" />
+                </svg>
+              </span>
+            </h2>
+
+            {/* Subtitle */}
+            <p className="cafe-reviews-subtitle">
+              Read what our guests have to say about our food, coffee, and cafe ambiance.
+            </p>
+
+            {/* Google Rating Pill Flanked by Dividers */}
+            <div className="cafe-reviews-rating-bar" aria-label="4.8 Google rating from 450+ reviews">
+              <span className="cafe-reviews-divider-line" />
+              <div className="cafe-reviews-google-badge">
+                <svg className="w-7 h-7 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                </svg>
+                <div className="cafe-reviews-google-text">
+                  <div className="flex items-center gap-2">
+                    <strong className="cafe-reviews-score">4.8</strong>
+                    <div className="flex items-center gap-0.5 text-amber-400">
+                      <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    </div>
+                  </div>
+                  <span className="cafe-reviews-sublabel">Based on 450+ Google Reviews</span>
+                </div>
+              </div>
+              <span className="cafe-reviews-divider-line" />
             </div>
           </div>
 
+          {/* 6 Review Cards Grid */}
           <div className="cafe-review-grid">
             {customerReviews.map((rev) => (
               <article className="cafe-review-card" key={rev.name}>
+                <div className="cafe-review-card-top">
+                  <div className="cafe-reviewer">
+                    <div className="cafe-avatar">{rev.initials}</div>
+                    <div className="cafe-reviewer-meta">
+                      <strong>{rev.name}</strong>
+                      <small>{rev.role}</small>
+                    </div>
+                  </div>
+                  <svg className="w-6 h-6 text-[#16A34A] shrink-0 opacity-80" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
+
                 <div className="cafe-stars">
                   {Array.from({ length: rev.rating }, (_, i) => (
                     <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <p>"{rev.text}"</p>
-                <div className="cafe-reviewer">
-                  <div className="cafe-avatar">{rev.initials}</div>
-                  <div>
-                    <strong>{rev.name}</strong>
-                    <small>{rev.role}</small>
-                  </div>
-                </div>
+
+                <p className="cafe-review-quote">“{rev.text}”</p>
               </article>
             ))}
           </div>
