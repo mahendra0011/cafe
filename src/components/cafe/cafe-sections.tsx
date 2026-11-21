@@ -1616,56 +1616,68 @@ export function CafeSections() {
         </div>
       </section>
 
-      {/* Quick Info Strip */}
+      {/* Quick Info Ribbon */}
       <section className="cafe-quickinfo-section" aria-label="Cafe quick information">
         <div className="cafe-section-inner">
           <div className="cafe-quick-info" id="quick-info">
+            {/* Card 1: Location */}
             <a
-              className="cafe-info-card"
+              className="cafe-info-card group"
               href={cafeSite.googleMapsSearchUrl}
               target="_blank"
               rel="noreferrer"
+              title="Open Google Maps Directions"
             >
-              <div className="cafe-info-icon">
+              <div className="cafe-info-icon cafe-icon-red">
                 <MapPin className="w-5 h-5" aria-hidden="true" />
               </div>
               <div className="cafe-info-content">
-                <strong>Location</strong>
+                <span className="cafe-info-tag">CAFE LOCATION</span>
+                <strong>Gohalpur Amkhera</strong>
                 <span>
-                  {cafeSite.city}, {cafeSite.region}
+                  {cafeSite.city}, {cafeSite.region} · Directions ↗
                 </span>
               </div>
             </a>
 
+            {/* Card 2: Timings with Live Status */}
             <div className="cafe-info-card">
-              <div className="cafe-info-icon">
+              <div className="cafe-info-icon cafe-icon-amber">
                 <Clock3 className="w-5 h-5" aria-hidden="true" />
               </div>
               <div className="cafe-info-content">
-                <strong>
-                  Daily Hours <CafeOpenStatus />
-                </strong>
-                <span>{cafeSite.hours}</span>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="cafe-info-tag">DAILY HOURS</span>
+                  <CafeOpenStatus />
+                </div>
+                <strong>11:00 AM – 11:00 PM</strong>
+                <span>Serving Hot Everyday</span>
               </div>
             </div>
 
+            {/* Card 3: Dining Options */}
             <div className="cafe-info-card">
-              <div className="cafe-info-icon">
+              <div className="cafe-info-icon cafe-icon-coffee">
                 <Coffee className="w-5 h-5" aria-hidden="true" />
               </div>
               <div className="cafe-info-content">
-                <strong>Dining Options</strong>
-                <span>Dine-In · Takeaway · Delivery</span>
+                <span className="cafe-info-tag">DINING MODES</span>
+                <strong>Dine-In · Takeaway</strong>
+                <span>Stone Bakes · Zero Palm Oil</span>
               </div>
             </div>
 
-            <a className="cafe-info-card" href="#order">
-              <div className="cafe-info-icon">
+            {/* Card 4: Instant Table Booking Action */}
+            <a className="cafe-info-card cafe-card-action group" href="#reserve" title="Reserve a table at 7 Bites Cafe">
+              <div className="cafe-info-icon cafe-icon-badge">
                 <UtensilsCrossed className="w-5 h-5" aria-hidden="true" />
               </div>
               <div className="cafe-info-content">
-                <strong>Table Booking</strong>
-                <span>Reserve spot in 1 click</span>
+                <span className="cafe-info-tag text-[#D82103]">ZERO WAIT TIME</span>
+                <strong className="text-[#D82103]">Reserve a Table</strong>
+                <span className="font-bold text-[#D82103] flex items-center gap-1">
+                  Book in 1-Click <ArrowUpRight className="w-3.5 h-3.5 inline-block" />
+                </span>
               </div>
             </a>
           </div>
