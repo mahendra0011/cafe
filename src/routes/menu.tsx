@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useEffect, useMemo, useState } from "react";
 import {
+  ArrowRight,
   ArrowUpRight,
   Search,
   ShoppingBag,
@@ -13,13 +14,22 @@ import { CafeNav } from "@/components/cafe/cafe-nav";
 import { CafeFloatingActions } from "@/components/cafe/cafe-floating";
 import { CafeBackToTop } from "@/components/cafe/cafe-backtotop";
 import { MenuItemCard, formatPrice, itemPrice } from "@/components/cafe/menu-card";
+import { CartDrawer } from "@/components/cafe/cart-drawer";
 import { Button } from "@/components/ui/button";
 import { cafeSite, type MenuItem } from "@/config/site";
+import { formatRupees, toPaise } from "@/lib/money";
+import { calculateOrderPrice } from "@/lib/pricing-service";
+import {
+  addToCart,
+  getAppliedCoupon,
+  getCartItems,
+  getSelectedOrderType,
+  subscribeToStore,
+} from "@/lib/order-store";
 import menuData from "@/data/menu.json";
 
 type DietFilter = "all" | "veg" | "non-veg";
 type MenuSize = NonNullable<MenuItem["sizes"]>[number]["label"];
-type OrderPick = { key: string; item: MenuItem; size?: MenuSize | undefined };
 type TabKey = "Pizza" | "Burgers" | "Pasta" | "Snacks" | "Beverages" | "Desserts" | "All";
 
 const items = menuData as MenuItem[];
@@ -49,20 +59,43 @@ export const Route = createFileRoute("/menu")({
 });
 
 function MenuPage() {
+  const navigate = useNavigate();
   const [category, setCategory] = useState<TabKey>("Pizza");
   const [diet, setDiet] = useState<DietFilter>("all");
   const [query, setQuery] = useState("");
   const [bestsellers, setBestsellers] = useState(false);
-  const [selected, setSelected] = useState<OrderPick[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const addItem = (item: MenuItem, size?: MenuSize) =>
-    setSelected((current) => [
-      ...current,
-      { key: `${item.id}-${Date.now()}-${current.length}`, item, size },
-    ]);
+  // Synchronize reactively with global application order-store
+  const [, setTick] = useState(0);
+  useEffect(() => {
+    return subscribeToStore(() => setTick((t) => t + 1));
+  }, []);
 
-  const removeItem = (key: string) =>
-    setSelected((current) => current.filter((pick) => pick.key !== key));
+  const cartItems = getCartItems();
+  const orderType = getSelectedOrderType();
+  const appliedCoupon = getAppliedCoupon();
+
+  const pricing = calculateOrderPrice({
+    items: cartItems,
+    orderType,
+    couponCode: appliedCoupon,
+  });
+
+  const addItem = (item: MenuItem, size?: MenuSize) => {
+    const unitPrice = itemPrice(item, size);
+    const unitPricePaise = toPaise(unitPrice);
+
+    // Add to central application cart store immediately
+    addToCart({
+      itemId: item.id,
+      name: item.name,
+      foodType: (item.diet === "non-veg" ? "non-veg" : item.diet === "egg" ? "egg" : "veg") as "veg" | "non-veg" | "egg",
+      unitPrice: unitPricePaise,
+      qty: 1,
+      size: size,
+    });
+  };
 
   const filtered = useMemo(
     () =>
@@ -99,14 +132,9 @@ function MenuPage() {
     [category, diet, query, bestsellers],
   );
 
-  const totalAmount = useMemo(
-    () => selected.reduce((sum, { item, size }) => sum + itemPrice(item, size), 0),
-    [selected],
-  );
-
   return (
     <main className="cafe-home min-h-screen pb-20">
-      <CafeNav />
+      <CafeNav onOpenCart={() => setIsCartOpen(true)} />
 
       {/* 7 Bites Menu Page Hero Banner */}
       <section className="cafe-menu-hero-banner" aria-labelledby="menu-hero-title">
@@ -248,57 +276,82 @@ function MenuPage() {
             </div>
           )}
         </div>
+      </section>
 
-        {/* Sticky Order Tray */}
-        {selected.length ? (
-          <div className="cafe-order-tray" aria-live="polite">
-            <div className="cafe-tray-info">
-              <div className="cafe-tray-icon">
-                <ShoppingBag className="w-5 h-5" aria-hidden="true" />
+      {/* Viewport-Fixed Floating Bottom Cart Bar */}
+      {cartItems.length > 0 && (
+        <aside
+          className="fixed bottom-5 left-4 right-4 max-w-xl mx-auto z-40 animate-in fade-in slide-in-from-bottom-4 duration-300 pointer-events-auto"
+          aria-label="Current Cart Order Bar"
+        >
+          <div className="bg-[#1C1410] text-white p-3 md:p-3.5 rounded-2xl shadow-2xl border-2 border-[#FAF7F2]/40 flex items-center justify-between gap-3 backdrop-blur-md">
+            {/* Left: Cart Count Badge & Total Price */}
+            <button
+              type="button"
+              className="flex items-center gap-3 cursor-pointer select-none text-left flex-1 min-w-0 group"
+              onClick={() => setIsCartOpen(true)}
+              aria-label="Open Cart Drawer"
+            >
+              <div className="w-10 h-10 rounded-xl bg-[#C83B1E] group-hover:bg-[#D8381D] flex items-center justify-center font-black text-sm text-white shrink-0 shadow-md shadow-[#C83B1E]/40 transition">
+                {pricing.itemCount}
               </div>
-              <div className="cafe-tray-text">
-                <strong>
-                  {selected.length} items selected ({formatPrice(totalAmount)})
-                </strong>
-                <span>
-                  {selected
-                    .map(({ item, size }) => `${item.name}${size ? ` (${size})` : ""}`)
-                    .join(", ")}
-                </span>
+              <div className="min-w-0 leading-tight">
+                <div className="text-[11px] text-[#FAF7F2]/80 uppercase tracking-wider font-bold truncate">
+                  {orderType === "DINE_IN"
+                    ? "Table Dine-In"
+                    : orderType === "PICKUP"
+                      ? "Counter Takeaway"
+                      : "Delivery"} • {pricing.itemCount} {pricing.itemCount === 1 ? "item" : "items"}
+                </div>
+                <div className="font-mono font-black text-lg text-[#F59E0B]">
+                  {formatRupees(pricing.total)}
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <Button asChild variant="pepperoni" size="sm" className="cafe-button">
-                <a
-                  href={`https://wa.me/${cafeSite.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(
-                    `*Order Enquiry from 7 Bites Cafe Menu*\n\nItems:\n• ` +
-                      selected
-                        .map(
-                          ({ item, size }) =>
-                            `${item.name}${size ? ` (${size})` : ""} - ${formatPrice(itemPrice(item, size))}`,
-                        )
-                        .join("\n• ") +
-                      `\n\nTotal: ${formatPrice(totalAmount)}`,
-                  )}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <UtensilsCrossed className="w-4 h-4 mr-1.5" />
-                  Order on WhatsApp ({formatPrice(totalAmount)}) <ArrowUpRight className="w-4 h-4" />
-                </a>
-              </Button>
+            </button>
+
+            {/* Right: Actions */}
+            <div className="flex items-center gap-2 shrink-0">
+              <a
+                href={`https://wa.me/${cafeSite.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(
+                  `*Order from 7 Bites Cafe Menu*\n\nItems:\n• ` +
+                    cartItems
+                      .map(
+                        (c) =>
+                          `${c.name}${c.size ? ` (${c.size})` : ""} x${c.qty} - ${formatRupees(c.unitPrice * c.qty)}`,
+                      )
+                      .join("\n• ") +
+                    `\n\nTotal: ${formatRupees(pricing.total)}`,
+                )}`}
+                target="_blank"
+                rel="noreferrer"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold transition shadow-xs"
+                title="Order via WhatsApp"
+              >
+                <UtensilsCrossed className="w-3.5 h-3.5" />
+                <span>WhatsApp</span>
+              </a>
+
               <button
                 type="button"
-                className="p-2 rounded-full hover:bg-black/5 text-gray-500 hover:text-black"
-                aria-label="Clear selected items"
-                onClick={() => selected.forEach(({ key }) => removeItem(key))}
+                onClick={() => setIsCartOpen(true)}
+                className="px-4 py-2.5 rounded-xl bg-[#C83B1E] hover:bg-[#D8381D] text-white text-xs md:text-sm font-black transition flex items-center gap-1.5 shadow-md shadow-[#C83B1E]/30 active:scale-95 cursor-pointer"
               >
-                <X className="w-4 h-4" />
+                <span>View Cart</span>
+                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
               </button>
             </div>
           </div>
-        ) : null}
-      </section>
+        </aside>
+      )}
+
+      {/* Cart & Checkout Drawer */}
+      <CartDrawer
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        onOrderPlaced={(publicId) => {
+          navigate({ to: "/order/$publicId", params: { publicId } });
+        }}
+      />
 
       {/* Quick Footer Links */}
       <footer className="cafe-footer mt-28">

@@ -1,10 +1,11 @@
 import { useEffect, useState, type CSSProperties } from "react";
-import { ArrowUpRight, Calendar, Menu, Phone, User, X } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { ArrowUpRight, Calendar, Menu, Phone, ShoppingBag, User, X } from "lucide-react";
+import { Link, useNavigate } from "@tanstack/react-router";
 
 import { Button } from "@/components/ui/button";
 import { cafeSite } from "@/config/site";
 import { getAuthSession, subscribeToAuth } from "@/lib/auth-store";
+import { getCartItems, subscribeToStore } from "@/lib/order-store";
 
 export const navLinks = [
   { label: "Home", href: "/" },
@@ -17,13 +18,25 @@ export const navLinks = [
   { label: "Contact Us", href: "/#visit" },
 ];
 
-export function CafeNav() {
+export function CafeNav({ onOpenCart }: { onOpenCart?: () => void } = {}) {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [compact, setCompact] = useState(false);
   const [session, setSession] = useState(() => getAuthSession());
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     return subscribeToAuth(() => setSession(getAuthSession()));
+  }, []);
+
+  useEffect(() => {
+    const updateCart = () => {
+      const items = getCartItems();
+      const count = items.reduce((sum, item) => sum + item.qty, 0);
+      setCartCount(count);
+    };
+    updateCart();
+    return subscribeToStore(updateCart);
   }, []);
 
   useEffect(() => {
@@ -107,14 +120,47 @@ export function CafeNav() {
             </span>
           </Link>
 
-          {/* Table Reservation CTA Button */}
-          <Button asChild variant="pepperoni" size="sm" className="cafe-nav-order">
-            <a href="/#reserve">
-              <Calendar className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-              <span className="cafe-nav-order-label">Book Table</span>
-              <ArrowUpRight className="cafe-nav-order-arrow shrink-0" aria-hidden="true" />
-            </a>
-          </Button>
+          {/* My Order Button with real-time Cart Count */}
+          <button
+            type="button"
+            onClick={() => {
+              if (onOpenCart) {
+                onOpenCart();
+              } else {
+                navigate({ to: "/order" });
+              }
+            }}
+            className="cafe-nav-order cursor-pointer"
+            title="View My Order / Cart"
+            aria-label={`My Order with ${cartCount} items`}
+          >
+            <ShoppingBag className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+            <span className="cafe-nav-order-label">My Order ({cartCount})</span>
+            {cartCount > 0 && (
+              <span className="w-2 h-2 rounded-full bg-amber-300 animate-ping" />
+            )}
+          </button>
+
+          {/* Mobile Cart Quick Button */}
+          <button
+            type="button"
+            onClick={() => {
+              if (onOpenCart) {
+                onOpenCart();
+              } else {
+                navigate({ to: "/order" });
+              }
+            }}
+            className="md:hidden relative p-2 rounded-xl text-[#1C1410] hover:bg-black/5"
+            aria-label={`Cart with ${cartCount} items`}
+          >
+            <ShoppingBag className="w-5 h-5" />
+            {cartCount > 0 && (
+              <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#C83B1E] text-white text-[10px] font-bold flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
+          </button>
 
           {/* Mobile Menu Trigger */}
           <Button
@@ -208,6 +254,26 @@ export function CafeNav() {
             </span>
             <ArrowUpRight className="w-4 h-4 text-[#8A8375]" />
           </Link>
+
+          {/* My Order in Mobile Menu */}
+          <button
+            type="button"
+            onClick={() => {
+              closeMenu();
+              if (onOpenCart) onOpenCart();
+              else navigate({ to: "/order" });
+            }}
+            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-[#C83B1E] hover:bg-[#B33419] text-white shadow-md font-bold text-sm mb-3 cursor-pointer transition"
+            tabIndex={menuOpen ? 0 : -1}
+          >
+            <span className="flex items-center gap-2">
+              <ShoppingBag className="w-4 h-4" />
+              <span>View My Order</span>
+            </span>
+            <span className="bg-white/20 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold">
+              {cartCount} {cartCount === 1 ? "item" : "items"}
+            </span>
+          </button>
 
           <a
             className="cafe-mobile-order"

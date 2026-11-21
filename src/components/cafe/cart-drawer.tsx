@@ -10,6 +10,7 @@ import {
   ShoppingBag,
   Trash2,
   User,
+  UtensilsCrossed,
   X,
   CheckCircle2,
 } from "lucide-react";
