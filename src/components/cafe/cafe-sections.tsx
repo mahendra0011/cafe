@@ -28,6 +28,8 @@ import {
   ShoppingBag,
   Sparkles,
   Star,
+  User,
+  Users,
   UtensilsCrossed,
   Wheat,
   X,
@@ -789,16 +791,31 @@ function ReservationForm({ selected }: { selected: OrderPick[] }) {
   const [requestSummary, setRequestSummary] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [whatsappLink, setWhatsappLink] = useState("");
+  const [occasion, setOccasion] = useState<string>("");
+  const [guestCount, setGuestCount] = useState<string>("2");
+  const [noteValue, setNoteValue] = useState<string>("");
+
+  const todayStr = useMemo(() => new Date().toISOString().split("T")[0], []);
+
+  const handleOccasionClick = (occ: string) => {
+    if (occasion === occ) {
+      setOccasion("");
+    } else {
+      setOccasion(occ);
+    }
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const name = data.get("name")?.toString() || "";
-    const phone = data.get("phone")?.toString() || "";
-    const date = data.get("date")?.toString() || "";
+    const name = data.get("name")?.toString().trim() || "";
+    const phone = data.get("phone")?.toString().trim() || "";
+    const date = data.get("date")?.toString() || todayStr;
     const time = data.get("time")?.toString() || "";
-    const guests = data.get("guests")?.toString() || "2";
-    const note = data.get("note")?.toString() || "—";
+    const guests = guestCount || data.get("guests")?.toString() || "2";
+    const note = noteValue.trim() || data.get("note")?.toString().trim() || "—";
+    const fullNote = occasion ? `${occasion} ${note !== "—" ? `· ${note}` : ""}` : note;
+
     const itemsList = selected.length
       ? selected
           .map(
@@ -806,16 +823,18 @@ function ReservationForm({ selected }: { selected: OrderPick[] }) {
               `${item.name}${size ? ` (${size})` : ""} - ${formatPrice(itemPrice(item, size))}`,
           )
           .join("\n• ")
-      : "No items pre-selected";
+      : "No items pre-selected (Ordering fresh at cafe)";
 
-    const text = `*New Table Booking / Order Enquiry - 7 Bites Cafe*\n\n` +
-      `*Name:* ${name}\n` +
-      `*Phone:* ${phone}\n` +
-      `*Date:* ${date}\n` +
-      `*Time:* ${time}\n` +
-      `*Guests:* ${guests}\n` +
-      `*Note:* ${note}\n\n` +
-      `*Pre-selected Dishes:*\n• ${itemsList}`;
+    const text =
+      `*New Table Reservation & Enquiry - 7 Bites Cafe*\n\n` +
+      `👤 *Name:* ${name}\n` +
+      `📞 *Phone:* ${phone}\n` +
+      `📅 *Date of Visit:* ${date}\n` +
+      `⏰ *Time:* ${time}\n` +
+      `👥 *Number of Guests:* ${guests}\n` +
+      `✨ *Occasion / Special Request:* ${fullNote}\n\n` +
+      `🍕 *Pre-selected Dishes:*\n• ${itemsList}\n\n` +
+      `_Sent via 7 Bites Cafe Website Reservation_`;
 
     const encoded = encodeURIComponent(text);
     const waUrl = `https://wa.me/${cafeSite.whatsapp.replace(/\D/g, "")}?text=${encoded}`;
@@ -826,96 +845,346 @@ function ReservationForm({ selected }: { selected: OrderPick[] }) {
   };
 
   return (
-    <div className="cafe-reservation" id="reserve">
+    <div className="cafe-reservation-container" id="reserve">
       <span id="order" className="sr-only" aria-hidden="true" />
-      <div className="cafe-reservation-heading">
-        <p className="cafe-section-eyebrow">
-          <UtensilsCrossed className="w-3.5 h-3.5" aria-hidden="true" />
-          Planning a Visit?
-        </p>
-        <h3>Reserve a Table or Pre-Order</h3>
-        <p>
-          Fill your visit details below. You can also send this enquiry directly to our WhatsApp
-          for instant confirmation!
+
+      {/* Section Header */}
+      <div className="cafe-reserve-header text-center max-w-3xl mx-auto mb-10">
+        <div className="cafe-reserve-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 border border-[#1C1410]/10 shadow-xs backdrop-blur-md mb-3 text-xs font-extrabold text-[#1C1410] uppercase tracking-wider">
+          <UtensilsCrossed className="w-3.5 h-3.5 text-[#D82103]" aria-hidden="true" />
+          <span>Planning a Visit?</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ml-0.5" />
+        </div>
+
+        <h2 className="cafe-reserve-title">
+          <span className="cafe-reserve-title-dark">Reserve a Table</span>{" "}
+          <span className="cafe-reserve-title-red">
+            or Pre-Order
+            {/* Curved swoosh accent */}
+            <svg
+              className="cafe-reserve-swoop"
+              viewBox="0 0 240 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path d="M4 12C70 4 170 4 236 10C190 14 80 15 4 12Z" fill="#D82103" />
+            </svg>
+          </span>
+        </h2>
+
+        <p className="cafe-reserve-subtitle text-sm md:text-base text-[#5C564B] font-medium mt-2 max-w-xl mx-auto">
+          Fill your visit details below. You can also send this enquiry directly to our WhatsApp for instant confirmation!
         </p>
       </div>
 
-      <form className="cafe-reservation-form" onSubmit={handleSubmit}>
-        <label>
-          Full Name
-          <input name="name" autoComplete="name" placeholder="e.g. Rahul Sharma" required />
-        </label>
-        <label>
-          Phone Number
-          <input
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            placeholder="e.g. 98765 43210"
-            required
-          />
-        </label>
-        <label>
-          Date of Visit
-          <input name="date" type="date" required />
-        </label>
-        <label>
-          Time
-          <input name="time" type="time" required />
-        </label>
-        <label>
-          Number of Guests
-          <input name="guests" type="number" min="1" max="50" defaultValue="2" required />
-        </label>
-        <label className="cafe-reservation-note">
-          Special Requests / Note (Optional)
-          <input name="note" placeholder="e.g. Birthday decoration, window seat, extra cheese..." />
-        </label>
-
-        {selected.length ? (
-          <div className="col-span-full p-4 rounded-xl bg-white border border-amber-900/10 text-sm">
-            <span className="font-bold text-gray-900">Pre-selected Dishes ({selected.length}): </span>
-            <span className="text-gray-600">
-              {selected.map(({ item, size }) => `${item.name}${size ? ` (${size})` : ""}`).join(", ")}
-            </span>
+      {/* Main 2-Column Content Layout */}
+      <div className="cafe-reserve-layout-grid">
+        {/* Left Column: Interactive Form Card */}
+        <div className="cafe-reserve-form-card">
+          <div className="cafe-reserve-form-top">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-[#D82103]/10 flex items-center justify-center text-[#D82103] shadow-xs">
+                <Calendar className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-extrabold text-base md:text-lg text-[#1C1410] leading-tight">
+                  Table Reservation Form
+                </h3>
+                <p className="text-xs text-[#7A7265]">
+                  Instant table booking with priority kitchen queue
+                </p>
+              </div>
+            </div>
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Free Reservation</span>
+            </div>
           </div>
-        ) : null}
 
-        <div className="cafe-reservation-submit flex flex-wrap gap-3 items-center">
-          <Button type="submit" variant="pepperoni" size="lg" className="cafe-button">
-            Confirm & Generate WhatsApp Enquiry <ArrowUpRight className="w-4 h-4" />
-          </Button>
-        </div>
-      </form>
+          <form className="cafe-reserve-form-body mt-6 space-y-4" onSubmit={handleSubmit}>
+            {/* Row 1: Name and Phone */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label className="cafe-input-group">
+                <span className="cafe-input-label">Full Name</span>
+                <div className="cafe-input-wrap">
+                  <User className="cafe-input-icon" />
+                  <input
+                    name="name"
+                    autoComplete="name"
+                    placeholder="e.g. Rahul Sharma"
+                    required
+                    className="cafe-field"
+                  />
+                </div>
+              </label>
 
-      {submitted ? (
-        <div className="cafe-form-result" role="status">
-          <Check className="w-5 h-5 text-emerald-600" aria-hidden="true" />
-          <div className="flex-1">
-            <strong className="text-emerald-800 text-base">Booking Enquiry Prepared!</strong>
-            <p className="text-sm text-gray-700 mt-1">
-              Click below to send your reservation directly to 7 Bites Cafe on WhatsApp:
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <Button asChild variant="pepperoni" size="sm" className="cafe-button">
-                <a href={whatsappLink} target="_blank" rel="noreferrer">
-                  <MessageCircle className="w-4 h-4 mr-1.5" />
-                  Send to WhatsApp Now
-                </a>
+              <label className="cafe-input-group">
+                <span className="cafe-input-label">Phone Number</span>
+                <div className="cafe-input-wrap">
+                  <Phone className="cafe-input-icon" />
+                  <input
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    placeholder="e.g. 98765 43210"
+                    required
+                    className="cafe-field"
+                  />
+                </div>
+              </label>
+            </div>
+
+            {/* Row 2: Date and Time */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label className="cafe-input-group">
+                <span className="cafe-input-label">Date of Visit</span>
+                <div className="cafe-input-wrap">
+                  <Calendar className="cafe-input-icon" />
+                  <input
+                    name="date"
+                    type="date"
+                    min={todayStr}
+                    defaultValue={todayStr}
+                    required
+                    className="cafe-field"
+                  />
+                </div>
+              </label>
+
+              <label className="cafe-input-group">
+                <span className="cafe-input-label">Time</span>
+                <div className="cafe-input-wrap">
+                  <Clock className="cafe-input-icon" />
+                  <input
+                    name="time"
+                    type="time"
+                    defaultValue="19:30"
+                    required
+                    className="cafe-field"
+                  />
+                </div>
+              </label>
+            </div>
+
+            {/* Row 3: Number of Guests */}
+            <div className="cafe-input-group">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="cafe-input-label">Number of Guests</span>
+                <span className="text-xs font-bold text-[#D82103]">{guestCount} Guests Selected</span>
+              </div>
+              <div className="grid grid-cols-4 gap-2">
+                {["2", "4", "6", "8+"].map((g) => (
+                  <button
+                    key={g}
+                    type="button"
+                    onClick={() => setGuestCount(g)}
+                    className={`py-2 px-3 rounded-xl text-xs font-bold border transition cursor-pointer ${
+                      guestCount === g
+                        ? "bg-[#1C1410] text-white border-[#1C1410] shadow-xs"
+                        : "bg-white text-[#5C564B] border-[#1C1410]/15 hover:border-[#1C1410]/35 hover:bg-[#FAF7F2]"
+                    }`}
+                  >
+                    {g} Guests
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Quick Occasion Pills */}
+            <div className="cafe-input-group">
+              <span className="cafe-input-label mb-1.5 block">Occasion (Optional)</span>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { id: "🎂 Birthday Celebration", label: "🎂 Birthday Party" },
+                  { id: "❤️ Date / Anniversary", label: "❤️ Date / Anniversary" },
+                  { id: "🍕 Casual Foodie Hangout", label: "🍕 Casual Hangout" },
+                  { id: "💼 Work & Coffee", label: "💼 Work & Coffee" },
+                ].map((occ) => {
+                  const isSelected = occasion === occ.id;
+                  return (
+                    <button
+                      key={occ.id}
+                      type="button"
+                      onClick={() => handleOccasionClick(occ.id)}
+                      className={`text-xs font-bold px-3 py-1.5 rounded-xl border transition cursor-pointer flex items-center gap-1.5 ${
+                        isSelected
+                          ? "bg-[#D82103] text-white border-[#D82103] shadow-xs"
+                          : "bg-white text-[#5C564B] border-[#1C1410]/15 hover:border-[#1C1410]/35 hover:bg-[#FAF7F2]"
+                      }`}
+                    >
+                      <span>{occ.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Row 4: Special Requests / Note */}
+            <label className="cafe-input-group">
+              <span className="cafe-input-label">Special Requests / Note (Optional)</span>
+              <div className="cafe-input-wrap">
+                <Sparkles className="cafe-input-icon" />
+                <input
+                  name="note"
+                  value={noteValue}
+                  onChange={(e) => setNoteValue(e.target.value)}
+                  placeholder="e.g. Birthday decoration, window seat, extra cheese..."
+                  className="cafe-field"
+                />
+              </div>
+            </label>
+
+            {/* Pre-selected dishes if any */}
+            {selected.length ? (
+              <div className="p-3.5 rounded-2xl bg-amber-50/90 border border-amber-200/80 text-xs flex items-start gap-2.5">
+                <UtensilsCrossed className="w-4 h-4 text-[#D82103] shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-bold text-[#1C1410]">
+                    Pre-selected Menu Dishes ({selected.length}):
+                  </span>
+                  <p className="text-[#6B5E57] mt-0.5 leading-relaxed">
+                    {selected
+                      .map(({ item, size }) => `${item.name}${size ? ` (${size})` : ""}`)
+                      .join(", ")}
+                  </p>
+                </div>
+              </div>
+            ) : null}
+
+            {/* Submit Button */}
+            <div className="pt-2">
+              <Button
+                type="submit"
+                variant="pepperoni"
+                size="lg"
+                className="cafe-reserve-submit-btn w-full py-4 text-sm md:text-base font-extrabold rounded-2xl shadow-xl flex items-center justify-center gap-2 group cursor-pointer"
+              >
+                <span>Confirm & Generate WhatsApp Enquiry</span>
+                <ArrowUpRight className="w-4 h-4 stroke-[2.5] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Button>
             </div>
-            <pre className="mt-3">{requestSummary}</pre>
-          </div>
-          <button
-            type="button"
-            className="p-1 hover:bg-black/5 rounded"
-            aria-label="Dismiss summary"
-            onClick={() => setSubmitted(false)}
-          >
-            <X className="w-4 h-4 text-gray-500" />
-          </button>
+          </form>
+
+          {/* Submission Result / WhatsApp Trigger */}
+          {submitted && (
+            <div className="cafe-reserve-result animate-in fade-in zoom-in-95 duration-200 mt-5 p-4 rounded-2xl bg-emerald-50 border border-emerald-300">
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-sm text-emerald-900">
+                      Booking Enquiry Prepared! 🎉
+                    </h4>
+                    <p className="text-xs text-emerald-800 mt-0.5">
+                      Click below to send your reservation directly to 7 Bites Cafe on WhatsApp for instant confirmation:
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSubmitted(false)}
+                  className="p-1 rounded-md text-emerald-700 hover:bg-emerald-100 cursor-pointer"
+                  aria-label="Dismiss"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="mt-3 flex items-center gap-2.5">
+                <Button asChild variant="pepperoni" size="sm" className="bg-[#25D366] hover:bg-[#20BD5A] text-white border-0 shadow-md">
+                  <a href={whatsappLink} target="_blank" rel="noreferrer">
+                    <MessageCircle className="w-4 h-4 mr-1.5" />
+                    Send to WhatsApp Now (+91 98765 43210)
+                  </a>
+                </Button>
+              </div>
+
+              <pre className="mt-3 p-3 rounded-xl bg-white/90 border border-emerald-200 text-[11px] font-mono text-[#1C1410] whitespace-pre-wrap leading-relaxed">
+                {requestSummary}
+              </pre>
+            </div>
+          )}
         </div>
-      ) : null}
+
+        {/* Right Column: Perks & Experience Highlights */}
+        <div className="cafe-reserve-perks-card">
+          <div className="cafe-reserve-perks-header">
+            <span className="text-xs font-extrabold text-[#D82103] uppercase tracking-wider">
+              The 7 Bites Dine-In Experience
+            </span>
+            <h3 className="font-extrabold text-xl text-[#1C1410] mt-1 leading-snug">
+              Why Reserve in Advance?
+            </h3>
+            <p className="text-xs text-[#6B5E57] mt-1.5 leading-relaxed">
+              We prepare each pizza fresh from stone-oven scratch. Booking in advance guarantees zero wait time and your preferred table.
+            </p>
+          </div>
+
+          <div className="space-y-3 mt-5">
+            <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/90 border border-[#1C1410]/8 shadow-2xs hover:border-[#D82103]/20 transition">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center shrink-0 font-bold text-lg">
+                🍕
+              </div>
+              <div>
+                <h4 className="font-bold text-sm text-[#1C1410]">Stone-Oven Fresh Bakes</h4>
+                <p className="text-xs text-[#6B5E57] mt-0.5 leading-relaxed">
+                  100% real dairy mozzarella with zero analogues. Hot molten cheese crust served straight to your table.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/90 border border-[#1C1410]/8 shadow-2xs hover:border-[#D82103]/20 transition">
+              <div className="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-700 flex items-center justify-center shrink-0 font-bold text-lg">
+                🎂
+              </div>
+              <div>
+                <h4 className="font-bold text-sm text-[#1C1410]">Celebration & Birthday Setups</h4>
+                <p className="text-xs text-[#6B5E57] mt-0.5 leading-relaxed">
+                  Hosting friends or family? Mention your birthday or anniversary for reserved corner booth setup.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/90 border border-[#1C1410]/8 shadow-2xs hover:border-[#D82103]/20 transition">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-lg">
+                ⚡
+              </div>
+              <div>
+                <h4 className="font-bold text-sm text-[#1C1410]">Instant WhatsApp Confirmation</h4>
+                <p className="text-xs text-[#6B5E57] mt-0.5 leading-relaxed">
+                  Our team confirms within minutes on WhatsApp so your table is locked before you arrive.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Direct Contacts */}
+          <div className="mt-6 pt-5 border-t border-[#1C1410]/10">
+            <div className="text-[11px] font-bold text-[#8A8375] uppercase tracking-wider mb-2.5">
+              Need immediate table assistance?
+            </div>
+            <div className="flex flex-wrap gap-2.5">
+              <a
+                href={`tel:${cafeSite.phone}`}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white border border-[#1C1410]/12 text-xs font-bold text-[#1C1410] hover:border-[#D82103] transition shadow-2xs"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#D82103]" />
+                <span>Call {cafeSite.phone}</span>
+              </a>
+              <a
+                href={`https://wa.me/${cafeSite.whatsapp.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 text-xs font-bold text-[#15803d] hover:bg-[#25D366] hover:text-white transition shadow-2xs"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
