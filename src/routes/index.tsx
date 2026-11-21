@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { ArrowDownRight, ArrowUpRight, Sparkles, Star } from "lucide-react";
-import pizzaSticker from "@/assets/7-bites-pizza-sticker.png";
+import { useEffect } from "react";
+import { ArrowUpRight, Calendar, ChevronRight, Star, UtensilsCrossed } from "lucide-react";
 import { CafeNav } from "@/components/cafe/cafe-nav";
 import { CafeSections } from "@/components/cafe/cafe-sections";
 import { CafeEffects } from "@/components/cafe/cafe-effects";
@@ -9,7 +8,6 @@ import { CafePreloader } from "@/components/cafe/cafe-preloader";
 import { CafeCursor } from "@/components/cafe/cafe-cursor";
 import { CafeFloatingActions } from "@/components/cafe/cafe-floating";
 import { CafeBackToTop } from "@/components/cafe/cafe-backtotop";
-import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -106,25 +104,42 @@ function Index() {
               </p>
 
               <h1 className="cafe-hero-title" id="hero-title">
-                Ek Bite. <span className="cafe-title-seven">Phir Saat.</span>
+                <span className="cafe-title-line1">Ek Bite.</span>
+                <span className="cafe-title-line2">
+                  Phir Saat.
+                  {/* Radiant accent marks on top-right of Phir Saat */}
+                  <span className="cafe-title-burst" aria-hidden="true">
+                    <svg width="34" height="28" viewBox="0 0 34 28" fill="none">
+                      <path d="M4 22L1 17" stroke="#D8381D" strokeWidth="2.8" strokeLinecap="round" />
+                      <path d="M17 14V2" stroke="#D8381D" strokeWidth="2.8" strokeLinecap="round" />
+                      <path d="M30 22L33 17" stroke="#D8381D" strokeWidth="2.8" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                  {/* Playful curved swoop underline */}
+                  <span className="cafe-title-swoop" aria-hidden="true">
+                    <svg viewBox="0 0 280 22" fill="none" className="w-full h-auto overflow-visible">
+                      <path d="M4 8 C 85 22, 195 22, 276 6" stroke="#D8381D" strokeWidth="4.5" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                </span>
               </h1>
 
               <p className="cafe-hero-subtitle">
                 Craving <strong>golden cheese pulls</strong>, gourmet burgers, sizzling momos, or rich chilled coffee?
-                Welcome to 7 Bites Cafe — handcrafted for sharing smiles and delicious bites in Jabalpur (Gohalpur Amkhera, Jagriti Nagar).
+                Welcome to 7 Bites Cafe – handcrafted for sharing smiles and delicious bites in Jabalpur (Gohalpur Amkhera, Jagriti Nagar).
               </p>
 
               <div className="cafe-hero-actions">
-                <Button asChild variant="pepperoni" size="lg" className="cafe-button-hero">
-                  <a href="#reserve">
-                    Book Table / Reserve <ArrowUpRight aria-hidden="true" />
-                  </a>
-                </Button>
-                <Button asChild variant="paper" size="lg" className="cafe-button-hero">
-                  <a href="#full-menu">
-                    Explore Menu <ArrowDownRight aria-hidden="true" />
-                  </a>
-                </Button>
+                <a href="#reserve" className="cafe-hero-btn-primary">
+                  <Calendar className="w-4 h-4 shrink-0" aria-hidden="true" />
+                  <span>Book Table / Reserve</span>
+                  <ArrowUpRight className="w-4 h-4 shrink-0" aria-hidden="true" />
+                </a>
+                <a href="#full-menu" className="cafe-hero-btn-secondary">
+                  <UtensilsCrossed className="w-4 h-4 text-[#D8381D] shrink-0" aria-hidden="true" />
+                  <span>Explore Menu</span>
+                  <ChevronRight className="w-4 h-4 text-[#7A6960] shrink-0" aria-hidden="true" />
+                </a>
               </div>
 
               <div className="cafe-trust-note">
@@ -135,32 +150,23 @@ function Index() {
                   <Star aria-hidden="true" />
                   <Star aria-hidden="true" />
                 </div>
-                <span>4.8 Rating on Google</span>
-                <span className="cafe-trust-placeholder">· 15,000+ Happy Foodies</span>
+                <span className="font-bold text-[#1E100A]">4.8 Rating on Google</span>
+                <span className="text-[#8C7A70]">·</span>
+                <span className="cafe-trust-placeholder">15,000+ Happy Foodies</span>
               </div>
             </div>
 
             <div
               className="cafe-hero-art"
-              aria-label="Illustration of a cheesy pepperoni pizza slice"
+              aria-label="Fresh Artisan Pizza with molten cheese pull"
             >
-              <div className="cafe-hero-glow" aria-hidden="true" />
-
-              <img
-                className="cafe-pizza-sticker"
-                src={pizzaSticker}
-                alt="A cheesy pepperoni pizza slice with golden cheese drips"
-                width={1200}
-                height={1200}
-                fetchPriority="high"
-                decoding="async"
-              />
+              {/* Floating badges overlaying the pizza slice and wooden cutting board in the background */}
               <div className="cafe-hero-pill-badge cafe-hero-pill-1">
-                <Sparkles className="w-4 h-4 text-amber-500" aria-hidden="true" />
+                <span className="cafe-badge-emoji">🍕</span>
                 <span>100% Real Mozzarella</span>
               </div>
               <div className="cafe-hero-pill-badge cafe-hero-pill-2">
-                <Star className="w-4 h-4 text-amber-500 fill-amber-500" aria-hidden="true" />
+                <span className="cafe-badge-emoji">👨‍🍳</span>
                 <span>Fresh Dough Baked Daily</span>
               </div>
             </div>
