@@ -2006,10 +2006,7 @@ export function CafeSections() {
       <section className="cafe-visit-section" id="visit" aria-labelledby="visit-title">
         <div className="cafe-section-inner">
           <div className="cafe-visit-inner">
-            {/* Left Spacer so 3D storefront and red map pin show clearly */}
-            <div className="cafe-visit-spacer" aria-hidden="true" />
-
-            {/* Middle Copy */}
+            {/* Left Copy */}
             <div className="cafe-visit-copy">
               <div className="cafe-visit-eyebrow-wrap">
                 <div className="cafe-visit-eyebrow">
@@ -2049,35 +2046,35 @@ export function CafeSections() {
                 </span>
               </h2>
 
-              <div className="cafe-visit-cards-stack">
-                <div className="cafe-visit-card">
+              <div className="cafe-visit-details-list">
+                <div className="cafe-visit-detail-item">
                   <div className="cafe-visit-icon-box is-coral">
                     <MapPin className="w-5 h-5" aria-hidden="true" />
                   </div>
-                  <div className="cafe-visit-card-text">
+                  <div className="cafe-visit-detail-text">
                     <strong>Address</strong>
                     <p>{cafeSite.address}</p>
                   </div>
                 </div>
 
-                <div className="cafe-visit-card">
+                <div className="cafe-visit-detail-item">
                   <div className="cafe-visit-icon-box is-amber">
                     <Clock3 className="w-5 h-5" aria-hidden="true" />
                   </div>
-                  <div className="cafe-visit-card-text">
+                  <div className="cafe-visit-detail-text">
                     <strong>Opening Hours</strong>
-                    <p>
+                    <p className="flex items-center gap-2 flex-wrap">
                       <span>{cafeSite.hours}</span>
                       <CafeOpenStatus />
                     </p>
                   </div>
                 </div>
 
-                <div className="cafe-visit-card">
+                <div className="cafe-visit-detail-item">
                   <div className="cafe-visit-icon-box is-coral">
                     <Phone className="w-5 h-5" aria-hidden="true" />
                   </div>
-                  <div className="cafe-visit-card-text">
+                  <div className="cafe-visit-detail-text">
                     <strong>Direct Contact</strong>
                     <p>Call: {cafeSite.phone} · WhatsApp: {cafeSite.phone}</p>
                   </div>
@@ -2110,7 +2107,7 @@ export function CafeSections() {
                 title="7 Bites Cafe location on Google Maps in Jabalpur"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14668.618037302787!2d79.93282!3d23.19524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981aeb971fbe61d%3A0xb366b5675e243916!2sGohalpur%2C%20Jabalpur%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=Gohalpur%20Amkhera%2C%20Jagriti%20Nagar%2C%20Jabalpur%2C%20Madhya%20Pradesh%20482001&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 allowFullScreen
               />
             </div>
