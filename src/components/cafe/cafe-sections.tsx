@@ -259,7 +259,7 @@ function CafeRibbon({ reverse = false, children }: { reverse?: boolean; children
         {Array.from({ length: 4 }, (_, index) => (
           <span key={index}>
             {children}
-            <Sparkles />
+            <span className="text-amber-400">🍕</span>
           </span>
         ))}
       </div>
@@ -666,10 +666,7 @@ export function CafeSections() {
       <section className="cafe-marquee-section" aria-label="Cafe highlights and quick information">
         <div className="cafe-ribbon-stack">
           <CafeRibbon>
-            ARTISAN PIZZAS · GOLDEN CHEESE PULLS · COLD COFFEE · CRISPY BURGERS · STEAMED MOMOS · PASTA
-          </CafeRibbon>
-          <CafeRibbon reverse>
-            JABALPUR'S FAVOURITE CAFÉ · FRESH DOUGH BAKED DAILY · EK BITE. PHIR SAAT ·
+            ARTISAN PIZZAS · GOLDEN CHEESE PULLS · COLD COFFEE · CRISPY BURGERS · STEAMED MOMOS · PASTA · FRESH DOUGH BAKED DAILY · EK BITE. PHIR SAAT ·
           </CafeRibbon>
         </div>
 
