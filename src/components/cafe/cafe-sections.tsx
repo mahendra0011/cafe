@@ -138,94 +138,69 @@ const comboDeals = [
 const sevenBitesSteps = [
   {
     num: "01",
-    tag: "Freshly Baked",
-    sensation: "🔥 The Sizzle",
-    title: "The Sizzle & Aroma",
+    pillBg: "#D82103",
+    emoji: "🔥",
+    title: "The Sizzle",
+    subtitle: "The Sizzle & Aroma",
     desc: "Fresh handmade dough baked to golden perfection with aromatic Italian herbs straight out of the stone oven.",
-    micro: "Wood-fired stone oven",
-    accent: "#F59E0B",
-    bgTint: "rgba(245, 158, 11, 0.08)",
-    borderTint: "rgba(245, 158, 11, 0.25)",
-    icon: Flame,
-    iconColor: "#D97706",
+    badge1: { icon: "🔥", text: "Wood-fired stone oven" },
+    badge2: { icon: "🍞", text: "Freshly Baked" },
+    image: "/philosophy-card-1.png",
   },
   {
     num: "02",
-    tag: "Crispy Crunch",
-    sensation: "🌾 First Bite",
-    title: "The Golden Crust",
+    pillBg: "#0B7E1B",
+    emoji: "🌾",
+    title: "First Bite",
+    subtitle: "The Golden Crust",
     desc: "Hand-stretched, 24-hour slow fermented dough that gives that irresistible, loud and satisfying first crunch.",
-    micro: "Fermented 24 hrs",
-    accent: "#EAB308",
-    bgTint: "rgba(234, 179, 8, 0.08)",
-    borderTint: "rgba(234, 179, 8, 0.25)",
-    icon: Wheat,
-    iconColor: "#CA8A04",
+    badge1: { icon: "⏱️", text: "Fermented 24 hrs" },
+    badge2: { icon: "⭐", text: "Crispy Crunch" },
+    image: "/philosophy-card-2.png",
   },
   {
     num: "03",
-    tag: "100% Mozzarella",
-    sensation: "🧀 Cheesy Bliss",
-    title: "The Molten Cheese Pull",
+    pillBg: "#D82103",
+    emoji: "🧀",
+    title: "Cheesy Bliss",
+    subtitle: "The Molten Cheese Pull",
     desc: "Pure real dairy mozzarella stretched generously in every single hot slice — zero blends or artificial oils.",
-    micro: "Pure dairy mozzarella",
-    accent: "#EA580C",
-    bgTint: "rgba(234, 88, 12, 0.08)",
-    borderTint: "rgba(234, 88, 12, 0.25)",
-    icon: Layers,
-    iconColor: "#EA580C",
+    badge1: { icon: "🥛", text: "Pure dairy mozzarella" },
+    badge2: { icon: "✓", text: "100% Mozzarella" },
+    image: "/philosophy-card-3.png",
   },
   {
     num: "04",
-    tag: "Herb-Infused",
-    sensation: "🌿 Slow Simmered",
-    title: "The Sauce Symphony",
+    pillBg: "#0B7E1B",
+    emoji: "🍃",
+    title: "Slow Simmered",
+    subtitle: "The Sauce Symphony",
     desc: "Slow-simmered rich tomato sauce infused with fresh garden basil, crushed garlic, and aged oregano.",
-    micro: "Garden fresh basil",
-    accent: "#E11D48",
-    bgTint: "rgba(225, 29, 72, 0.08)",
-    borderTint: "rgba(225, 29, 72, 0.25)",
-    icon: Droplets,
-    iconColor: "#E11D48",
+    badge1: { icon: "🍃", text: "Garden fresh basil" },
+    badge2: { icon: "❤️", text: "Herb-Infused" },
+    image: "/philosophy-card-4.png",
   },
   {
     num: "05",
-    tag: "Signature Brew",
-    sensation: "❄️ Ice & Mocha",
-    title: "The Chilled Sips",
+    pillBg: "#D82103",
+    emoji: "❄️",
+    title: "Ice & Mocha",
+    subtitle: "The Chilled Sips",
     desc: "Signature thick cold brews and blended shakes balancing the piping-hot oven warmth with silky coolness.",
-    micro: "Arabica & thick gelato",
-    accent: "#0284C7",
-    bgTint: "rgba(2, 132, 199, 0.08)",
-    borderTint: "rgba(2, 132, 199, 0.25)",
-    icon: Coffee,
-    iconColor: "#0284C7",
+    badge1: { icon: "☕", text: "Arabica & thick gelato" },
+    badge2: { icon: "⭐", text: "Signature Brew" },
+    image: "/philosophy-card-5.png",
   },
   {
     num: "06",
-    tag: "Good Vibes",
-    sensation: "💛 Cozy Memories",
-    title: "The Shared Laughter",
+    pillBg: "#0B7E1B",
+    emoji: "❤️",
+    title: "Cozy Memories",
+    subtitle: "The Shared Laughter",
     desc: "Good food enjoyed best around a cozy wooden table, catching up with best friends and family in Jabalpur.",
-    micro: "Jabalpur's favorite spot",
-    accent: "#DB2777",
-    bgTint: "rgba(219, 39, 119, 0.08)",
-    borderTint: "rgba(219, 39, 119, 0.25)",
-    icon: Heart,
-    iconColor: "#DB2777",
-  },
-  {
-    num: "07",
-    tag: "Ek Bite. Phir Saat.",
-    sensation: "✨ Grand Finale",
-    title: "The Inevitable Craving",
-    desc: "The lingering satisfaction that brings you right back for another bite. Ek baar chakh liya, to baar baar aana pade!",
-    micro: "The 7 Bites promise",
-    accent: "#C83B1E",
-    bgTint: "rgba(200, 59, 30, 0.08)",
-    borderTint: "rgba(200, 59, 30, 0.3)",
-    icon: Sparkles,
-    iconColor: "#C83B1E",
+    badge1: { icon: "📍", text: "Jabalpur's favorite spot" },
+    badge2: { icon: "😊", text: "Good Vibes" },
+    image: "/philosophy-card-6.png",
   },
 ];
 
@@ -911,132 +886,100 @@ export function CafeSections() {
       {/* Full Menu */}
       <MenuListing selected={selected} onAdd={addItem} onRemove={removeItem} />
 
-      {/* The 7 Bites Philosophy (Light & Creative Redesign) */}
+      {/* The 7 Bites Philosophy */}
       <section className="cafe-seven-section" id="philosophy" aria-labelledby="seven-title">
         <div className="cafe-section-inner">
-          <SectionHeading
-            eyebrow="The 7 Bites Philosophy"
-            title="Every Bite Tells a Story"
-            titleId="seven-title"
-            note="From that first sizzling crunch to the craving that brings you back — discover what makes each bite special."
-          />
-
-          <div className="cafe-seven-grid">
-            {sevenBitesSteps.slice(0, 6).map((step) => {
-              const IconComponent = step.icon;
-              return (
-                <div className="cafe-seven-card group" key={step.num}>
-                  {/* Watermark in background */}
-                  <span className="cafe-seven-watermark" aria-hidden="true">
-                    {step.num}
-                  </span>
-
-                  <div className="cafe-seven-card-top">
-                    <div
-                      className="cafe-seven-icon-box"
-                      style={{
-                        backgroundColor: step.bgTint,
-                        borderColor: step.borderTint,
-                        color: step.iconColor,
-                      }}
-                    >
-                      <IconComponent className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="cafe-seven-num-pill">{step.num}</span>
-                      <span
-                        className="cafe-seven-sensation"
-                        style={{ color: step.iconColor, backgroundColor: step.bgTint }}
-                      >
-                        {step.sensation}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="cafe-seven-text">
-                    <h4>{step.title}</h4>
-                    <p>{step.desc}</p>
-                  </div>
-
-                  <div className="cafe-seven-card-footer">
-                    <span className="cafe-seven-micro">
-                      <span
-                        className="w-1.5 h-1.5 rounded-full inline-block"
-                        style={{ backgroundColor: step.accent }}
-                      />
-                      {step.micro}
-                    </span>
-                    <span className="cafe-seven-tag-subtle">{step.tag}</span>
-                  </div>
-                </div>
-              );
-            })}
-
-            {/* Step 07 - Grand Finale Banner Spanning Full Width */}
-            <div className="cafe-seven-feature-card">
-              <div className="cafe-seven-feature-aura" aria-hidden="true" />
-
-              <div className="cafe-seven-feature-content">
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <span className="cafe-seven-num-pill bg-red-600 text-white font-extrabold border-0 shadow-sm px-2.5 py-1 text-xs">
-                    BITE 07
-                  </span>
-                  <span className="cafe-seven-tag bg-amber-500/15 text-amber-800 font-bold border border-amber-300/40">
-                    ★ The Grand Finale · Ek Bite. Phir Saat.
-                  </span>
-                  <span className="text-xs font-semibold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200">
-                    Taste Guarantee
-                  </span>
-                </div>
-
-                <h3 className="cafe-seven-feature-title">The Inevitable Craving</h3>
-                <p className="cafe-seven-feature-desc">
-                  Ek bite se shuru, aur saat pe khatam... lekin craving kabhi khatam nahi hoti! Har dish ko hum fresh handmade dough, 100% pure dairy mozzarella, aur secret Italian herbs ke sath banate hain — taaki pehle bite se aakhri slice tak har pal memorable rahe.
-                </p>
-
-                {/* Trust Badges */}
-                <div className="cafe-seven-badges-row">
-                  <div className="cafe-seven-trust-badge">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>100% Real Dairy Mozzarella</span>
-                  </div>
-                  <div className="cafe-seven-trust-badge">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Stone-Baked Hand-Stretched</span>
-                  </div>
-                  <div className="cafe-seven-trust-badge">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Handcrafted in Jabalpur</span>
-                  </div>
-                </div>
-
-                <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <Button asChild variant="pepperoni" size="sm" className="cafe-button shadow-md hover:shadow-lg">
-                    <a href="#order">
-                      Book Table / Order Now <ArrowUpRight className="w-4 h-4 ml-1" />
-                    </a>
-                  </Button>
-                  <Button asChild variant="paper" size="sm" className="cafe-button border border-stone-300">
-                    <Link to="/menu">
-                      Explore All 50+ Dishes <ArrowRight className="w-4 h-4 ml-1" />
-                    </Link>
-                  </Button>
-                </div>
+          {/* Eyebrow & 3D Title */}
+          <div className="cafe-philosophy-header">
+            <div className="cafe-philosophy-eyebrow-wrap">
+              <div className="cafe-philosophy-eyebrow">
+                <span className="cafe-philosophy-green-dot" />
+                <span>The 7 Bites Philosophy</span>
               </div>
-
-              <div className="cafe-seven-feature-art" aria-hidden="true">
-                <div className="cafe-seven-art-glow" />
-                <img src={pizzaSticker} alt="7 Bites Special Pizza" loading="lazy" />
-                <div className="cafe-seven-art-chip top-chip">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                  <span>Crispy & Cheesy</span>
-                </div>
-                <div className="cafe-seven-art-chip bottom-chip">
-                  <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                  <span>Loved in Jabalpur</span>
-                </div>
-              </div>
+              {/* 3 Red Burst Rays */}
+              <svg
+                className="cafe-philosophy-burst"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <line x1="6" y1="18" x2="2" y2="14" />
+                <line x1="12" y1="17" x2="12" y2="10" />
+                <line x1="18" y1="18" x2="22" y2="14" />
+              </svg>
             </div>
+
+            <h2 className="cafe-philosophy-title" id="seven-title">
+              <span className="cafe-philosophy-title-brown">Every Bite Tells a </span>
+              <span className="cafe-philosophy-title-red">
+                Story
+                {/* Curved swoop underline */}
+                <svg
+                  className="cafe-philosophy-swoop"
+                  viewBox="0 0 140 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#D82103" />
+                </svg>
+              </span>
+            </h2>
+
+            <p className="cafe-philosophy-subtitle">
+              From that first sizzling crunch to the craving that brings you back — discover what makes each bite special.
+            </p>
+
+            {/* Pizza Divider */}
+            <div className="cafe-philosophy-divider" aria-hidden="true">
+              <span className="cafe-philosophy-divider-line" />
+              <span className="cafe-philosophy-divider-icon">🍕</span>
+              <span className="cafe-philosophy-divider-line" />
+            </div>
+          </div>
+
+          {/* 6 Cards Grid */}
+          <div className="cafe-philosophy-grid">
+            {sevenBitesSteps.map((step) => (
+              <div className="cafe-philosophy-card" key={step.num}>
+                <div className="cafe-philosophy-card-body">
+                  <div className="cafe-philosophy-card-header">
+                    <span
+                      className="cafe-philosophy-card-pill"
+                      style={{ backgroundColor: step.pillBg }}
+                    >
+                      {step.num}
+                    </span>
+                    <span className="cafe-philosophy-card-emoji">{step.emoji}</span>
+                  </div>
+
+                  <h3 className="cafe-philosophy-card-title">{step.title}</h3>
+                  <h4 className="cafe-philosophy-card-subtitle">{step.subtitle}</h4>
+                  <p className="cafe-philosophy-card-desc">{step.desc}</p>
+
+                  <div className="cafe-philosophy-card-badges">
+                    <span className="cafe-philosophy-tag">
+                      <span className="cafe-philosophy-tag-icon">{step.badge1.icon}</span>
+                      <span>{step.badge1.text}</span>
+                    </span>
+                    <span className="cafe-philosophy-tag">
+                      <span className="cafe-philosophy-tag-icon">{step.badge2.icon}</span>
+                      <span>{step.badge2.text}</span>
+                    </span>
+                  </div>
+                </div>
+
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="cafe-philosophy-card-photo"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

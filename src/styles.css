@@ -1861,306 +1861,289 @@
 }
 
 /* =========================================================================
-   THE 7 BITES PHILOSOPHY (LIGHT, ARTISANAL & CREATIVE REDESIGN)
+   THE 7 BITES PHILOSOPHY (EVERY BITE TELLS A STORY)
    ========================================================================= */
 .cafe-seven-section {
-  padding: 100px 0;
-  background: radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
-              radial-gradient(circle at 90% 80%, rgba(200, 59, 30, 0.07) 0%, transparent 45%),
-              #FAF7F2;
-  border-block: 1px solid rgba(28, 20, 16, 0.06);
   position: relative;
+  padding: 85px 0 95px;
+  background-image: url('/creamy-italian-ingredients-frame-warmly.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-block: 1px solid rgba(28, 20, 16, 0.08);
   overflow: hidden;
 }
 
-.cafe-seven-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 48px;
-}
-
-.cafe-seven-card {
+.cafe-philosophy-header {
+  text-align: center;
   position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  padding: 28px 24px 22px;
-  border-radius: 22px;
-  background: #FFFFFF;
-  border: 1px solid rgba(28, 20, 16, 0.08);
-  box-shadow: 0 4px 16px rgba(28, 20, 16, 0.03), 0 1px 3px rgba(28, 20, 16, 0.02);
-  transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-}
-
-.cafe-seven-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 36px rgba(28, 20, 16, 0.08);
-  border-color: rgba(200, 59, 30, 0.3);
-}
-
-/* Watermark Number in background */
-.cafe-seven-watermark {
-  position: absolute;
-  top: 10px;
-  right: 18px;
-  font-family: var(--font-display);
-  font-size: 72px;
-  font-weight: 900;
-  line-height: 1;
-  color: rgba(28, 20, 16, 0.04);
-  pointer-events: none;
-  user-select: none;
-  transition: all 260ms ease;
-}
-
-.cafe-seven-card:hover .cafe-seven-watermark {
-  color: rgba(28, 20, 16, 0.08);
-  transform: scale(1.05);
-}
-
-.cafe-seven-card-top {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
+}
+
+.cafe-philosophy-eyebrow-wrap {
   position: relative;
-  z-index: 1;
-}
-
-.cafe-seven-icon-box {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid;
-  transition: transform 260ms ease;
 }
 
-.cafe-seven-card:hover .cafe-seven-icon-box {
-  transform: scale(1.08) rotate(3deg);
-}
-
-.cafe-seven-num-pill {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  padding: 3px 8px;
-  border-radius: 6px;
-  background: rgba(28, 20, 16, 0.06);
-  color: #55443B;
-}
-
-.cafe-seven-sensation {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 9999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.cafe-seven-text {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-}
-
-.cafe-seven-text h4 {
-  margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--color-ink);
-  letter-spacing: -0.01em;
-}
-
-.cafe-seven-text p {
-  margin: 0;
-  font-size: 13.5px;
-  color: #63534B;
-  line-height: 1.58;
-}
-
-.cafe-seven-card-footer {
-  display: flex;
+.cafe-philosophy-eyebrow {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px dashed rgba(28, 20, 16, 0.08);
-  position: relative;
-  z-index: 1;
-}
-
-.cafe-seven-micro {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #7A6960;
-}
-
-.cafe-seven-tag-subtle {
-  font-size: 11px;
-  font-weight: 600;
-  color: #9C8C83;
-}
-
-/* Step 7 Feature Card */
-.cafe-seven-feature-card {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  align-items: center;
-  gap: 36px;
-  padding: 42px 48px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFF9F2 50%, #FFF3EC 100%);
-  border: 1.5px solid rgba(200, 59, 30, 0.22);
-  box-shadow: 0 16px 44px rgba(200, 59, 30, 0.08), 0 2px 6px rgba(28, 20, 16, 0.03);
-  position: relative;
-  overflow: hidden;
-}
-
-.cafe-seven-feature-aura {
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, rgba(200, 59, 30, 0.08) 50%, transparent 70%);
-  border-radius: 9999px;
-  pointer-events: none;
-}
-
-.cafe-seven-feature-content {
-  position: relative;
-  z-index: 2;
-}
-
-.cafe-seven-feature-title {
-  margin: 12px 0 10px;
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 850;
-  color: var(--color-ink);
-  letter-spacing: -0.02em;
-}
-
-.cafe-seven-feature-desc {
-  margin: 0;
-  font-size: 15px;
-  color: #52443E;
-  line-height: 1.65;
-  max-width: 600px;
-}
-
-.cafe-seven-badges-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.cafe-seven-trust-badge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(28, 20, 16, 0.08);
-  border-radius: 9999px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #374151;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-}
-
-.cafe-seven-feature-art {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  padding: 16px;
-}
-
-.cafe-seven-art-glow {
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, transparent 70%);
-  border-radius: 9999px;
-  animation: pulse-gentle 4s ease-in-out infinite;
-}
-
-.cafe-seven-feature-art img {
-  width: min(100%, 270px);
-  height: auto;
-  filter: drop-shadow(0 16px 30px rgba(28, 20, 16, 0.16));
-  animation: float-gentle 4.5s ease-in-out infinite;
-  position: relative;
-  z-index: 2;
-}
-
-.cafe-seven-art-chip {
-  position: absolute;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 8px;
+  padding: 6px 16px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(28, 20, 16, 0.1);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-  font-size: 11.5px;
+  border: 1px solid rgba(28, 20, 16, 0.08);
+  box-shadow: 0 4px 14px rgba(35, 15, 10, 0.06);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  color: var(--color-ink);
+  color: #2E1308;
+}
+
+.cafe-philosophy-green-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #16A34A;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+}
+
+.cafe-philosophy-burst {
+  position: absolute;
+  top: -8px;
+  right: -18px;
+  width: 22px;
+  height: 22px;
+  color: #D82103;
+  filter: drop-shadow(0 2px 4px rgba(216, 33, 3, 0.2));
+}
+
+.cafe-philosophy-title {
+  margin: 14px 0 8px;
+  font-family: 'Poppins', 'Outfit', sans-serif;
+  font-size: clamp(32px, 3.8vw, 54px);
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.cafe-philosophy-title-brown {
+  color: #2E1308;
+  text-shadow:
+    0 1px 0 #240e05,
+    0 2px 0 #1b0a03,
+    0 3px 0 #130702,
+    0 4px 0 #0b0401,
+    0 6px 14px rgba(35, 12, 4, 0.35);
+}
+
+.cafe-philosophy-title-red {
+  color: #D82103;
+  position: relative;
+  display: inline-block;
+  text-shadow:
+    0 1px 0 #b31a02,
+    0 2px 0 #941501,
+    0 3px 0 #761001,
+    0 4px 0 #580c01,
+    0 6px 14px rgba(180, 20, 0, 0.35);
+}
+
+.cafe-philosophy-swoop {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 14px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(216, 33, 3, 0.25));
+}
+
+.cafe-philosophy-subtitle {
+  margin: 0 auto;
+  max-width: 680px;
+  font-size: clamp(13.5px, 1.2vw, 15px);
+  color: #4A3B32;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cafe-philosophy-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 260px;
+  margin: 14px auto 36px;
+}
+
+.cafe-philosophy-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(140, 95, 70, 0.35), transparent);
+}
+
+.cafe-philosophy-divider-icon {
+  font-size: 15px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+}
+
+/* 6 Cards Grid */
+.cafe-philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cafe-philosophy-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1px solid rgba(225, 215, 205, 0.7);
+  box-shadow: 0 4px 18px rgba(35, 15, 10, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cafe-philosophy-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(35, 15, 10, 0.12);
+  border-color: rgba(216, 33, 3, 0.3);
+}
+
+.cafe-philosophy-card-body {
+  padding: 14px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cafe-philosophy-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.cafe-philosophy-card-pill {
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.cafe-philosophy-card-emoji {
+  font-size: 14px;
+}
+
+.cafe-philosophy-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #22140D;
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+
+.cafe-philosophy-card-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #D82103;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+
+.cafe-philosophy-card-desc {
+  font-size: 10.5px;
+  line-height: 1.45;
+  color: #55443B;
+  margin: 0 0 10px;
+  flex: 1;
+}
+
+.cafe-philosophy-card-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+  margin-bottom: 4px;
+}
+
+.cafe-philosophy-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2.5px 7px;
+  border-radius: 9999px;
+  background: #FAF7F5;
+  border: 1px solid rgba(40, 20, 10, 0.08);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #4C3C34;
   white-space: nowrap;
+  width: fit-content;
 }
 
-.cafe-seven-art-chip.top-chip {
-  top: 10px;
-  left: 0px;
-  animation: float-gentle 5s ease-in-out infinite reverse;
+.cafe-philosophy-tag-icon {
+  font-size: 10px;
 }
 
-.cafe-seven-art-chip.bottom-chip {
-  bottom: 12px;
-  right: 10px;
-  animation: float-gentle 4s ease-in-out infinite;
+.cafe-philosophy-card-photo {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-@media (max-width: 900px) {
-  .cafe-seven-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1120px) {
+  .cafe-philosophy-grid {
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
-  .cafe-seven-feature-card {
-    grid-template-columns: 1fr;
-    padding: 30px 24px;
-    gap: 24px;
+  .cafe-philosophy-card-photo {
+    height: 130px;
   }
 }
 
-@media (max-width: 600px) {
-  .cafe-seven-grid {
+@media (max-width: 640px) {
+  .cafe-philosophy-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .cafe-philosophy-card-body {
+    padding: 12px 10px 8px;
+  }
+  .cafe-philosophy-card-photo {
+    height: 100px;
+  }
+}
+
+@media (max-width: 420px) {
+  .cafe-philosophy-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .cafe-seven-feature-title {
-    font-size: 24px;
-  }
-  .cafe-seven-card {
-    padding: 22px 18px;
+    gap: 12px;
   }
 }
 
