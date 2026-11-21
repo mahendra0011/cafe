@@ -2006,110 +2006,116 @@ export function CafeSections() {
       <section className="cafe-visit-section" id="visit" aria-labelledby="visit-title">
         <div className="cafe-section-inner">
           <div className="cafe-visit-inner">
-            {/* Left Copy */}
-            <div className="cafe-visit-copy">
-              <div className="cafe-visit-eyebrow-wrap">
-                <div className="cafe-visit-eyebrow">
-                  <MapPin className="w-3.5 h-3.5 text-[#D82103]" aria-hidden="true" />
-                  <span>COME SAY HI</span>
-                </div>
-                {/* 3 Red Burst Rays */}
-                <svg
-                  className="cafe-visit-burst"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  aria-hidden="true"
-                >
-                  <line x1="6" y1="18" x2="2" y2="14" />
-                  <line x1="12" y1="17" x2="12" y2="10" />
-                  <line x1="18" y1="18" x2="22" y2="14" />
-                </svg>
-              </div>
+            {/* Left Spacer so 3D storefront and red map pin show clearly */}
+            <div className="cafe-visit-spacer" aria-hidden="true" />
 
-              <h2 className="cafe-visit-title" id="visit-title">
-                <span className="cafe-visit-title-brown">Find Your Way to </span>
-                <span className="cafe-visit-title-red">
-                  7 Bites Cafe.
-                  {/* Curved swoop underline */}
+            {/* Glassmorphic Destination Card */}
+            <div className="cafe-visit-hub-card">
+              {/* Left Column: Info & Actions */}
+              <div className="cafe-visit-copy">
+                <div className="cafe-visit-eyebrow-wrap">
+                  <div className="cafe-visit-eyebrow">
+                    <MapPin className="w-3.5 h-3.5 text-[#D82103]" aria-hidden="true" />
+                    <span>COME SAY HI</span>
+                  </div>
+                  {/* 3 Red Burst Rays */}
                   <svg
-                    className="cafe-visit-swoop"
-                    viewBox="0 0 140 18"
+                    className="cafe-visit-burst"
+                    viewBox="0 0 24 24"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
                     aria-hidden="true"
                   >
-                    <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#D82103" />
+                    <line x1="6" y1="18" x2="2" y2="14" />
+                    <line x1="12" y1="17" x2="12" y2="10" />
+                    <line x1="18" y1="18" x2="22" y2="14" />
                   </svg>
-                </span>
-              </h2>
+                </div>
 
-              <div className="cafe-visit-details-list">
-                <div className="cafe-visit-detail-item">
-                  <div className="cafe-visit-icon-box is-coral">
-                    <MapPin className="w-5 h-5" aria-hidden="true" />
+                <h2 className="cafe-visit-title" id="visit-title">
+                  <span className="cafe-visit-title-brown">Find Your Way to </span>
+                  <span className="cafe-visit-title-red">
+                    7 Bites Cafe.
+                    {/* Curved swoop underline */}
+                    <svg
+                      className="cafe-visit-swoop"
+                      viewBox="0 0 140 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#D82103" />
+                    </svg>
+                  </span>
+                </h2>
+
+                <div className="cafe-visit-details-list">
+                  <div className="cafe-visit-detail-item">
+                    <div className="cafe-visit-icon-box is-coral">
+                      <MapPin className="w-5 h-5" aria-hidden="true" />
+                    </div>
+                    <div className="cafe-visit-detail-text">
+                      <strong>Address</strong>
+                      <p>{cafeSite.address}</p>
+                    </div>
                   </div>
-                  <div className="cafe-visit-detail-text">
-                    <strong>Address</strong>
-                    <p>{cafeSite.address}</p>
+
+                  <div className="cafe-visit-detail-item">
+                    <div className="cafe-visit-icon-box is-amber">
+                      <Clock3 className="w-5 h-5" aria-hidden="true" />
+                    </div>
+                    <div className="cafe-visit-detail-text">
+                      <strong>Opening Hours</strong>
+                      <p className="flex items-center gap-2 flex-wrap">
+                        <span>{cafeSite.hours}</span>
+                        <CafeOpenStatus />
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="cafe-visit-detail-item">
+                    <div className="cafe-visit-icon-box is-coral">
+                      <Phone className="w-5 h-5" aria-hidden="true" />
+                    </div>
+                    <div className="cafe-visit-detail-text">
+                      <strong>Direct Contact</strong>
+                      <p>Call: {cafeSite.phone} · WhatsApp: {cafeSite.phone}</p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="cafe-visit-detail-item">
-                  <div className="cafe-visit-icon-box is-amber">
-                    <Clock3 className="w-5 h-5" aria-hidden="true" />
-                  </div>
-                  <div className="cafe-visit-detail-text">
-                    <strong>Opening Hours</strong>
-                    <p className="flex items-center gap-2 flex-wrap">
-                      <span>{cafeSite.hours}</span>
-                      <CafeOpenStatus />
-                    </p>
-                  </div>
-                </div>
-
-                <div className="cafe-visit-detail-item">
-                  <div className="cafe-visit-icon-box is-coral">
-                    <Phone className="w-5 h-5" aria-hidden="true" />
-                  </div>
-                  <div className="cafe-visit-detail-text">
-                    <strong>Direct Contact</strong>
-                    <p>Call: {cafeSite.phone} · WhatsApp: {cafeSite.phone}</p>
-                  </div>
+                <div className="cafe-visit-actions">
+                  <Button asChild size="sm" className="cafe-visit-btn-maps">
+                    <a href={cafeSite.googleMapsSearchUrl} target="_blank" rel="noreferrer">
+                      <span>Get Google Maps Directions</span>
+                      <ArrowUpRight className="w-4 h-4 ml-1" />
+                    </a>
+                  </Button>
+                  <Button asChild size="sm" className="cafe-visit-btn-wa">
+                    <a
+                      href={`https://wa.me/${cafeSite.whatsapp.replace(/\D/g, "")}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <MessageCircle className="w-4 h-4 text-emerald-600 mr-1" />
+                      <span>Chat on WhatsApp</span>
+                    </a>
+                  </Button>
                 </div>
               </div>
 
-              <div className="cafe-visit-actions">
-                <Button asChild size="sm" className="cafe-visit-btn-maps">
-                  <a href={cafeSite.googleMapsSearchUrl} target="_blank" rel="noreferrer">
-                    <span>Get Google Maps Directions</span>
-                    <ArrowUpRight className="w-4 h-4 ml-1" />
-                  </a>
-                </Button>
-                <Button asChild size="sm" className="cafe-visit-btn-wa">
-                  <a
-                    href={`https://wa.me/${cafeSite.whatsapp.replace(/\D/g, "")}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <MessageCircle className="w-4 h-4 text-emerald-600 mr-1" />
-                    <span>Chat on WhatsApp</span>
-                  </a>
-                </Button>
+              {/* Right Column: Google Map */}
+              <div className="cafe-map-frame">
+                <iframe
+                  title="7 Bites Cafe location on Google Maps in Jabalpur"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?q=Gohalpur%20Amkhera%2C%20Jagriti%20Nagar%2C%20Jabalpur%2C%20Madhya%20Pradesh%20482001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  allowFullScreen
+                />
               </div>
-            </div>
-
-            {/* Right Map Frame */}
-            <div className="cafe-map-frame">
-              <iframe
-                title="7 Bites Cafe location on Google Maps in Jabalpur"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://maps.google.com/maps?q=Gohalpur%20Amkhera%2C%20Jagriti%20Nagar%2C%20Jabalpur%2C%20Madhya%20Pradesh%20482001&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                allowFullScreen
-              />
             </div>
           </div>
         </div>
