@@ -159,6 +159,9 @@ const customerReviews = [
 const comboDeals = [
   {
     tag: "Most Popular",
+    tagIcon: "★",
+    tagBg: "#15803D",
+    image: "/combo-1.png",
     title: "Pizza & Chill Combo",
     description: "1 Medium Farmhouse Pizza + 2 Signature Cold Coffees + 1 Cheesy Garlic Bread",
     originalPrice: "₹519",
@@ -167,6 +170,9 @@ const comboDeals = [
   },
   {
     tag: "Student Saver",
+    tagIcon: "🎓",
+    tagBg: "#D97706",
+    image: "/combo-2.png",
     title: "Burger Frenzy Combo",
     description: "2 Gourmet Smash Burgers + 1 Large Peri-Peri Fries + 2 Chilled Soft Drinks",
     originalPrice: "₹439",
@@ -175,6 +181,9 @@ const comboDeals = [
   },
   {
     tag: "Snack Special",
+    tagIcon: "🍲",
+    tagBg: "#DC2626",
+    image: "/combo-3.png",
     title: "Momo & Pasta Delight",
     description: "1 Steamed Himalayan Momo Platter + 1 Creamy Alfredo Pasta + 1 Peach Iced Tea",
     originalPrice: "₹409",
@@ -183,6 +192,9 @@ const comboDeals = [
   },
   {
     tag: "Weekend Feast",
+    tagIcon: "👑",
+    tagBg: "#044D22",
+    image: "/combo-4.png",
     title: "Family Celebration Box",
     description: "2 Large Specialty Pizzas + Loaded Cheesy Fries + 1 Choco Lava Cake",
     originalPrice: "₹909",
@@ -1134,35 +1146,100 @@ export function CafeSections() {
       {/* Combos & Offers */}
       <section className="cafe-offers-section" id="offers" aria-labelledby="offers-title">
         <div className="cafe-section-inner">
-          <SectionHeading
-            eyebrow="Value Specials"
-            title="Delicious Combos & Deals"
-            titleId="offers-title"
-            note="Handpicked bundles crafted for sharing with friends and family at great savings."
-          />
+          {/* Eyebrow & 3D Title */}
+          <div className="cafe-offers-header">
+            <div className="cafe-offers-eyebrow-wrap">
+              <div className="cafe-offers-eyebrow">
+                <span className="cafe-offers-green-dot" />
+                <span>Value Specials</span>
+              </div>
+              {/* 3 Red Burst Rays */}
+              <svg
+                className="cafe-offers-burst"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <line x1="6" y1="18" x2="2" y2="14" />
+                <line x1="12" y1="17" x2="12" y2="10" />
+                <line x1="18" y1="18" x2="22" y2="14" />
+              </svg>
+            </div>
 
+            <h2 className="cafe-offers-title" id="offers-title">
+              <span className="cafe-offers-title-brown">Delicious Combos & </span>
+              <span className="cafe-offers-title-red">
+                Deals
+                {/* Curved swoop underline */}
+                <svg
+                  className="cafe-offers-swoop"
+                  viewBox="0 0 140 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#D82103" />
+                </svg>
+              </span>
+            </h2>
+
+            <p className="cafe-offers-subtitle">
+              Handpicked bundles crafted for sharing with friends and family at great savings.
+            </p>
+          </div>
+
+          {/* 4 Combo Cards Grid */}
           <div className="cafe-offer-grid">
             {comboDeals.map((deal) => (
-              <article className="cafe-offer-card" key={deal.title}>
-                <span className="cafe-offer-badge">{deal.tag}</span>
-                <h3>{deal.title}</h3>
-                <p>{deal.description}</p>
-                <div className="cafe-offer-footer">
-                  <div>
-                    <span className="text-xs text-gray-500 line-through mr-1.5">
-                      {deal.originalPrice}
-                    </span>
-                    <strong className="cafe-offer-price">{deal.comboPrice}</strong>
-                    <span className="ml-2 text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
-                      {deal.saving}
-                    </span>
+              <article className="cafe-offer-card group" key={deal.title}>
+                <span
+                  className="cafe-offer-badge-floating"
+                  style={{ backgroundColor: deal.tagBg }}
+                >
+                  <span>{deal.tagIcon}</span>
+                  <span>{deal.tag}</span>
+                </span>
+
+                <div className="cafe-offer-img-wrap">
+                  <img
+                    src={deal.image}
+                    alt={deal.title}
+                    className="cafe-offer-img"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div className="cafe-offer-body">
+                  <h3 className="cafe-offer-title">{deal.title}</h3>
+                  <p className="cafe-offer-desc">{deal.description}</p>
+
+                  <div className="cafe-offer-price-row">
+                    <span className="cafe-offer-price">{deal.comboPrice}</span>
+                    <span className="cafe-offer-original-price">{deal.originalPrice}</span>
+                    <span className="cafe-offer-saving">{deal.saving}</span>
                   </div>
+
                   <a className="cafe-offer-btn" href="#order">
-                    Order <ArrowUpRight className="w-3.5 h-3.5" />
+                    <ShoppingBag className="w-4 h-4" />
+                    <span>Order Now</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </a>
                 </div>
               </article>
             ))}
+          </div>
+
+          {/* Bottom Banner Pill */}
+          <div className="cafe-offers-bottom-bar" aria-hidden="true">
+            <span className="cafe-offers-divider-line" />
+            <div className="cafe-offers-bottom-badge">
+              <UtensilsCrossed className="w-4 h-4 text-[#D82103]" />
+              <span>Better Together, Tastier Always!</span>
+            </div>
+            <span className="cafe-offers-divider-line" />
           </div>
         </div>
       </section>
