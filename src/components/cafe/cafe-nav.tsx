@@ -73,7 +73,11 @@ export function CafeNav() {
                 {link.label}
               </a>
             ) : (
-              <Link key={link.label} to={link.href}>
+              <Link
+                key={link.label}
+                to={link.href}
+                activeProps={{ className: "is-active" }}
+              >
                 {link.label}
               </Link>
             )

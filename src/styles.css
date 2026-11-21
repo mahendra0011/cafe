@@ -254,6 +254,26 @@
   transform: scaleX(1);
 }
 
+.cafe-desktop-links a.is-active {
+  background: #EAF7EE !important;
+  color: #007A3D !important;
+  font-weight: 700 !important;
+  border-radius: 9999px !important;
+  padding: 5px 14px !important;
+}
+
+.cafe-desktop-links a.is-active::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 2px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 50% !important;
+  background: #007A3D !important;
+}
+
 .cafe-nav-actions {
   display: flex;
   align-items: center;
@@ -2049,6 +2069,167 @@
 .cafe-view-full-menu-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(200, 59, 30, 0.4);
+}
+
+/* =========================================================================
+   MENU PAGE HERO BANNER (/menu)
+   ========================================================================= */
+.cafe-menu-hero-banner {
+  position: relative;
+  padding: 125px 24px 60px;
+  background: url('/creamy-pizza-ingredients-header.png') center / cover no-repeat;
+  border-bottom: 1px solid rgba(220, 205, 190, 0.45);
+  overflow: hidden;
+}
+
+.cafe-menu-hero-inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.35fr 0.95fr;
+  align-items: center;
+  min-height: 420px;
+  gap: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.cafe-menu-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 720px;
+}
+
+.cafe-menu-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(216, 33, 3, 0.2);
+  box-shadow: 0 4px 12px rgba(216, 33, 3, 0.08);
+  font-size: 13px;
+  font-weight: 800;
+  color: #D82103;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+
+.cafe-menu-hero-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  display: flex;
+  flex-direction: column;
+}
+
+.cafe-menu-hero-title-line1 {
+  font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+  color: #2E1308;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow:
+    0 1px 0 #240e05,
+    0 2px 0 #1b0a03,
+    0 3px 0 #130702,
+    0 4px 0 #0b0401,
+    0 6px 14px rgba(35, 12, 4, 0.35);
+}
+
+.cafe-menu-hero-burst {
+  width: 24px;
+  height: 24px;
+  color: #D82103;
+  transform: translateY(-8px);
+}
+
+.cafe-menu-hero-title-line2 {
+  font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+  color: #D82103;
+  text-shadow:
+    0 1px 0 #b31a02,
+    0 2px 0 #941501,
+    0 3px 0 #761001,
+    0 4px 0 #580c01,
+    0 6px 14px rgba(180, 20, 0, 0.35);
+}
+
+.cafe-menu-hero-subtitle {
+  font-size: clamp(15px, 1.2vw, 17.5px);
+  color: #4A3E38;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0 0 24px;
+  max-width: 540px;
+}
+
+.cafe-menu-hero-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.cafe-menu-hero-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  color: #1C1410;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: 1.5px solid rgba(28, 20, 16, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: all 180ms ease;
+  white-space: nowrap;
+}
+
+.cafe-menu-hero-tab:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 122, 61, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.cafe-menu-hero-tab.is-active {
+  background: #007A3D !important;
+  color: #FFFFFF !important;
+  border-color: #007A3D !important;
+  box-shadow: 0 4px 16px rgba(0, 122, 61, 0.32) !important;
+}
+
+.cafe-menu-hero-tab-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.cafe-menu-hero-spacer {
+  min-height: 380px;
+}
+
+.cafe-menu-filter-bar {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1024px) {
+  .cafe-menu-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .cafe-menu-hero-spacer {
+    display: none;
+  }
+  .cafe-menu-hero-banner {
+    padding: 110px 20px 40px;
+  }
 }
 
 .cafe-menu-page-header {
@@ -4579,578 +4760,5 @@
   .cafe-nav-order {
     padding: 5px 9px !important;
     font-size: 11.5px !important;
-  }
-}
-
-/* =========================================================================
-   MENU PAGE SPECIFIC STYLES (/menu)
-   Matches Reference: 3D Typography, Pizza Peel Header, Category Tabs,
-   Dish Cards with Steppers, and Sticky "Your Order" Cart Sidebar
-   ========================================================================= */
-.cafe-menu-page-wrapper {
-  min-height: 100vh;
-  background-color: #FAF7F2;
-  background-image: url('/creamy-pizza-ingredients-header.png');
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% auto;
-  position: relative;
-}
-
-@media (max-width: 1024px) {
-  .cafe-menu-page-wrapper {
-    background-size: cover;
-  }
-}
-
-.cafe-menu-page-header {
-  padding: 120px 24px 20px;
-  max-width: 1340px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.cafe-menu-page-header-content {
-  max-width: 620px;
-}
-
-.cafe-menu-page-eyebrow-wrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.cafe-menu-page-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 14px;
-  border-radius: 9999px;
-  background: #FFFFFF;
-  border: 1px solid rgba(216, 33, 3, 0.2);
-  box-shadow: 0 4px 12px rgba(216, 33, 3, 0.08);
-  font-size: 12.5px;
-  font-weight: 800;
-  color: #D82103;
-  letter-spacing: 0.03em;
-}
-
-.cafe-menu-page-burst {
-  width: 22px;
-  height: 22px;
-  color: #D82103;
-  margin-left: 2px;
-  transform: translateY(-2px);
-}
-
-.cafe-menu-page-title {
-  margin: 0 0 14px;
-  font-family: var(--font-display);
-  font-size: clamp(2.3rem, 3.8vw, 3.4rem);
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.cafe-menu-page-title-brown {
-  color: #2E1308;
-  display: block;
-  text-shadow:
-    0 1px 0 #240e05,
-    0 2px 0 #1b0a03,
-    0 3px 0 #130702,
-    0 4px 0 #0b0401,
-    0 6px 14px rgba(35, 12, 4, 0.35);
-}
-
-.cafe-menu-page-title-red {
-  color: #D82103;
-  display: inline-block;
-  position: relative;
-  text-shadow:
-    0 1px 0 #b31a02,
-    0 2px 0 #941501,
-    0 3px 0 #761001,
-    0 4px 0 #580c01,
-    0 6px 14px rgba(180, 20, 0, 0.35);
-}
-
-.cafe-menu-page-swoop {
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 100%;
-  height: 14px;
-  pointer-events: none;
-  filter: drop-shadow(0 2px 4px rgba(216, 33, 3, 0.25));
-}
-
-.cafe-menu-page-subtitle {
-  font-size: 15.5px;
-  color: #5C564B;
-  margin: 0 0 24px;
-  line-height: 1.5;
-  font-weight: 500;
-}
-
-/* Category Filter Bar */
-.cafe-menu-category-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 4px 2px 14px;
-  margin-bottom: 20px;
-  scrollbar-width: none;
-}
-
-.cafe-menu-category-bar::-webkit-scrollbar {
-  display: none;
-}
-
-.cafe-menu-cat-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 20px !important;
-  border-radius: 9999px !important;
-  background: #FFFFFF !important;
-  color: #1C1410 !important;
-  border: 1.5px solid rgba(28, 20, 16, 0.12) !important;
-  font-size: 13.5px !important;
-  font-weight: 700 !important;
-  white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(28, 20, 16, 0.04) !important;
-  transition: all 180ms ease !important;
-  cursor: pointer;
-}
-
-.cafe-menu-cat-btn:hover {
-  transform: translateY(-2px);
-  border-color: rgba(28, 20, 16, 0.28) !important;
-}
-
-.cafe-menu-cat-btn.is-active {
-  background: #007A3D !important;
-  color: #FFFFFF !important;
-  border-color: #007A3D !important;
-  box-shadow: 0 6px 18px rgba(0, 122, 61, 0.35) !important;
-  transform: translateY(-2px);
-}
-
-/* Search & Filter Row */
-.cafe-menu-subfilter-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-/* Main Layout: Cards Grid + Order Sidebar */
-.cafe-menu-main-layout {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 28px;
-  align-items: start;
-  max-width: 1340px;
-  margin: 0 auto;
-  padding: 0 24px 60px;
-  position: relative;
-  z-index: 2;
-}
-
-.cafe-menu-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 22px;
-}
-
-/* Card Styling matching Reference */
-.cafe-ref-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 20px;
-  background: #FFFFFF;
-  border: 1px solid rgba(28, 20, 16, 0.08);
-  box-shadow: 0 6px 20px rgba(28, 20, 16, 0.05);
-  overflow: hidden;
-  transition: all 220ms ease;
-  position: relative;
-}
-
-.cafe-ref-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(28, 20, 16, 0.1);
-  border-color: rgba(200, 59, 30, 0.2);
-}
-
-.cafe-ref-card-img-wrap {
-  position: relative;
-  width: 100%;
-  height: 175px;
-  background: #F4EBE1;
-  overflow: hidden;
-}
-
-.cafe-ref-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 400ms ease;
-}
-
-.cafe-ref-card:hover .cafe-ref-card-img {
-  transform: scale(1.06);
-}
-
-.cafe-ref-card-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  font-size: 11px;
-  font-weight: 800;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  z-index: 2;
-}
-
-.cafe-ref-card-badge.is-green {
-  background: #007A3D;
-  color: #FFFFFF;
-}
-
-.cafe-ref-card-badge.is-amber {
-  background: #D96A00;
-  color: #FFFFFF;
-}
-
-.cafe-ref-card-diet {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
-}
-
-.cafe-ref-card-body {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-between;
-}
-
-.cafe-ref-card-title {
-  margin: 0 0 4px;
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 800;
-  color: #1C1410;
-  line-height: 1.25;
-}
-
-.cafe-ref-card-desc {
-  margin: 0 0 12px;
-  font-size: 12.5px;
-  color: #5C564B;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.cafe-ref-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(28, 20, 16, 0.06);
-}
-
-.cafe-ref-card-price {
-  font-size: 18px;
-  font-weight: 900;
-  color: #D82103;
-  font-family: monospace;
-}
-
-.cafe-ref-card-actions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.cafe-ref-stepper {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 9999px;
-  background: #FAF7F2;
-  border: 1px solid rgba(28, 20, 16, 0.12);
-  padding: 2px 4px;
-}
-
-.cafe-ref-stepper button {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 13px;
-  color: #1C1410;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: all 120ms ease;
-}
-
-.cafe-ref-stepper button:hover {
-  background: #FFFFFF;
-}
-
-.cafe-ref-stepper span {
-  min-width: 18px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 800;
-  color: #1C1410;
-}
-
-.cafe-ref-add-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 7px 14px !important;
-  border-radius: 9999px !important;
-  background: #D82103 !important;
-  color: #FFFFFF !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  box-shadow: 0 4px 12px rgba(216, 33, 3, 0.28) !important;
-  transition: all 180ms ease !important;
-  cursor: pointer;
-  border: none !important;
-  white-space: nowrap;
-}
-
-.cafe-ref-add-btn:hover {
-  background: #B91C02 !important;
-  transform: translateY(-2px);
-}
-
-.cafe-ref-add-btn.is-added {
-  background: #007A3D !important;
-  box-shadow: 0 4px 12px rgba(0, 122, 61, 0.28) !important;
-}
-
-/* Your Order Sidebar Card */
-.cafe-order-sidebar {
-  position: sticky;
-  top: 96px;
-  border-radius: 22px;
-  background: #FFFFFF;
-  border: 1px solid rgba(28, 20, 16, 0.08);
-  box-shadow: 0 10px 32px rgba(28, 20, 16, 0.08);
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-}
-
-.cafe-order-sidebar-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(28, 20, 16, 0.08);
-}
-
-.cafe-order-sidebar-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 800;
-  color: #1C1410;
-}
-
-.cafe-order-sidebar-clear {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #D82103;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: opacity 160ms ease;
-}
-
-.cafe-order-sidebar-clear:hover {
-  opacity: 0.75;
-}
-
-/* Empty State */
-.cafe-order-empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 28px 16px;
-  background: #FAF7F2;
-  border-radius: 16px;
-  border: 1.5px dashed rgba(28, 20, 16, 0.12);
-  margin-bottom: 12px;
-}
-
-.cafe-order-empty-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-  color: #007A3D;
-  position: relative;
-}
-
-.cafe-order-empty-title {
-  font-size: 16px;
-  font-weight: 800;
-  color: #1C1410;
-  margin: 0 0 4px;
-}
-
-.cafe-order-empty-desc {
-  font-size: 12.5px;
-  color: #5C564B;
-  margin: 0 0 16px;
-}
-
-.cafe-order-browse-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 18px !important;
-  border-radius: 9999px !important;
-  background: #007A3D !important;
-  color: #FFFFFF !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  box-shadow: 0 4px 12px rgba(0, 122, 61, 0.28) !important;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.cafe-order-items-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-height: 280px;
-  overflow-y: auto;
-  margin-bottom: 14px;
-  padding-right: 4px;
-}
-
-.cafe-order-item-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px dashed rgba(28, 20, 16, 0.08);
-}
-
-.cafe-order-item-info {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  flex: 1;
-}
-
-.cafe-order-item-name {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #1C1410;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.cafe-order-item-price {
-  font-size: 12px;
-  color: #8A8375;
-}
-
-.cafe-order-item-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.cafe-order-summary {
-  padding-top: 12px;
-  border-top: 1.5px solid rgba(28, 20, 16, 0.1);
-  margin-bottom: 16px;
-}
-
-.cafe-order-total-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 15px;
-  font-weight: 800;
-  color: #1C1410;
-}
-
-.cafe-order-total-amount {
-  font-size: 20px;
-  color: #D82103;
-  font-family: monospace;
-}
-
-.cafe-order-checkout-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 12px 18px !important;
-  border-radius: 9999px !important;
-  background: #16A34A !important;
-  color: #FFFFFF !important;
-  font-size: 14px !important;
-  font-weight: 800 !important;
-  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.35) !important;
-  text-decoration: none;
-  transition: all 180ms ease !important;
-}
-
-.cafe-order-checkout-btn:hover {
-  background: #15803D !important;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 1080px) {
-  .cafe-menu-main-layout {
-    grid-template-columns: 1fr;
-  }
-  .cafe-order-sidebar {
-    position: static;
-    margin-top: 24px;
   }
 }
