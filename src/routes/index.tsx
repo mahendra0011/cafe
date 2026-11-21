@@ -104,33 +104,21 @@ function Index() {
               </p>
 
               <h1 className="cafe-hero-title" id="hero-title">
-                <span className="cafe-3d-text-dark">Ek Bite.</span>
-                <span className="cafe-3d-text-red-wrap">
-                  <span className="cafe-3d-text-red">Phir Saat.</span>
-                  {/* 3D Radiant marks */}
-                  <span className="cafe-3d-burst" aria-hidden="true">
-                    <svg width="42" height="34" viewBox="0 0 42 34" fill="none">
-                      <filter id="shadow-burst" x="-30%" y="-30%" width="160%" height="160%">
-                        <feDropShadow dx="2" dy="3" stdDeviation="1.5" floodColor="#540A01" floodOpacity="0.55" />
-                      </filter>
-                      <path d="M5 28 L1 20" stroke="#D8381D" strokeWidth="4.5" strokeLinecap="round" filter="url(#shadow-burst)" />
-                      <path d="M21 17 V3" stroke="#D8381D" strokeWidth="4.5" strokeLinecap="round" filter="url(#shadow-burst)" />
-                      <path d="M37 28 L41 20" stroke="#D8381D" strokeWidth="4.5" strokeLinecap="round" filter="url(#shadow-burst)" />
+                <span className="cafe-title-line-dark">Ek Bite.</span>
+                <span className="cafe-title-line-red">
+                  Phir Saat.
+                  {/* Radiant accent marks on top-right of Phir Saat */}
+                  <span className="cafe-title-burst" aria-hidden="true">
+                    <svg width="34" height="28" viewBox="0 0 34 28" fill="none">
+                      <path d="M4 22L1 17" stroke="#EC2D09" strokeWidth="3" strokeLinecap="round" />
+                      <path d="M17 14V2" stroke="#EC2D09" strokeWidth="3" strokeLinecap="round" />
+                      <path d="M30 22L33 17" stroke="#EC2D09" strokeWidth="3" strokeLinecap="round" />
                     </svg>
                   </span>
-                  {/* 3D Curved Swoop underline */}
-                  <span className="cafe-3d-swoop" aria-hidden="true">
-                    <svg viewBox="0 0 320 28" fill="none" className="w-full h-auto overflow-visible">
-                      <filter id="shadow-swoop" x="-10%" y="-20%" width="130%" height="160%">
-                        <feDropShadow dx="2" dy="4" stdDeviation="2" floodColor="#420600" floodOpacity="0.45" />
-                      </filter>
-                      <path
-                        d="M6 10 C 100 28, 230 28, 314 8"
-                        stroke="#D8381D"
-                        strokeWidth="6"
-                        strokeLinecap="round"
-                        filter="url(#shadow-swoop)"
-                      />
+                  {/* Playful curved swoop underline */}
+                  <span className="cafe-title-swoop" aria-hidden="true">
+                    <svg viewBox="0 0 280 22" fill="none" className="w-full h-auto overflow-visible">
+                      <path d="M4 8 C 85 22, 195 22, 276 6" stroke="#EC2D09" strokeWidth="4.5" strokeLinecap="round" />
                     </svg>
                   </span>
                 </span>
