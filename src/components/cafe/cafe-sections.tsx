@@ -327,40 +327,125 @@ function SignatureDishes({ onAdd }: { onAdd: (item: MenuItem, size?: MenuSize) =
   return (
     <section className="cafe-signature-section" id="signature" aria-labelledby="signature-title">
       <div className="cafe-section-inner">
-        <SectionHeading
-          eyebrow="Crowd Favourites"
-          title="Our Signature Bites"
-          titleId="signature-title"
-          note="Handcrafted recipes that keep Jabalpur coming back for more."
-        />
+        {/* Header with 3D Typography */}
+        <div className="cafe-signature-header">
+          <div className="cafe-signature-eyebrow-wrap">
+            <div className="cafe-signature-eyebrow">
+              <span className="cafe-signature-green-dot" />
+              <span>Crowd Favourites</span>
+            </div>
+            {/* 3 Red Burst Rays */}
+            <svg
+              className="cafe-signature-burst"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <line x1="6" y1="18" x2="2" y2="14" />
+              <line x1="12" y1="17" x2="12" y2="10" />
+              <line x1="18" y1="18" x2="22" y2="14" />
+            </svg>
+          </div>
+
+          <h2 className="cafe-signature-title" id="signature-title">
+            <span className="cafe-signature-title-brown">Our Signature </span>
+            <span className="cafe-signature-title-red">
+              Bites
+              {/* Curved swoop underline */}
+              <svg
+                className="cafe-signature-swoop"
+                viewBox="0 0 140 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#D82103" />
+              </svg>
+            </span>
+          </h2>
+
+          <p className="cafe-signature-subtitle">
+            Handcrafted recipes that keep Jabalpur coming back for more.
+          </p>
+
+          {/* Centered Pizza Divider */}
+          <div className="cafe-signature-divider" aria-hidden="true">
+            <span className="cafe-signature-divider-line" />
+            <span className="cafe-signature-divider-icon">🍕</span>
+            <span className="cafe-signature-divider-line" />
+          </div>
+        </div>
+
+        {/* 5 Signature Cards Grid */}
         <div className="cafe-signature-grid">
-          {featured.map((item) => (
-            <article className="cafe-signature-item" key={item.id}>
-              <div className="cafe-signature-art">
-                <img src={imageFor(item)} alt={item.name} loading="lazy" />
-                <span className="cafe-signature-sticker">{item.tag ?? "Bestseller"}</span>
-              </div>
-              <div className="cafe-signature-copy">
-                <div className="cafe-signature-category">
-                  <FoodMarker diet={item.diet} />
-                  <span>{item.category}</span>
+          {featured.map((item) => {
+            const isBestseller = item.tag === "Bestseller";
+            return (
+              <article className="cafe-signature-card group" key={item.id}>
+                {/* Floating Tag Badge */}
+                <div
+                  className={`cafe-signature-badge-floating ${
+                    isBestseller ? "is-bestseller" : "is-chefs-pick"
+                  }`}
+                >
+                  <span>{isBestseller ? "★" : "👨‍🍳"}</span>
+                  <span>{item.tag ?? "Bestseller"}</span>
                 </div>
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-                <div className="cafe-signature-bottom">
-                  <span className="cafe-signature-price">{formatPrice(item.price)}</span>
-                  <button
-                    type="button"
-                    className="cafe-add-button"
-                    onClick={() => onAdd(item, item.sizes?.[1]?.label)}
-                  >
-                    <Plus className="w-3.5 h-3.5" aria-hidden="true" />
-                    Add
-                  </button>
+
+                {/* Food Image Plate */}
+                <div className="cafe-signature-img-plate">
+                  <img
+                    src={imageFor(item)}
+                    alt={item.name}
+                    className="cafe-signature-img"
+                    loading="lazy"
+                  />
                 </div>
-              </div>
-            </article>
-          ))}
+
+                {/* Card Body */}
+                <div className="cafe-signature-body">
+                  <div className="cafe-signature-category-row">
+                    <span
+                      className="cafe-signature-diet-indicator"
+                      title={item.diet === "veg" ? "Pure Vegetarian" : "Non-Veg"}
+                    >
+                      <span className="cafe-signature-diet-dot" />
+                    </span>
+                    <span className="cafe-signature-category-name">{item.category}</span>
+                  </div>
+
+                  <h3 className="cafe-signature-dish-name">{item.name}</h3>
+                  <p className="cafe-signature-desc">{item.description}</p>
+
+                  <div className="cafe-signature-footer">
+                    <span className="cafe-signature-price">{formatPrice(item.price)}</span>
+                    <button
+                      type="button"
+                      className="cafe-signature-add-btn"
+                      onClick={() => onAdd(item, item.sizes?.[1]?.label)}
+                      aria-label={`Add ${item.name} to order`}
+                    >
+                      <Plus className="w-3.5 h-3.5" aria-hidden="true" />
+                      <span>Add</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Bottom Bar Pill */}
+        <div className="cafe-signature-bottom-bar" aria-hidden="true">
+          <span className="cafe-signature-bar-line" />
+          <div className="cafe-signature-bar-badge">
+            <Sparkles className="w-4 h-4 text-[#D82103]" />
+            <span>Fresh Ingredients · 100% Mozzarella · Prepared Fresh Daily</span>
+          </div>
+          <span className="cafe-signature-bar-line" />
         </div>
       </div>
     </section>
