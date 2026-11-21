@@ -45,14 +45,70 @@ const items = menuData as MenuItem[];
 const signatureIds = ["pizza-1", "burgers-2", "momos-3", "cold-coffee-1", "desserts-1"];
 
 const galleryImages = [
-  { src: pizzaSticker, alt: "Cheesy loaded pizza", label: "Artisan Wood-Fired Pizza" },
-  { src: coffeeSticker, alt: "Chilled iced cold coffee", label: "Thick Signature Cold Coffee" },
-  { src: burgerSticker, alt: "Crispy gourmet smash burger", label: "Handcrafted Gourmet Burger" },
-  { src: momosSticker, alt: "Steamed Himalayan momos", label: "Himalayan Steamed Momos" },
-  { src: coffeeSticker, alt: "Sizzling brownie dessert", label: "Sizzling Choco Brownie" },
-  { src: pizzaSticker, alt: "Farmhouse veggie pizza", label: "Farmhouse Loaded Pizza" },
-  { src: momosSticker, alt: "Kurkure fried momos", label: "Crispy Peri-Peri Momos" },
-  { src: burgerSticker, alt: "Double cheese smash burger", label: "Double Cheese Paneer Burger" },
+  {
+    src: pizzaSticker,
+    alt: "Cheesy loaded artisan wood-fired pizza",
+    label: "Artisan Wood-Fired Pizza",
+    category: "Pizza",
+    tag: "★ Bestseller",
+    desc: "100% pure dairy mozzarella, stone-baked thin crust with aromatic Italian herbs.",
+  },
+  {
+    src: coffeeSticker,
+    alt: "Chilled thick iced cold coffee",
+    label: "Thick Signature Cold Coffee",
+    category: "Cold Brew",
+    tag: "Signature Blend",
+    desc: "Double shot Arabica beans blended with rich creamy gelato and cocoa drizzle.",
+  },
+  {
+    src: burgerSticker,
+    alt: "Handcrafted gourmet paneer burger",
+    label: "Handcrafted Gourmet Burger",
+    category: "Burgers",
+    tag: "Handcrafted",
+    desc: "Crispy paneer patty, melted cheddar slice, smoky sauce on a toasted sesame bun.",
+  },
+  {
+    src: momosSticker,
+    alt: "Steamed Himalayan momos with chutney",
+    label: "Himalayan Steamed Momos",
+    category: "Momos",
+    tag: "Authentic Recipe",
+    desc: "Delicate hand-pleated dumplings filled with spiced garden veggies, served piping hot.",
+  },
+  {
+    src: coffeeSticker,
+    alt: "Sizzling choco lava brownie dessert",
+    label: "Sizzling Choco Brownie",
+    category: "Dessert",
+    tag: "Hot & Sweet",
+    desc: "Bubbling warm fudge brownie served with vanilla gelato and melted chocolate ganache.",
+  },
+  {
+    src: pizzaSticker,
+    alt: "Farmhouse garden fresh loaded pizza",
+    label: "Farmhouse Loaded Pizza",
+    category: "Specialty Pizza",
+    tag: "Chef's Special",
+    desc: "Golden sweet corn, crisp green capsicum, sliced red onion and molten mozzarella.",
+  },
+  {
+    src: momosSticker,
+    alt: "Crispy fried peri-peri momos",
+    label: "Crispy Peri-Peri Momos",
+    category: "Momos",
+    tag: "Crispy Crunch",
+    desc: "Extra crunchy golden dumplings tossed generously in hot peri-peri spice herbs.",
+  },
+  {
+    src: burgerSticker,
+    alt: "Double cheese smash burger",
+    label: "Double Cheese Paneer Burger",
+    category: "Burgers",
+    tag: "Double Loaded",
+    desc: "Two layers of molten cheese, crisp lettuce, juicy tomato and zesty house dressing.",
+  },
 ];
 
 const customerReviews = [
@@ -433,17 +489,64 @@ function Gallery() {
   return (
     <section className="cafe-gallery-section" id="gallery" aria-labelledby="gallery-title">
       <div className="cafe-section-inner">
-        <SectionHeading
-          eyebrow="Visual Feast"
-          title="A Glimpse of the Good Stuff"
-          titleId="gallery-title"
-          note="Every dish is prepared fresh with premium ingredients and rich flavors."
-        />
+        {/* Eyebrow & 3D Title */}
+        <div className="cafe-gallery-header">
+          <div className="cafe-gallery-eyebrow-wrap">
+            <div className="cafe-gallery-eyebrow">
+              <span className="cafe-gallery-green-dot" />
+              <span>Visual Feast</span>
+            </div>
+            {/* 3 Red Burst Rays */}
+            <svg
+              className="cafe-gallery-burst"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <line x1="6" y1="18" x2="2" y2="14" />
+              <line x1="12" y1="17" x2="12" y2="10" />
+              <line x1="18" y1="18" x2="22" y2="14" />
+            </svg>
+          </div>
+
+          <h2 className="cafe-gallery-title" id="gallery-title">
+            <span className="cafe-gallery-title-brown">A Glimpse of the </span>
+            <span className="cafe-gallery-title-red">
+              Good Stuff
+              {/* Curved swoop underline */}
+              <svg
+                className="cafe-gallery-swoop"
+                viewBox="0 0 140 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path d="M4 14C45 4 95 6 136 12C105 15 50 16 4 14Z" fill="#D82103" />
+              </svg>
+            </span>
+          </h2>
+
+          <p className="cafe-gallery-subtitle">
+            Every dish is prepared fresh with premium ingredients and rich flavors.
+          </p>
+
+          {/* Pizza Divider */}
+          <div className="cafe-gallery-divider" aria-hidden="true">
+            <span className="cafe-gallery-divider-line" />
+            <span className="cafe-gallery-divider-icon">🍕</span>
+            <span className="cafe-gallery-divider-line" />
+          </div>
+        </div>
+
+        {/* 8 Gallery Cards Grid */}
         <div className="cafe-gallery-grid">
           {galleryImages.map((image, index) => (
             <div
               key={`${image.label}-${index}`}
-              className="cafe-gallery-card"
+              className="cafe-gallery-card group"
               onClick={() => setActive(index)}
               role="button"
               tabIndex={0}
@@ -452,8 +555,32 @@ function Gallery() {
                 if (e.key === "Enter" || e.key === " ") setActive(index);
               }}
             >
-              <img src={image.src} alt={image.alt} loading="lazy" />
-              <span className="cafe-gallery-caption">{image.label}</span>
+              <div className="cafe-gallery-card-top">
+                <span className="cafe-gallery-category-pill">{image.category}</span>
+                <span className="cafe-gallery-tag-pill">{image.tag}</span>
+              </div>
+
+              <div className="cafe-gallery-img-wrap">
+                <div className="cafe-gallery-plate-glow" aria-hidden="true" />
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  className="cafe-gallery-img"
+                />
+              </div>
+
+              <div className="cafe-gallery-info">
+                <h3 className="cafe-gallery-name">{image.label}</h3>
+                <p className="cafe-gallery-desc">{image.desc}</p>
+              </div>
+
+              <div className="cafe-gallery-footer">
+                <span className="cafe-gallery-zoom-hint">
+                  <span>Click to preview</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </span>
+              </div>
             </div>
           ))}
         </div>
@@ -469,7 +596,7 @@ function Gallery() {
             if (event.target === event.currentTarget) close();
           }}
         >
-          <figure>
+          <figure className="cafe-lightbox-card">
             <button
               type="button"
               className="cafe-lightbox-close"
@@ -478,11 +605,31 @@ function Gallery() {
             >
               <X className="w-5 h-5 text-gray-700" />
             </button>
-            <img
-              src={galleryImages[active]?.src}
-              alt={galleryImages[active]?.alt ?? "Cafe food"}
-            />
-            <figcaption>{galleryImages[active]?.label}</figcaption>
+            <div className="cafe-lightbox-img-wrap">
+              <img
+                src={galleryImages[active]?.src}
+                alt={galleryImages[active]?.alt ?? "Cafe food"}
+              />
+            </div>
+            <figcaption className="cafe-lightbox-caption">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                  {galleryImages[active]?.category}
+                </span>
+                <span className="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full">
+                  {galleryImages[active]?.tag}
+                </span>
+              </div>
+              <h3>{galleryImages[active]?.label}</h3>
+              <p>{galleryImages[active]?.desc}</p>
+              <div className="mt-4 flex items-center justify-center gap-3">
+                <Button asChild variant="pepperoni" size="sm" className="cafe-button shadow-md">
+                  <a href="#order" onClick={close}>
+                    Book Table / Order Now <ArrowUpRight className="w-4 h-4 ml-1" />
+                  </a>
+                </Button>
+              </div>
+            </figcaption>
           </figure>
         </div>
       ) : null}
