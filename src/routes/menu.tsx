@@ -14,27 +14,24 @@ import { CafeFloatingActions } from "@/components/cafe/cafe-floating";
 import { CafeBackToTop } from "@/components/cafe/cafe-backtotop";
 import { MenuItemCard, formatPrice, itemPrice } from "@/components/cafe/menu-card";
 import { Button } from "@/components/ui/button";
-import { cafeSite, menuCategories, type MenuCategory, type MenuItem } from "@/config/site";
+import { cafeSite, type MenuItem } from "@/config/site";
 import menuData from "@/data/menu.json";
 
 type DietFilter = "all" | "veg" | "non-veg";
 type MenuSize = NonNullable<MenuItem["sizes"]>[number]["label"];
 type OrderPick = { key: string; item: MenuItem; size?: MenuSize | undefined };
+type TabKey = "Pizza" | "Burgers" | "Pasta" | "Snacks" | "Beverages" | "Desserts" | "All";
 
 const items = menuData as MenuItem[];
 
-const menuTabs: { id: MenuCategory | "All"; label: string; icon: string }[] = [
+const menuTabList: { id: TabKey; label: string; icon: string }[] = [
   { id: "Pizza", label: "Pizzas", icon: "🍕" },
   { id: "Burgers", label: "Burgers", icon: "🍔" },
   { id: "Pasta", label: "Pastas", icon: "🍝" },
-  { id: "Fries & Sides", label: "Snacks", icon: "🍟" },
-  { id: "Hot Beverages", label: "Beverages", icon: "🥤" },
+  { id: "Snacks", label: "Snacks", icon: "🍟" },
+  { id: "Beverages", label: "Beverages", icon: "🥤" },
   { id: "Desserts", label: "Desserts", icon: "🍰" },
-  { id: "Momos", label: "Momos", icon: "🥟" },
-  { id: "Cold Coffee", label: "Cold Coffee", icon: "🧋" },
-  { id: "Shakes", label: "Shakes", icon: "🥤" },
-  { id: "Sandwiches", label: "Sandwiches", icon: "🥪" },
-  { id: "All", label: "All Items →", icon: "🍽️" },
+  { id: "All", label: "All Items →", icon: "" },
 ];
 
 export const Route = createFileRoute("/menu")({
@@ -52,7 +49,7 @@ export const Route = createFileRoute("/menu")({
 });
 
 function MenuPage() {
-  const [category, setCategory] = useState<MenuCategory | "All">("Pizza");
+  const [category, setCategory] = useState<TabKey>("Pizza");
   const [diet, setDiet] = useState<DietFilter>("all");
   const [query, setQuery] = useState("");
   const [bestsellers, setBestsellers] = useState(false);
@@ -70,7 +67,29 @@ function MenuPage() {
   const filtered = useMemo(
     () =>
       items.filter((item) => {
-        const matchesCategory = category === "All" || item.category === category;
+        let matchesCategory = true;
+        if (category === "Pizza") {
+          matchesCategory = item.category === "Pizza";
+        } else if (category === "Burgers") {
+          matchesCategory = item.category === "Burgers";
+        } else if (category === "Pasta") {
+          matchesCategory = item.category === "Pasta";
+        } else if (category === "Snacks") {
+          matchesCategory =
+            item.category === "Fries & Sides" ||
+            item.category === "Momos" ||
+            item.category === "Sandwiches";
+        } else if (category === "Beverages") {
+          matchesCategory =
+            item.category === "Hot Beverages" ||
+            item.category === "Cold Coffee" ||
+            item.category === "Shakes";
+        } else if (category === "Desserts") {
+          matchesCategory = item.category === "Desserts";
+        } else if (category === "All") {
+          matchesCategory = true;
+        }
+
         const matchesDiet = diet === "all" || item.diet === diet;
         const matchesSearch = `${item.name} ${item.description} ${item.category}`
           .toLowerCase()
@@ -120,6 +139,16 @@ function MenuPage() {
               </span>
               <span className="cafe-menu-hero-title-line2">
                 Just a Click Away!
+                {/* Curved swoop underline */}
+                <svg
+                  className="cafe-menu-hero-swoop"
+                  viewBox="0 0 280 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M4 14C80 4 200 4 276 12C220 15 100 16 4 14Z" fill="#D82103" />
+                </svg>
               </span>
             </h1>
 
@@ -130,7 +159,7 @@ function MenuPage() {
 
             {/* Category Filter Tabs */}
             <div className="cafe-menu-hero-tabs" role="group" aria-label="Filter menu by category">
-              {menuTabs.map((tab) => {
+              {menuTabList.map((tab) => {
                 const isActive = category === tab.id;
                 return (
                   <button
@@ -140,7 +169,11 @@ function MenuPage() {
                     aria-pressed={isActive}
                     onClick={() => setCategory(tab.id)}
                   >
-                    <span className="cafe-menu-hero-tab-icon" aria-hidden="true">{tab.icon}</span>
+                    {tab.icon && (
+                      <span className="cafe-menu-hero-tab-icon" aria-hidden="true">
+                        {tab.icon}
+                      </span>
+                    )}
                     <span>{tab.label}</span>
                   </button>
                 );

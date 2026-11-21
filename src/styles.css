@@ -2076,20 +2076,26 @@
    ========================================================================= */
 .cafe-menu-hero-banner {
   position: relative;
-  padding: 125px 24px 60px;
-  background: url('/creamy-pizza-ingredients-header.png') center / cover no-repeat;
+  margin-top: 68px;
+  padding: 38px 24px 44px;
+  background-color: #FAF4EB;
+  background-image: url('/creamy-pizza-ingredients-header.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right top;
   border-bottom: 1px solid rgba(220, 205, 190, 0.45);
   overflow: hidden;
+  min-height: 380px;
 }
 
 .cafe-menu-hero-inner {
-  max-width: 1340px;
+  max-width: 1380px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.35fr 0.95fr;
+  grid-template-columns: 1.3fr 0.7fr;
   align-items: center;
-  min-height: 420px;
-  gap: 32px;
+  min-height: 340px;
+  gap: 20px;
   position: relative;
   z-index: 2;
 }
@@ -2098,7 +2104,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 720px;
+  width: 100%;
 }
 
 .cafe-menu-hero-eyebrow {
@@ -2114,21 +2120,21 @@
   font-weight: 800;
   color: #D82103;
   letter-spacing: 0.02em;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .cafe-menu-hero-title {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   font-family: var(--font-display);
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.14;
   letter-spacing: -0.02em;
   display: flex;
   flex-direction: column;
 }
 
 .cafe-menu-hero-title-line1 {
-  font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+  font-size: clamp(2.3rem, 3.8vw, 3.6rem);
   color: #2E1308;
   position: relative;
   display: inline-flex;
@@ -2143,14 +2149,17 @@
 }
 
 .cafe-menu-hero-burst {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   color: #D82103;
-  transform: translateY(-8px);
+  margin-left: 4px;
+  transform: translateY(-4px);
 }
 
 .cafe-menu-hero-title-line2 {
-  font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+  position: relative;
+  display: inline-block;
+  font-size: clamp(2.3rem, 3.8vw, 3.6rem);
   color: #D82103;
   text-shadow:
     0 1px 0 #b31a02,
@@ -2160,37 +2169,50 @@
     0 6px 14px rgba(180, 20, 0, 0.35);
 }
 
+.cafe-menu-hero-swoop {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  max-width: 310px;
+  height: 12px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(216, 33, 3, 0.25));
+}
+
 .cafe-menu-hero-subtitle {
-  font-size: clamp(15px, 1.2vw, 17.5px);
+  font-size: clamp(14.5px, 1.2vw, 17px);
   color: #4A3E38;
   line-height: 1.5;
   font-weight: 500;
-  margin: 0 0 24px;
-  max-width: 540px;
+  margin: 0 0 20px;
+  max-width: 520px;
 }
 
 .cafe-menu-hero-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
+  max-width: 100%;
 }
 
 .cafe-menu-hero-tab {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 8px 18px;
+  gap: 6px;
+  padding: 6.5px 14px;
   border-radius: 9999px;
   background: #FFFFFF;
   color: #1C1410;
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 700;
   border: 1.5px solid rgba(28, 20, 16, 0.08);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   cursor: pointer;
   transition: all 180ms ease;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .cafe-menu-hero-tab:hover {
@@ -2212,7 +2234,7 @@
 }
 
 .cafe-menu-hero-spacer {
-  min-height: 380px;
+  min-height: 340px;
 }
 
 .cafe-menu-filter-bar {
@@ -2228,7 +2250,8 @@
     display: none;
   }
   .cafe-menu-hero-banner {
-    padding: 110px 20px 40px;
+    margin-top: 64px;
+    padding: 30px 16px 36px;
   }
 }
 
